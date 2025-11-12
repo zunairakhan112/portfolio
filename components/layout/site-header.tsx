@@ -208,10 +208,9 @@ export function SiteHeader({ signature }: SiteHeaderProps) {
               />
             </div>
 
-            <div className="relative z-10 flex h-full flex-col items-center justify-center px-6 py-16 md:px-10">
-
+            <div className="relative z-10 flex h-full flex-col px-6 py-12 md:px-10 md:py-16">
               <motion.nav
-                className="flex w-full max-w-2xl flex-col items-center gap-8"
+                className="mx-auto flex w-full max-w-2xl flex-1 flex-col items-center justify-center gap-8 overflow-y-auto py-6"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.5, delay: 0.2 }}
@@ -269,7 +268,7 @@ export function SiteHeader({ signature }: SiteHeaderProps) {
               </motion.nav>
 
               <motion.p
-                className="absolute bottom-8 left-1/2 -translate-x-1/2 text-center font-creative text-xs uppercase tracking-[0.3em] text-gray-500 dark:text-gray-400"
+                className="mt-12 text-center font-creative text-xs uppercase tracking-[0.3em] text-gray-500 dark:text-gray-400 md:mt-16"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.5, delay: 0.8 }}
