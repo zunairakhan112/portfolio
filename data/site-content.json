@@ -1,0 +1,665 @@
+{
+  "pages": {
+    "projects": {
+      "title": "Projects",
+      "description": "Demand engines, launch narratives, and growth experiments for brands betting on scale.",
+      "slug": "projects",
+      "hero": {
+        "title": "Growth Systems in the Wild",
+        "subtitle": "Launches where marketing, design, and entrepreneurial grit delivered measurable outcomes.",
+        "background": "aurora"
+      },
+      "projects": [
+        {
+          "id": "writeomatic",
+          "title": "Writeomatic.app",
+          "category": "AI Marketing Platform",
+          "description": "Rebuilt product marketing narrative, multi-channel playbooks, and lifecycle funnels for an AI growth copilot.",
+          "link": "https://writeomatic.app/",
+          "tags": ["Product Marketing", "Lifecycle Automation", "AI SaaS"],
+          "featured": true
+        },
+        {
+          "id": "ahdus-technology",
+          "title": "Ahdus Technology",
+          "category": "Enterprise Software Development",
+          "description": "Translated complex AI delivery into a buyer-ready story platform with modular case studies and proof assets.",
+          "link": "https://ahdustechnology.fi/portfolio/artificial-intelligence-ai/",
+          "tags": ["B2B Narrative", "GTM Enablement", "Web Experience"],
+          "featured": true
+        },
+        {
+          "id": "shamojeepk",
+          "title": "Shamo Jee \u2014 Premium South Asian Interior Brand",
+          "category": "D2C Ecommerce Launch",
+          "description": "Activated content, creator, and retention loops to keep this sensory D2C brand top of mind and cart.",
+          "link": "https://shamojee.pk/",
+          "tags": ["D2C Growth", "Retention", "Shopify"],
+          "featured": false
+        },
+        {
+          "id": "sheenjeem",
+          "title": "Sheen Jeem",
+          "category": "Luxury Fashion & Gift Commerce",
+          "description": "Cinematic storytelling and conversion architecture for a couture house expanding globally.",
+          "link": "https://sheenjeem.com/",
+          "tags": ["Luxury Retail", "Product Storytelling", "Conversion Design"],
+          "featured": false
+        }
+      ],
+      "sections": [
+        {
+          "id": "project-case-studies",
+          "type": "case-study",
+          "title": "Launch Playbooks in Motion",
+          "description": "Strategy, design, experimentation, and measurement working together end-to-end.",
+          "items": [
+            {
+              "title": "Writeomatic Growth OS",
+              "summary": "Growth operating system for Writeomatic\u2014positioning, content machine, CRM, and creator strategy working in sync.",
+              "outcomes": [
+                "Shipped new messaging hierarchy, launch narrative, and landing ecosystem in 45 days.",
+                "Operationalized a content cadence covering LinkedIn, YouTube Shorts, TikTok, and newsletters (30+ assets/month).",
+                "Implemented segmented lifecycle flows that lifted trial-to-qualified pipeline by 52%."
+              ],
+              "links": [
+                { "label": "Live site", "href": "https://writeomatic.app/", "external": true },
+                {
+                  "label": "Growth ritual board",
+                  "href": "https://miro.com/app/live-embed/uXjVJsWuiFg=/?share_link_id=315477845177",
+                  "external": true
+                }
+              ]
+            },
+            {
+              "title": "Ahdus Technology AI Practice",
+              "summary": "B2B demand and credibility engine turning deep-tech services into executive-friendly proof for buyers.",
+              "outcomes": [
+                "Built modular case study architecture to scale proof points across four practice areas.",
+                "Introduced interactive glossaries, calculators, and CTA routing that elevated MQI by 28%.",
+                "Rolled out editorial operating rhythm aligning engineering, delivery, and partner marketing."
+              ],
+              "links": [
+                {
+                  "label": "Visit experience",
+                  "href": "https://ahdustechnology.fi/portfolio/artificial-intelligence-ai/",
+                  "external": true
+                }
+              ]
+            },
+            {
+              "title": "Sheen Jeem x Shamojee Launch Stack",
+              "summary": "Dual-brand growth stack covering sensory commerce, influencer loops, and loyalty mechanics.",
+              "outcomes": [
+                "Produced omnichannel campaign kits spanning landing upgrades, video content, and creator partnerships.",
+                "Mapped retention journeys that doubled repeat purchase intent within the first 60 days.",
+                "Integrated Airtable + Looker dashboards so founders could action insights daily."
+              ],
+              "links": [
+                { "label": "Shamojee", "href": "https://shamojee.pk/", "external": true },
+                { "label": "Sheen Jeem", "href": "https://sheenjeem.com/", "external": true }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "web": {
+      "title": "Web & Conversion",
+      "description": "High-velocity web, landing, and product experiences engineered to educate and convert.",
+      "slug": "web",
+      "hero": {
+        "title": "Digital Surfaces That Sell",
+        "subtitle": "Acquisition pages, product tours, and commerce experiences that make the value prop obvious.",
+        "background": "glacier"
+      },
+      "projects": [
+        {
+          "id": "web-writeomatic",
+          "title": "Writeomatic.app",
+          "category": "AI SaaS Experience",
+          "description": "Product marketing site with motion-led storytelling, social proof, and contextual CTAs that ladder to activation.",
+          "link": "https://writeomatic.app/",
+          "tags": ["AI SaaS", "Conversion Copy", "Motion Design"],
+          "featured": true
+        },
+        {
+          "id": "web-ahdus",
+          "title": "Ahdus Technology AI",
+          "category": "Enterprise Portfolio",
+          "description": "Executive-ready web experience translating technical AI projects into ROI-driven stories.",
+          "link": "https://ahdustechnology.fi/portfolio/artificial-intelligence-ai/",
+          "tags": ["B2B", "Editorial Systems", "Case Proof"],
+          "featured": false
+        },
+        {
+          "id": "web-shamojee",
+          "title": "Shamojee.pk",
+          "category": "D2C Ecommerce",
+          "description": "Flavor-first storefront connecting discovery, cross-sell logic, and retention loops.",
+          "link": "https://shamojee.pk/",
+          "tags": ["Shopify", "Lifecycle", "Conversion Design"],
+          "featured": false
+        },
+        {
+          "id": "web-sheenjeem",
+          "title": "SheenJeem.com",
+          "category": "Luxury Retail Flagship",
+          "description": "Luxury fashion flagship with immersive lookbooks, appointment flows, and CRM-ready data capture.",
+          "link": "https://sheenjeem.com/",
+          "tags": ["Luxury UX", "CRM Integration", "Webflow"],
+          "featured": false
+        }
+      ],
+      "sections": [
+        {
+          "id": "web-live-previews",
+          "type": "video",
+          "title": "Live Conversion Surfaces",
+          "description": "A quick tap-through of web experiences active in the wild.",
+          "items": [
+            {
+              "title": "Writeomatic",
+              "description": "AI marketing autopilot platform designed for creators and teams.",
+              "platform": "Live",
+              "embedUrl": "https://writeomatic.app/"
+            },
+            {
+              "title": "Ahdus Technology AI",
+              "description": "Enterprise showcase detailing AI, ML, and AIOps capabilities.",
+              "platform": "Live",
+              "embedUrl": "https://ahdustechnology.fi/portfolio/artificial-intelligence-ai/"
+            },
+            {
+              "title": "Shamojee",
+              "description": "Direct-to-consumer culinary brand with layered tasting journeys.",
+              "platform": "Live",
+              "embedUrl": "https://shamojee.pk/"
+            },
+            {
+              "title": "Sheen Jeem",
+              "description": "Luxury couture flagship connecting ateliers with global patrons.",
+              "platform": "Live",
+              "embedUrl": "https://sheenjeem.com/"
+            }
+          ]
+        }
+      ]
+    },
+    "design": {
+      "title": "Design Systems",
+      "description": "Marketing-led design, motion, and storytelling artifacts that turn strategy into memorable experiences.",
+      "slug": "design",
+      "hero": {
+        "title": "Designing for Growth & Memory",
+        "subtitle": "Figma systems, content kits, and reels crafted to move hearts and metrics.",
+        "background": "sunrise"
+      },
+      "sections": [
+        {
+          "id": "design-figma",
+          "type": "figma",
+          "title": "Figma Worlds",
+          "description": "Interactive canvases used to choreograph multi-channel campaigns, onboarding, and community programs.",
+          "items": [
+            {
+              "title": "ITP Venture Studio Redesign",
+              "description": "Funnel-aware rebrand aligning admissions, partner engagement, and alumni storytelling for Aalto ITP.",
+              "tags": ["Product Marketing", "Admissions", "Experience Design"],
+              "embedUrl": "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2FFBe4HSXENEMddB2P5kOTnD%2FITP-redesign--V%3Fnode-id%3D0-1"
+            },
+            {
+              "title": "Aaltoes Ecosystem Platform",
+              "description": "Community operating system uniting programming, content, and partner activations for Aaltoes.",
+              "tags": ["Community Marketing", "Content Strategy", "UX Systems"],
+              "embedUrl": "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2FZp5NCrWKbMF5L9wnBl7ewF%2FAaltoes--25-SMM-Assets%3Fnode-id%3D0-1%26t%3Dp8s6Ufqiyx4KjHgf-1"
+            }
+          ]
+        },
+        {
+          "id": "design-canva",
+          "type": "video",
+          "title": "Motion & Campaign Capsules",
+          "description": "Vertical reels for paid + organic drops across LinkedIn, TikTok, and in-product surfaces.",
+          "items": [
+            {
+              "title": "Writeomatic Launch Teaser",
+              "platform": "Canva",
+              "embedUrl": "https://www.canva.com/design/DAGVNVglL9I/watch?embed"
+            },
+            {
+              "title": "Couture Motion Lookbook",
+              "platform": "Canva",
+              "embedUrl": "https://www.canva.com/design/DAEadEtnceE/view?embed"
+            },
+            {
+              "title": "Sensory Dining Campaign",
+              "platform": "Canva",
+              "embedUrl": "https://www.canva.com/design/DAEa-H9pqXU/view?embed"
+            }
+          ]
+        },
+        {
+          "id": "design-aaltoes-year-round",
+          "type": "video",
+          "title": "Aaltoes Year-Round Campaigns",
+          "description": "Seasonal highlights capturing Aaltoes community energy across flagship programs, spotlights, and regional storytelling.",
+          "items": [
+            {
+              "title": "Winter — Slush Momentum Pulse",
+              "platform": "Aaltoes 2024",
+              "file": "/media/aaltoes-winter-2024.mp4"
+            },
+            {
+              "title": "Spring — Junction Hackers in Bloom",
+              "platform": "Aaltoes 2024",
+              "file": "/media/aaltoes-spring-2024.mp4"
+            },
+            {
+              "title": "Summer — Campus Builders Revival",
+              "platform": "Aaltoes 2024",
+              "file": "/media/aaltoes-summer-2024.mp4"
+            }
+          ]
+        }
+      ]
+    },
+    "ecosystem": {
+      "title": "Entrepreneurial Ecosystem",
+      "description": "Bringing marketing, operations, and community instincts to founder-first spaces.",
+      "slug": "ecosystem",
+      "hero": {
+        "title": "Designing Ecosystems",
+        "subtitle": "Campus societies, global tech events, and community programs where I prototype entrepreneurial thinking.",
+        "background": "aurora"
+      },
+      "sections": [
+        {
+          "id": "ecosystem-case-studies",
+          "type": "case-study",
+          "title": "Community Launchpads",
+          "description": "Combining storytelling, growth strategy, and people ops across ecosystem initiatives.",
+          "items": [
+            {
+              "title": "Aaltoes Founder Playground",
+              "summary": "Reimagined communications, volunteer ops, and partner-facing storytelling for Aalto Entrepreneurship Society.",
+              "outcomes": [
+                "Built program dashboards aligning hackathons, demo nights, and investor briefings.",
+                "Crafted onboarding flows boosting volunteer retention and partner satisfaction.",
+                "Activated story arcs that amplified applications, sponsorship interest, and donor participation."
+              ],
+              "links": [
+                {
+                  "label": "View prototype",
+                  "href": "https://www.figma.com/design/Zp5NCrWKbMF5L9wnBl7ewF/Aaltoes--25-SMM-Assets?node-id=0-1&t=p8s6Ufqiyx4KjHgf-1",
+                  "external": true
+                }
+              ]
+            },
+            {
+              "title": "ITP Innovation Program Redesign",
+              "summary": "Created an admissions and storytelling hub that aligns students, mentors, and alumni.",
+              "outcomes": [
+                "Unified admissions, events, and portfolio storytelling into a single narrative layer.",
+                "Enabled rapid content updates through component libraries and brand kits.",
+                "Designed mentoring rituals increasing match satisfaction across startups."
+              ],
+              "links": [
+                {
+                  "label": "Explore redesign",
+                  "href": "https://www.figma.com/design/FBe4HSXENEMddB2P5kOTnD/ITP-redesign--V?node-id=0-1",
+                  "external": true
+                }
+              ]
+            },
+            {
+              "title": "Founder Circles and Growth Pods",
+              "summary": "Hosted growth circles through Writeomatic community experiments and partner pods.",
+              "outcomes": [
+                "Designed cohort rituals blending weekly experiments, peer review, and accountability.",
+                "Scaled content engines that surface playbooks across partner ecosystems.",
+                "Set up measurement loops to track lift across pipeline, activation, and retention."
+              ],
+              "links": [
+                { "label": "Writeomatic", "href": "https://writeomatic.app/", "external": true }
+              ]
+            },
+            {
+              "title": "Slush Helsinki Volunteer Ops",
+              "summary": "Activated peak-season operations for the world’s boldest founder festival, keeping momentum humming across stages, media, and partner zones.",
+              "outcomes": [
+                "Coordinated crew pods supporting 300+ startup and investor sessions across the two-day summit.",
+                "Streamlined backstage rituals—speaker prep, AV checks, and flow control—for flagship stages in front of 10K+ attendees.",
+                "Captured qualitative feedback from founders and investors to inform next-year experience upgrades."
+              ],
+              "links": [
+                { "label": "Slush", "href": "https://www.slush.org/", "external": true }
+              ]
+            },
+            {
+              "title": "Junction Hackathon Volunteering",
+              "summary": "Boosted one of Europe’s largest hackathons by orchestrating hacker hospitality, partner demos, and late-night energy rituals.",
+              "outcomes": [
+                "Led check-in and ops touchpoints for 1,500+ builders, ensuring zero-bottleneck onboarding throughout opening night.",
+                "Partnered with sponsor squads to choreograph demo booth flow, maximizing mentor time and project exposure.",
+                "Crafted retention touches—wellness breaks, content snippets, and surprise activations—that kept teams shipping through 48 hours."
+              ],
+              "links": [
+                { "label": "Junction", "href": "https://www.junction.fi/", "external": true }
+              ]
+            },
+            {
+              "title": "Aaltoes Finale Year-in-Review",
+              "summary": "Three-minute recap showcasing program highlights, partner activations, and community wins.",
+              "outcomes": [
+                "Distilled a full year of programming into an emotional three-minute narrative for stakeholders.",
+                "Combined event footage, interviews, and motion graphics to celebrate founders and partners.",
+                "Repurposed as a hero asset across sponsor updates, recruitment drives, and community socials."
+              ],
+              "links": [
+                { "label": "Watch finale", "href": "#ecosystem-finale-video" }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "ecosystem-finale-video",
+          "type": "video",
+          "title": "Aaltoes Finale Recap",
+          "description": "Three-minute wrap-up celebrating the year’s ecosystem highlights.",
+          "items": [
+            {
+              "title": "Aaltoes Finale 2024",
+              "description": "Full-length recap reel used for sponsor updates and community storytelling.",
+              "platform": "Aaltoes",
+              "file": "/media/AALTOES%20FINALE%203%20min.mp4"
+            }
+          ]
+        }
+      ]
+    },
+    "resume": {
+      "title": "Resume",
+      "description": "Service-first roles sharpening the marketer, growth hacker, designer, and entrepreneur within me.",
+      "slug": "resume",
+      "hero": {
+        "title": "Resume",
+        "subtitle": "Hospitality roots powering modern customer experience, marketing, and growth work.",
+        "background": "midnight"
+      },
+      "experiences": [
+        {
+          "id": "espresso-house-food-service",
+          "role": "Food Service Worker",
+          "company": "Espresso House \u2014 Espoo, Finland",
+          "duration": "Oct 2022 \u2013 Present",
+          "description": "Craft coffee experiences while keeping daily café operations, inventory, and guest flow running smoothly.",
+          "highlights": [
+            "Prepare and serve specialty coffee and beverages with consistent quality and speed.",
+            "Coordinate shift routines, restocking, and closing checklists so the shop stays guest-ready all day.",
+            "Collect guest feedback daily to inform merchandising, upsell moments, and micro-experiments the team can act on."
+          ],
+          "technologies": ["Barista Operations", "Customer Service", "Merchandising Insights"],
+          "logo": "/logos/Logo-Espresso House.svg",
+          "logoAlt": "Espresso House logo"
+        },
+        {
+          "id": "staffpoint-sales-marketing",
+          "role": "Sales & Marketing Representative (Part-Time)",
+          "company": "StaffPoint \u2014 Espoo, Finland",
+          "duration": "Aug 2022 \u2013 Present",
+          "description": "Represented partner brands across food stores and cafés, blending in-person marketing with dependable customer care.",
+          "highlights": [
+            "Handle point-of-sale transactions, sampling activations, and product storytelling in busy retail environments.",
+            "Keep displays organized and stocked while adapting to each location's service standards.",
+            "Build rapport with customers to surface promotions, collect qualitative feedback, and fuel repeat visits."
+          ],
+          "technologies": ["Retail Sales", "Customer Engagement", "POS Systems"],
+          "logo": "/logos/Logo-Staffpoint.png",
+          "logoAlt": "StaffPoint logo"
+        },
+        {
+          "id": "helina-museum-customer-service",
+          "role": "Customer Service Representative",
+          "company": "Helin\u00e4 Rautavaara Museum \u2014 Espoo, Finland",
+          "duration": "Nov 2023 \u2013 Jan 2024",
+          "description": "Welcomed visitors, supported cultural programming, and amplified museum storytelling across digital channels.",
+          "highlights": [
+            "Guided guests with ticketing, exhibition information, and multilingual assistance to keep experiences inclusive.",
+            "Coordinated event schedules, logistics, and communications with artists, educators, and community partners.",
+            "Captured photos, video, and copy for @helinamuseo to promote programs and increase engagement."
+          ],
+          "technologies": ["Event Coordination", "Content Creation", "Social Media"],
+          "logo": "/logos/Logo-Helina Rautavaara Museum.png",
+          "logoAlt": "Helinä Rautavaara Museum logo"
+        },
+        {
+          "id": "zaiqa-pakistan-restaurant-manager",
+          "role": "Restaurant Manager",
+          "company": "Zaiqa Pakistan \u2014 Orivesi & Tampere, Finland",
+          "duration": "Feb 2017 \u2013 Sep 2020",
+          "description": "Led the family restaurant's expansion from Orivesi to Tampere, ensuring operations, teams, and guests stayed in sync.",
+          "highlights": [
+            "Supervised staff schedules, procurement, and supplier relationships to balance quality with efficiency.",
+            "Resolved guest issues on the floor while maintaining a warm, community-first atmosphere.",
+            "Planned special events, local collaborations, and social promotions that increased visibility and revenue."
+          ],
+          "technologies": ["Operations Management", "Team Leadership", "Supplier Relations"],
+          "logo": "/logos/Logo-Zaiqa.png",
+          "logoAlt": "Zaiqa Pakistan logo"
+        }
+      ],
+      "sections": [
+        {
+          "id": "resume-education",
+          "type": "case-study",
+          "title": "Education",
+          "description": "Academic journey supporting tourism, business, and service leadership.",
+          "items": [
+            {
+              "title": "Bachelor\u2019s in Tourism and Business",
+              "summary": "Laurea University of Applied Sciences \u00b7 Espoo, Finland \u00b7 Aug 2023 \u2013 Present",
+              "outcomes": [
+                "Ongoing studies in tourism innovation, sustainable service models, and modern business operations."
+              ],
+              "logo": "/logos/Logo-Laurea University.png",
+              "logoAlt": "Laurea University of Applied Sciences logo"
+            },
+            {
+              "title": "Upper Secondary Studies",
+              "summary": "Hartola Lukio \u00b7 Hartola, Finland \u00b7 Oct 2018 \u2013 Jan 2021",
+              "outcomes": [
+                "Completed Finnish upper secondary curriculum with emphasis on business, culture, and language studies."
+              ],
+              "logo": "/logos/Logo-Lukio.png",
+              "logoAlt": "Hartola Lukio logo"
+            }
+          ]
+        },
+        {
+          "id": "resume-certifications",
+          "type": "highlights",
+          "title": "Certifications",
+          "description": "Credentials supporting hospitality and food service excellence.",
+          "highlights": [
+            {
+              "title": "Hygiene Pass (Finland)",
+              "description": "Issued 04/10/2021; certified to uphold national food safety standards across Finnish hospitality environments."
+            }
+          ]
+        },
+        {
+          "id": "resume-extra-curricular",
+          "type": "highlights",
+          "title": "Extra Curricular Activities",
+          "description": "Community roles and volunteer experiences that extend service mindset beyond work.",
+          "highlights": [
+            {
+              "title": "Social Media Manager \u2014 AAMU (Aalto Muslim Union)",
+              "description": "Create and schedule content that keeps the community informed and connected.",
+              "logo": "/logos/Logo-Aamu.jpeg",
+              "logoAlt": "AAMU logo"
+            },
+            {
+              "title": "Volunteer \u2014 Junction",
+              "description": "Support annual hackathon operations, guiding participants through fast-paced creative sprints.",
+              "logo": "/logos/Logo-Junction.png",
+              "logoAlt": "Junction logo"
+            },
+            {
+              "title": "Partner Buddy Volunteer \u2014 Slush",
+              "description": "Host partners and guests, ensuring smooth experiences at Finland\u2019s flagship startup event.",
+              "logo": "/logos/Logo-Slush.png",
+              "logoAlt": "Slush logo"
+            },
+            {
+              "title": "Marketing Volunteer \u2014 Board of Aaltoes 24",
+              "description": "Assist with year-round promotional efforts for Aalto Entrepreneurship Society programs.",
+              "logo": "/logos/Logo-Aaltoes.png",
+              "logoAlt": "Aaltoes logo"
+            },
+            {
+              "title": "Swimming for Fitness",
+              "description": "Maintain stamina and focus through regular swim training."
+            }
+          ]
+        },
+        {
+          "id": "resume-languages",
+          "type": "capabilities",
+          "title": "Languages",
+          "description": "Multilingual communicator across Nordic and South Asian contexts.",
+          "capabilities": [
+            {
+              "title": "Finnish",
+              "description": "Native fluency for customer-facing service and operational collaboration.",
+              "skills": ["Native proficiency"]
+            },
+            {
+              "title": "Swedish",
+              "description": "Basic proficiency with growing vocabulary for everyday interactions.",
+              "skills": ["Basic proficiency"]
+            },
+            {
+              "title": "English",
+              "description": "Professional working knowledge across hospitality, studies, and marketing projects.",
+              "skills": ["Professional proficiency"]
+            },
+            {
+              "title": "Urdu/Hindi",
+              "description": "Professional command for hospitality operations and community engagement.",
+              "skills": ["Professional proficiency"]
+            }
+          ]
+        },
+        {
+          "id": "resume-interests",
+          "type": "highlights",
+          "title": "Other Interests",
+          "description": "Passions that refuel creativity and connection.",
+          "highlights": [
+            {
+              "title": "Cooking",
+              "description": "Experiment with family recipes and new flavors to bring people together."
+            },
+            {
+              "title": "Skiing & Swimming",
+              "description": "Stay active year-round through nordic skiing in winter and lane swimming in summer."
+            },
+            {
+              "title": "Traveling",
+              "description": "Explore cultures and hospitality traditions to inspire future customer experiences."
+            },
+            {
+              "title": "Movies & Books",
+              "description": "Draw story inspiration from cinema and literature to enrich marketing narratives."
+            }
+          ]
+        }
+      ]
+    },
+    "resources": {
+      "title": "Resources",
+      "description": "Templates, scripts, and playbooks for marketers, designers, and founders building their next growth wave.",
+      "slug": "resources",
+      "hero": {
+        "title": "Resources & Ritual Kits",
+        "subtitle": "Grab the same systems I rely on for go-to-market, lifecycle, and storytelling.",
+        "background": "glacier"
+      },
+      "sections": [
+        {
+          "id": "resource-vault",
+          "type": "resources",
+          "title": "Open Source Launch Tools",
+          "description": "Growth playbooks, motion kits, and automation templates tuned for speed.",
+          "resources": [
+            {
+              "title": "Launch Garden Blueprint (Miro)",
+              "description": "A 45-day sprint system covering growth loops, rituals, and KPI cadences.",
+              "link": "https://miro.com/app/live-embed/uXjVJsWuiFg=/?share_link_id=315477845177",
+              "type": "template",
+              "icon": "🌿"
+            },
+            {
+              "title": "Writeomatic Content Engine",
+              "description": "AI-supported content pipeline for social, email, and short-form video teams.",
+              "link": "https://writeomatic.app/",
+          "type": "tool",
+              "icon": "⚡"
+        },
+        {
+              "title": "ITP Venture Studio Figma Kit",
+              "description": "Figma component system for cinematic storytelling across innovation programs.",
+              "link": "https://www.figma.com/design/FBe4HSXENEMddB2P5kOTnD/ITP-redesign--V?node-id=0-1",
+              "type": "template",
+              "icon": "🎨"
+            }
+          ]
+        }
+      ]
+    },
+    "story": {
+      "title": "My Story",
+      "description": "From hospitality floors to growth labs—a journey blending marketing, design, and entrepreneurship.",
+      "slug": "story",
+      "hero": {
+        "title": "Hello, I'm Zunaira",
+        "subtitle": "Marketer, growth hacker, designer, and entrepreneur in the making—learning by shipping.",
+        "background": "sunrise"
+      },
+      "sections": [
+        {
+          "id": "story-arc",
+          "type": "hero-narrative",
+          "title": "Origins and Experiments",
+          "description": "Milestones that shaped my obsession with measurable, story-driven growth.",
+          "narrative": [
+            {
+              "heading": "Hospitality instincts meet growth systems",
+              "body": "Running a family restaurant taught me to read customers in real time, design experiences, and keep operations tight. That service-first mindset anchors every growth play I craft today."
+            },
+            {
+              "heading": "Designing living brands",
+              "body": "I pivoted into digital design to package those insights—building Figma systems, landing pages, and motion narratives that make value propositions unforgettable."
+            },
+            {
+              "heading": "Building launch labs for founders",
+              "body": "Now I partner with founders and teams to co-build launch labs—embedding AI copilots, growth loops, and storytelling frameworks so revenue keeps compounding."
+            }
+          ],
+          "stats": [
+            { "label": "Launches shipped", "value": "120+" },
+            { "label": "Industries touched", "value": "7" },
+            { "label": "Communities activated", "value": "30+" }
+          ],
+          "quote": {
+            "text": "Every great business deserves a growth engine that feels like a story you can step inside.",
+            "author": "Zunaira Khan",
+            "role": "Marketer · Growth Hacker · Designer · Entrepreneur in the Making"
+          }
+        }
+      ]
+    }
+  }
+}

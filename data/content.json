@@ -1,0 +1,335 @@
+{
+  "name": "Zunaira Khan",
+  "tagline": "Marketer, Growth Hacker, Designer, & Entrepreneur in the Making.",
+  "signature": "Growth is choreography, not chance.",
+  "hero": {
+    "headline": "Full-funnel stories that convert attention into advocates.",
+    "subheading": "I architect revenue-ready launch systems that blend product marketing, growth experimentation, and design-led storytelling for founders on the brink.",
+    "ctaPrimary": {
+      "label": "See the growth engines",
+      "href": "#portfolio"
+    },
+    "ctaSecondary": {
+      "label": "Book a strategy jam",
+      "href": "mailto:zuneyaftab45@gmail.com"
+    },
+    "floatingWords": ["Acquisition rituals", "Retention loops", "Creator economy", "Brand finance"],
+    "badge": "Currently assembling demand engines for Nordic SaaS & community brands"
+  },
+  "techStack": {
+    "title": "Operating Stack",
+    "description": "The growth tooling, automation, and design systems I blend into predictable performance.",
+    "columns": [
+      {
+        "heading": "Creative & Design Labs",
+        "items": [
+          "Figma",
+          "Adobe CC",
+          "Canva",
+          "Capcut",
+          "Miro"
+        ]
+      },
+      {
+        "heading": "Ops & Knowledge Systems",
+        "items": [
+          "Notion",
+          "G Suite",
+          "MS Office",
+          "Wordpress"
+        ]
+      },
+      {
+        "heading": "Social & Signal Channels",
+        "items": [
+          "Facebook",
+          "Instagram",
+          "Snapchat",
+          "Tiktok",
+          "YouTube",
+          "YT Shorts",
+          "WhatsApp",
+          "Telegram"
+        ]
+      }
+    ]
+  },
+  "sections": [
+    {
+      "id": "hero-narrative",
+      "type": "hero-narrative",
+      "title": "Growth Operating System",
+      "description": "How I fuse marketing, product, and design into repeatable momentum.",
+      "narrative": [
+        {
+          "heading": "Market intelligence first, always",
+          "body": "From qualitative interviews to analytics dashboards, I distill customer, channel, and category signals into positioning that converts."
+        },
+        {
+          "heading": "Experiments with cinematic craft",
+          "body": "Launches carry more than copy and CTAs—they arrive with motion systems, landing experiences, and visuals tuned for every step of the funnel."
+        },
+        {
+          "heading": "Loops that mature into revenue",
+          "body": "I operationalize what works: onboarding automations, creator distribution, nurture flows, and retention rituals that make growth compounding."
+        }
+      ],
+      "stats": [
+        {
+          "label": "Launches orchestrated (last 12 months)",
+          "value": "14",
+          "annotation": "+5 YoY",
+          "progress": 68
+        },
+        {
+          "label": "Growth experiments shipped",
+          "value": "87",
+          "annotation": "avg. 7 per month",
+          "progress": 82
+        },
+        {
+          "label": "Average retention uplift",
+          "value": "+18%",
+          "annotation": "post playbook rollouts",
+          "progress": 74
+        }
+      ],
+      "quote": {
+        "text": "Great marketing is a growth engine dressed like a story.",
+        "author": "Zunaira Khan",
+        "role": "Marketer · Growth Hacker · Designer · Entrepreneur in the Making"
+      }
+    },
+    {
+      "id": "manifesto",
+      "type": "manifesto",
+      "title": "Manifesto for Compoundable Growth",
+      "description": "Pillars that keep every campaign biasing towards learning, loyalty, and lift.",
+      "tenets": [
+        {
+          "title": "Narrative beats noise",
+          "detail": "If the story isn’t anchored to customer insight, every channel becomes an echo chamber. Strategy starts with relevance."
+        },
+        {
+          "title": "Experiments fuel conviction",
+          "detail": "Hypotheses launch fast, instruments track daily, and feedback loops stay tight so teams know exactly what to do next."
+        },
+        {
+          "title": "Retention is the loudest KPI",
+          "detail": "Sustainable growth shows up in repeat behavior—loyal users, returning customers, and communities that advocate without incentives."
+        }
+      ]
+    },
+    {
+      "id": "spotlight-highlights",
+      "type": "highlights",
+      "title": "Growth Snapshots",
+      "description": "Three growth stories that showcase my marketer, growth hacker, designer, and entrepreneur lenses in action.",
+      "highlights": [
+        {
+          "title": "Writeomatic · AI SaaS GTM Ignition",
+          "description": "Designed positioning, launch narrative, content engine, and lifecycle ops—lifting weekly qualified sign-ups by 52% in six weeks.",
+          "metric": "+52% qualified sign-ups",
+          "accent": "Acquisition",
+          "logo": "/logos/Logo-Writeomatic.webp",
+          "logoAlt": "Writeomatic logo"
+        },
+        {
+          "title": "Sheen Jeem · Luxury Commerce Relaunch",
+          "description": "Rebuilt lifecycle, merchandising, and retention systems for a couture brand—bringing subscription retention back to 1.9x repeat rate.",
+          "metric": "1.9x repeat purchase",
+          "accent": "Lifecycle",
+          "logo": "/logos/Logo-Sheenjeem.png",
+          "logoAlt": "Sheen Jeem logo"
+        },
+        {
+          "title": "Aaltoes · Community Growth Engine",
+          "description": "Led marketing, content, and volunteer ops for Nordic’s largest student entrepreneurship society—driving +35% membership growth.",
+          "metric": "+35% membership growth",
+          "accent": "Community",
+          "logo": "/logos/Logo-Aaltoes.png",
+          "logoAlt": "Aaltoes logo"
+        }
+      ]
+    },
+    {
+      "id": "growth-lab",
+      "type": "growth-lab",
+      "title": "Growth Lab Blueprints",
+      "description": "Full-size canvases showcasing the systems I rely on for content, launches, and community growth.",
+      "experiments": [
+        {
+          "title": "Aaltoes 2025 Social & Sponsored Media",
+          "description": "Calendar, campaign system, and channel governance for year-round storytelling.",
+          "embedUrl": "https://www.figma.com/embed?embed_host=share&url=https://www.figma.com/design/Zp5NCrWKbMF5L9wnBl7ewF/Aaltoes--25-SMM-Assets?node-id=0-1&t=p8s6Ufqiyx4KjHgf-1",
+          "tags": ["Content Engine", "Community Growth", "Brand Marketing"]
+        },
+        {
+          "title": "Aalto ITP Venture Studio Experience",
+          "description": "Admissions, mentor operations, and alumni storytelling mapped into a modular Figma system.",
+          "embedUrl": "https://www.figma.com/embed?embed_host=share&url=https://www.figma.com/design/FBe4HSXENEMddB2P5kOTnD/ITP-redesign--V?node-id=0-1",
+          "tags": ["Experience Design", "Admissions Funnel", "Product Marketing"]
+        },
+        {
+          "title": "Launch Garden Miro OS",
+          "description": "45-day launch system covering insight, creative sprints, lifecycle touchpoints, and measurement rituals.",
+          "embedUrl": "https://miro.com/app/live-embed/uXjVJsWuiFg=/?share_link_id=315477845177",
+          "tags": ["GTM Strategy", "Ops Design", "Experimentation"]
+        }
+      ]
+    },
+    {
+      "id": "motion-reels",
+      "type": "motion-reels",
+      "title": "Reels & Video Storytelling",
+      "description": "Portrait reels in the wild—designed for socials, community updates, and sponsor recaps.",
+      "reels": [
+        {
+          "title": "Slush Momentum Pulse",
+          "description": "Volunteer ops, backstage flow, and founder meetups captured for Aaltoes community.",
+          "platform": "Aaltoes 2024",
+          "file": "/media/aaltoes-winter-2024.mp4"
+        },
+        {
+          "title": "Junction Hackers in Bloom",
+          "description": "Hospitality touchpoints and late-night hacker energy in vertical format.",
+          "platform": "Aaltoes 2024",
+          "file": "/media/aaltoes-spring-2024.mp4"
+        },
+        {
+          "title": "Campus Builders Revival",
+          "description": "Founder circles, demos, and rituals that keep momentum alive through summer.",
+          "platform": "Aaltoes 2024",
+          "file": "/media/aaltoes-summer-2024.mp4"
+        },
+        {
+          "title": "Aaltoes Finale 3 Minute Recap",
+          "description": "A three-minute macro look at the year—finale highlights, partner activations, and community wins.",
+          "platform": "Aaltoes",
+          "file": "/media/AALTOES%20FINALE%203%20min.mp4"
+        }
+      ]
+    },
+    {
+      "id": "capabilities-grid",
+      "type": "capabilities",
+      "title": "Core Capabilities",
+      "description": "How the marketer, growth hacker, designer, and entrepreneur inside me ship results.",
+      "capabilities": [
+        {
+          "title": "Market & Positioning Strategy",
+          "description": "Segment research, competitive analysis, and narrative architecture that make products obvious.",
+          "icon": "🎨",
+          "skills": ["Insight synthesis", "ICP modeling", "Value props", "Messaging hierarchies"],
+          "tone": "aurora"
+        },
+        {
+          "title": "Lifecycle Orchestration",
+          "description": "Behavior-based journeys, onboarding flows, and retention loops tuned to LTV and advocacy.",
+          "icon": "📈",
+          "skills": ["Lifecycle mapping", "Automation", "CRM", "Experiment design"],
+          "tone": "tundra"
+        },
+        {
+          "title": "Conversion Experience Design",
+          "description": "Landing pages, product tours, and motion assets built to convert and educate simultaneously.",
+          "icon": "💻",
+          "skills": ["UX copy", "Interaction design", "Motion systems", "A/B testing"],
+          "tone": "glacier"
+        },
+        {
+          "title": "AI-Augmented Rituals",
+          "description": "Harnessing AI copilots for content velocity, insight mining, and rapid creative exploration.",
+          "icon": "🤖",
+          "skills": ["Workflow automation", "Prompt design", "Predictive analytics", "Creative ops"],
+          "tone": "midnight"
+        },
+        {
+          "title": "Brand & Demand Storytelling",
+          "description": "Strategic narratives that unite awareness, acquisition, and retention around one emotional truth.",
+          "icon": "✨",
+          "skills": ["Campaign architecture", "Creative direction", "Thought leadership", "Content strategy"],
+          "tone": "aurora"
+        },
+        {
+          "title": "Entrepreneurial Execution",
+          "description": "From scrappy hypotheses to ops-ready processes that help teams scale without friction.",
+          "icon": "🎬",
+          "skills": ["Team leadership", "Resource design", "Cross-functional facilitation", "Budget awareness"],
+          "tone": "tundra"
+        }
+      ]
+    },
+    {
+      "id": "resources-hub",
+      "type": "resources",
+      "title": "Resources & Ritual Kits",
+      "description": "DIY assets and playbooks for marketers, designers, and founders building their next growth wave.",
+      "resources": [
+        {
+          "title": "Full-Funnel GTM Field Guide",
+          "description": "Step-by-step launch system with messaging frameworks, channel plans, and measurement dashboards.",
+          "link": "https://example.com/immersive-gtm-field-guide",
+          "type": "Playbook",
+          "icon": "📓"
+        },
+        {
+          "title": "Motion Prototyping Kit",
+          "description": "After Effects presets and Lottie exports for shipping high-impact launch visuals quickly.",
+          "link": "https://example.com/aurora-palette-kit",
+          "type": "Toolkit",
+          "icon": "🌌"
+        },
+        {
+          "title": "Growth Lab Notion OS",
+          "description": "Notion workspace template for experiment tracking, stand-ups, growth council agendas, and learnings.",
+          "link": "https://example.com/growth-lab-notion",
+          "type": "Template",
+          "icon": "🧭"
+        }
+      ]
+    },
+    {
+      "id": "contact",
+      "type": "contact",
+      "title": "Collaborate with Zunaira",
+      "description": "Let\u2019s build the next growth engine, campaign, or product narrative together.",
+      "cta": {
+        "label": "Start a project conversation",
+        "href": "mailto:zuneyaftab45@gmail.com"
+      },
+      "availability": "Now scheduling Q1-Q2 2026 collaborations",
+      "channels": [
+        {
+          "label": "LinkedIn",
+          "description": "Growth riffs, experiment recaps, and collab signals",
+          "href": "https://www.linkedin.com/in/zunaira-khan-24451b2b6/"
+        },
+        {
+          "label": "Email",
+          "description": "Direct line for strategy sessions & project scopes",
+          "href": "mailto:zuneyaftab45@gmail.com"
+        }
+      ]
+    }
+  ],
+  "socials": [
+    {
+      "label": "LinkedIn",
+      "href": "https://www.linkedin.com/in/zunaira-khan-24451b2b6/"
+    },
+    {
+      "label": "Email",
+      "href": "mailto:zuneyaftab45@gmail.com"
+    },
+    {
+      "label": "Telegram",
+      "href": "https://t.me/zunairak112"
+    },
+    {
+      "label": "GitHub",
+      "href": "https://github.com/zunairakhan112/"
+    }
+  ]
+}
+
