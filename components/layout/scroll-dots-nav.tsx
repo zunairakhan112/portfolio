@@ -13,7 +13,7 @@ export function ScrollDotsNav({ sections, activeSection, onNavigate }: ScrollDot
   return (
     <nav
       aria-label="Page sections"
-      className="fixed right-6 top-1/2 z-40 hidden -translate-y-1/2 flex-col gap-4 md:flex"
+      className="fixed right-6 top-1/2 z-30 hidden -translate-y-1/2 flex-col gap-4 md:flex"
     >
       {sections.map((section) => {
         const isActive = section.id === activeSection;

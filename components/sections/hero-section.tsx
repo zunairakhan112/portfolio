@@ -117,7 +117,7 @@ export function HeroSection() {
             ref={titleRef}
             className="text-[clamp(3rem,10vw,8rem)] font-bold leading-[0.9] text-white"
           >
-            ZUNAIRA KHAN
+            ZUNAIRA KHAN.
           </h1>
           
           <motion.div
