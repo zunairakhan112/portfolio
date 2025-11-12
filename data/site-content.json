@@ -660,6 +660,46 @@
           }
         }
       ]
+    },
+    "contact": {
+      "title": "Contact",
+      "description": "Let’s co-create your next launch, growth engine, or experience.",
+      "slug": "contact",
+      "hero": {
+        "title": "Design Momentum Together",
+        "subtitle": "Partner with me on launch strategy, conversion design, or growth lab experiments tailored to your next milestone.",
+        "background": "midnight"
+      },
+      "sections": [
+        {
+          "id": "contact-collaborate",
+          "type": "contact",
+          "title": "Collaborate with Zunaira",
+          "description": "Share the challenge you’re tackling and I’ll respond with ideas, questions, and next steps within 24 hours.",
+          "cta": {
+            "label": "Start a project conversation",
+            "href": "mailto:zuneyaftab45@gmail.com"
+          },
+          "availability": "Now scheduling Q1–Q2 2026 collaborations",
+          "channels": [
+            {
+              "label": "Email",
+              "description": "Direct line for strategy jams and scoped engagements.",
+              "href": "mailto:zuneyaftab45@gmail.com"
+            },
+            {
+              "label": "LinkedIn",
+              "description": "Growth riffs, experiment recaps, and momentum updates.",
+              "href": "https://www.linkedin.com/in/zunaira-khan-24451b2b6/"
+            },
+            {
+              "label": "Telegram",
+              "description": "Fast async check-ins for in-flight collaborations.",
+              "href": "https://t.me/zunairak112"
+            }
+          ]
+        }
+      ]
     }
   }
 }
