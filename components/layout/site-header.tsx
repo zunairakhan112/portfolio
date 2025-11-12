@@ -41,15 +41,17 @@ export function SiteHeader({ signature }: SiteHeaderProps) {
     };
   }, [isMenuOpen]);
 
-  const navSections = useMemo(() => [
-    { id: "projects", title: "Projects", href: "/projects" },
-    { id: "web", title: "Web & Conversion", href: "/web" },
-    { id: "design", title: "Design Systems", href: "/design" },
-    { id: "ecosystem", title: "Ecosystem", href: "/ecosystem" },
-    { id: "resume", title: "Resume", href: "/resume" },
-    { id: "resources", title: "Resources", href: "/resources" },
-    { id: "story", title: "Story", href: "/story" }
-  ], []);
+  const navSections = useMemo(
+    () => [
+      { id: "projects", title: "Select Projects", href: "/projects" },
+      { id: "design", title: "Design Systems", href: "/design" },
+      { id: "ecosystem", title: "Ecosystem", href: "/ecosystem" },
+      { id: "resume", title: "Resume", href: "/resume" },
+      { id: "resources", title: "Resources", href: "/resources" },
+      { id: "story", title: "Story", href: "/story" }
+    ],
+    []
+  );
 
   const brandLetters = useMemo(() => Array.from("Zunaira Khan"), []);
   const brandInitials = useMemo(() => ["Z", "K"], []);
@@ -208,9 +210,9 @@ export function SiteHeader({ signature }: SiteHeaderProps) {
               />
             </div>
 
-            <div className="relative z-10 flex h-full flex-col px-6 py-12 md:px-10 md:py-16">
+            <div className="relative z-10 flex h-full flex-col px-6 pt-16 pb-12 md:px-10 md:pt-20 md:pb-16">
               <motion.nav
-                className="mx-auto flex w-full max-w-2xl flex-1 flex-col items-center justify-center gap-8 overflow-y-auto py-6"
+                className="mx-auto flex w-full max-w-2xl flex-1 flex-col items-center justify-center gap-5 text-center sm:gap-7"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.5, delay: 0.2 }}
@@ -233,7 +235,7 @@ export function SiteHeader({ signature }: SiteHeaderProps) {
                       </span>
                       <span className={clsx(
                         brandTypeface.className,
-                        "text-3xl md:text-4xl uppercase text-black dark:text-white",
+                        "text-2xl md:text-4xl uppercase text-black dark:text-white",
                         "transition-colors duration-300 group-hover:text-violet-600 dark:group-hover:text-violet-400"
                       )}>
                         {item.title}
@@ -246,7 +248,7 @@ export function SiteHeader({ signature }: SiteHeaderProps) {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.3 + navSections.length * 0.1 }}
-                  className="mt-8 w-full text-center"
+                  className="w-full text-center"
                 >
                   <Link
                     href="/contact"
@@ -258,7 +260,7 @@ export function SiteHeader({ signature }: SiteHeaderProps) {
                     </span>
                     <span className={clsx(
                       brandTypeface.className,
-                      "text-3xl md:text-4xl uppercase text-black dark:text-white",
+                      "text-2xl md:text-4xl uppercase text-black dark:text-white",
                       "transition-colors duration-300 group-hover:text-violet-600 dark:group-hover:text-violet-400"
                     )}>
                       Let&apos;s collaborate
@@ -268,7 +270,7 @@ export function SiteHeader({ signature }: SiteHeaderProps) {
               </motion.nav>
 
               <motion.p
-                className="mt-12 text-center font-creative text-xs uppercase tracking-[0.3em] text-gray-500 dark:text-gray-400 md:mt-16"
+                className="mt-10 text-center font-creative text-xs uppercase tracking-[0.3em] text-gray-500 dark:text-gray-400 md:mt-14"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.5, delay: 0.8 }}
