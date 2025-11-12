@@ -1,7 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { createRef, useEffect, useRef, useState, type RefObject } from "react";
+import { motion, Reorder } from "framer-motion";
 
 import type { PortfolioContent } from "@/lib/content-schema";
 
@@ -10,6 +11,11 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 interface TechStackGridProps {
   techStack: PortfolioContent["techStack"];
 }
+
+type StackColumn = {
+  heading: string;
+  items: string[];
+};
 
 const columnVariants = {
   hidden: { y: 60, opacity: 0, rotateX: -8 },
@@ -38,9 +44,40 @@ const TOOL_META: Record<string, { logo?: string; alt?: string }> = {
   Telegram: { logo: "/logos/Logo-Telegram.png", alt: "Telegram" }
 };
 
-const floatDurations = [3.6, 4.2, 5.1, 3.9];
-
 export function TechStackGrid({ techStack }: TechStackGridProps) {
+  const columnRefs = useRef<RefObject<HTMLDivElement>[]>([]);
+
+  const [columnsState, setColumnsState] = useState<StackColumn[]>(() =>
+    techStack.columns.map((column) => ({
+      heading: column.heading,
+      items: [...column.items]
+    }))
+  );
+
+  useEffect(() => {
+    setColumnsState(
+      techStack.columns.map((column) => ({
+        heading: column.heading,
+        items: [...column.items]
+      }))
+    );
+  }, [techStack]);
+
+  const updateColumnItems = (columnIndex: number, newItems: string[]) => {
+    setColumnsState((prev) =>
+      prev.map((column, index) =>
+        index === columnIndex ? { ...column, items: newItems } : column
+      )
+    );
+  };
+
+  const getColumnRef = (index: number) => {
+    if (!columnRefs.current[index]) {
+      columnRefs.current[index] = createRef<HTMLDivElement>();
+    }
+    return columnRefs.current[index]!;
+  };
+
   return (
     <motion.section
       initial="hidden"
@@ -64,7 +101,7 @@ export function TechStackGrid({ techStack }: TechStackGridProps) {
         ) : null}
       </div>
       <div className="relative z-10 grid gap-6 md:grid-cols-3">
-        {techStack.columns.map((column, columnIndex) => (
+        {columnsState.map((column, columnIndex) => (
           <motion.div
             key={column.heading}
             variants={columnVariants}
@@ -76,26 +113,34 @@ export function TechStackGrid({ techStack }: TechStackGridProps) {
                   {column.heading}
                 </CardTitle>
               </CardHeader>
-              <CardContent>
-                <div className="relative flex flex-wrap gap-4">
-                  {column.items.map((item, index) => {
+              <CardContent className="overflow-hidden">
+                <Reorder.Group
+                  as="div"
+                  ref={getColumnRef(columnIndex)}
+                  axis="y"
+                  values={column.items}
+                  onReorder={(newOrder) => updateColumnItems(columnIndex, newOrder)}
+                  className="relative grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3"
+                  style={{ gridAutoRows: "minmax(5.5rem, 1fr)" }}
+                  layout
+                >
+                  {column.items.map((item) => {
                     const meta = TOOL_META[item] ?? {};
                     const logo = meta.logo;
                     const alt = meta.alt ?? item;
-                    const duration = floatDurations[index % floatDurations.length];
+                    const containerRef = getColumnRef(columnIndex);
 
                     return (
-                      <motion.div
+                      <Reorder.Item
                         key={item}
-                        drag
-                        dragConstraints={{ top: -50, bottom: 50, left: -50, right: 50 }}
-                        dragElastic={0.28}
-                        dragSnapToOrigin
-                        dragTransition={{ power: 0.1, timeConstant: 200, bounceStiffness: 140, bounceDamping: 18 }}
+                        value={item}
+                        dragConstraints={containerRef}
+                        dragElastic={0.12}
+                        dragMomentum={false}
+                        dragTransition={{ bounceStiffness: 420, bounceDamping: 32 }}
+                        whileDrag={{ scale: 0.96 }}
                         whileTap={{ scale: 0.92 }}
                         whileHover={{ scale: 1.06 }}
-                        animate={{ y: [0, 6, 0] }}
-                        transition={{ repeat: Infinity, duration, ease: "easeInOut" }}
                         className="relative flex h-20 w-20 cursor-grab items-center justify-center overflow-hidden rounded-3xl border border-white/20 bg-white/15 shadow-[0_18px_45px_rgba(10,10,10,0.25)] backdrop-blur-xl active:cursor-grabbing"
                         aria-label={item}
                       >
@@ -107,10 +152,10 @@ export function TechStackGrid({ techStack }: TechStackGridProps) {
                             {item}
                           </span>
                         )}
-                      </motion.div>
+                      </Reorder.Item>
                     );
                   })}
-                </div>
+                </Reorder.Group>
               </CardContent>
             </Card>
           </motion.div>

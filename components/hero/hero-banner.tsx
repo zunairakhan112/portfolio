@@ -238,7 +238,7 @@ export function HeroBanner({ hero, tagline, signature }: HeroBannerProps) {
           </div>
         </div>
 
-        <div className="pointer-events-none absolute bottom-[-40%] right-[-25%] h-[28rem] w-[28rem] sm:h-[34rem] sm:w-[34rem] md:bottom-[-50%] md:right-[-20%] md:h-[40rem] md:w-[40rem] lg:bottom-[-55%] lg:right-[-18%] lg:h-[46rem] lg:w-[46rem] xl:right-[-12%] xl:h-[52rem] xl:w-[52rem]">
+        <div className="pointer-events-none absolute bottom-[-30%] right-[-15%] h-[28rem] w-[28rem] sm:h-[34rem] sm:w-[34rem] md:bottom-[-35%] md:right-[-10%] md:h-[40rem] md:w-[40rem] lg:bottom-[-40%] lg:right-[-8%] lg:h-[46rem] lg:w-[46rem] xl:right-[-5%] xl:h-[52rem] xl:w-[52rem]">
           <div className="relative h-full w-full">
             <World data={globeArcs} globeConfig={globeConfig} />
           </div>

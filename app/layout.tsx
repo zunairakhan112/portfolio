@@ -9,7 +9,6 @@ import {
 } from "next/font/google";
 
 import "@/app/globals.css";
-import { ThemeProvider } from "@/components/theme-provider";
 import { AuroraBackground } from "@/components/visuals/aurora-background";
 
 const geistSans = Geist({
@@ -80,21 +79,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${displaySerif.variable} ${creativeGrotesk.variable} ${cinematicTitle.variable} ${signatureScript.variable} bg-muted antialiased`}
       >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="dark"
-          enableSystem
-          disableTransitionOnChange
-        >
-          {/* Future integration: analytics providers or global modals can mount here */}
-          <AuroraBackground>
-            {children}
-          </AuroraBackground>
-        </ThemeProvider>
+        {/* Future integration: analytics providers or global modals can mount here */}
+        <AuroraBackground>
+          {children}
+        </AuroraBackground>
       </body>
     </html>
   );

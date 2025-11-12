@@ -92,7 +92,7 @@ export function SiteHeader({ signature }: SiteHeaderProps) {
                       className={clsx(
                         "relative inline-block",
                         letter === " " ? "w-[0.2em]" : "",
-                        "text-black dark:text-white"
+                        "text-white"
                       )}
                       initial={{ y: 20, opacity: 0 }}
                       animate={{ y: 0, opacity: 1 }}
@@ -122,7 +122,7 @@ export function SiteHeader({ signature }: SiteHeaderProps) {
                   {brandInitials.map((letter, index) => (
                     <motion.span
                       key={`initial-${letter}`}
-                      className="relative inline-block text-black dark:text-white"
+                      className="relative inline-block text-white"
                       initial={{ opacity: 0, rotate: -180 }}
                       animate={{ opacity: 1, rotate: 0 }}
                       transition={{
@@ -146,7 +146,7 @@ export function SiteHeader({ signature }: SiteHeaderProps) {
               aria-controls={overlayId}
               aria-label={isMenuOpen ? "Close navigation" : "Open navigation"}
               onClick={handleMenuToggle}
-              className="group relative rounded-full border border-black/5 bg-white/70 p-2 shadow-[0_6px_20px_rgba(12,12,12,0.12)] backdrop-blur transition hover:border-black/15 hover:bg-white dark:border-white/10 dark:bg-white/10 dark:hover:border-white/20 dark:hover:bg-white/20"
+              className="group relative rounded-full border border-white/15 bg-white/10 p-2 shadow-[0_6px_20px_rgba(0,0,0,0.35)] backdrop-blur transition hover:border-white/30 hover:bg-white/20"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.4 }}
@@ -154,7 +154,7 @@ export function SiteHeader({ signature }: SiteHeaderProps) {
             >
               <div className="relative h-6 w-6">
                 <motion.span
-                  className="absolute left-0 top-[5px] h-[2px] w-6 origin-center bg-black dark:bg-white"
+                  className="absolute left-0 top-[5px] h-[2px] w-6 origin-center bg-white"
                   animate={{
                     rotate: isMenuOpen ? 45 : 0,
                     y: isMenuOpen ? 6 : 0,
@@ -162,7 +162,7 @@ export function SiteHeader({ signature }: SiteHeaderProps) {
                   transition={{ duration: 0.3, ease: "easeInOut" }}
                 />
                 <motion.span
-                  className="absolute left-0 top-[11px] h-[2px] w-6 bg-black dark:bg-white"
+                  className="absolute left-0 top-[11px] h-[2px] w-6 bg-white"
                   animate={{
                     opacity: isMenuOpen ? 0 : 1,
                     scaleX: isMenuOpen ? 0 : 1,
@@ -170,7 +170,7 @@ export function SiteHeader({ signature }: SiteHeaderProps) {
                   transition={{ duration: 0.3, ease: "easeInOut" }}
                 />
                 <motion.span
-                  className="absolute left-0 top-[17px] h-[2px] w-6 origin-center bg-black dark:bg-white"
+                  className="absolute left-0 top-[17px] h-[2px] w-6 origin-center bg-white"
                   animate={{
                     rotate: isMenuOpen ? -45 : 0,
                     y: isMenuOpen ? -6 : 0,
@@ -195,20 +195,16 @@ export function SiteHeader({ signature }: SiteHeaderProps) {
             transition={{ duration: 0.5, ease: "easeInOut" }}
           >
             <motion.div
-              className="absolute inset-0 bg-white/95 backdrop-blur-3xl dark:bg-black/95"
+              className="absolute inset-0 bg-black/20"
+              style={{
+                backdropFilter: "blur(8px)",
+                WebkitBackdropFilter: "blur(8px)",
+              }}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              transition={{ duration: 0.3 }}
+              transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
             />
-            <div className="absolute inset-0 overflow-hidden pointer-events-none">
-              <motion.div
-                className="absolute left-1/2 top-1/2 h-[30vh] w-[30vw] -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-to-br from-violet-400/10 to-cyan-400/10 blur-[100px]"
-                initial={{ opacity: 0, scale: 0.5 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-              />
-            </div>
 
             <div className="relative z-10 flex h-full flex-col px-6 pt-16 pb-12 md:px-10 md:pt-20 md:pb-16">
               <motion.nav
@@ -230,14 +226,16 @@ export function SiteHeader({ signature }: SiteHeaderProps) {
                       onClick={handleClose}
                       className="group relative inline-block"
                     >
-                      <span className="mb-1 block text-xs uppercase tracking-[0.2em] text-gray-500 dark:text-gray-400">
+                      <span className="mb-1 block text-xs uppercase tracking-[0.2em] text-gray-400">
                         {String(index + 1).padStart(2, '0')}
                       </span>
-                      <span className={clsx(
-                        brandTypeface.className,
-                        "text-2xl md:text-4xl uppercase text-black dark:text-white",
-                        "transition-colors duration-300 group-hover:text-violet-600 dark:group-hover:text-violet-400"
-                      )}>
+                      <span
+                        className={clsx(
+                          brandTypeface.className,
+                          "text-2xl md:text-4xl uppercase text-white",
+                          "transition-colors duration-300 ease-out group-hover:text-violet-300"
+                        )}
+                      >
                         {item.title}
                       </span>
           </Link>
@@ -255,14 +253,16 @@ export function SiteHeader({ signature }: SiteHeaderProps) {
                     onClick={handleClose}
                     className="group relative inline-block"
                   >
-                    <span className="mb-1 block text-xs uppercase tracking-[0.2em] text-gray-500 dark:text-gray-400">
+                    <span className="mb-1 block text-xs uppercase tracking-[0.2em] text-gray-400">
                       {String(navSections.length + 1).padStart(2, '0')}
                     </span>
-                    <span className={clsx(
-                      brandTypeface.className,
-                      "text-2xl md:text-4xl uppercase text-black dark:text-white",
-                      "transition-colors duration-300 group-hover:text-violet-600 dark:group-hover:text-violet-400"
-                    )}>
+                    <span
+                      className={clsx(
+                        brandTypeface.className,
+                        "text-2xl md:text-4xl uppercase text-white",
+                        "transition-colors duration-300 ease-out group-hover:text-violet-300"
+                      )}
+                    >
                       Let&apos;s collaborate
                     </span>
                   </Link>
@@ -270,7 +270,7 @@ export function SiteHeader({ signature }: SiteHeaderProps) {
               </motion.nav>
 
               <motion.p
-                className="mt-10 text-center font-creative text-xs uppercase tracking-[0.3em] text-gray-500 dark:text-gray-400 md:mt-14"
+                className="mt-10 text-center font-creative text-xs uppercase tracking-[0.3em] text-gray-400 md:mt-14"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.5, delay: 0.8 }}
