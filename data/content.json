@@ -203,6 +203,24 @@
           "file": "/media/aaltoes-summer-2024.mp4"
         },
         {
+          "title": "Eid Picnic Community Recap",
+          "description": "Families, volunteers, and sponsor shoutouts from our Eid picnic captured for socials.",
+          "platform": "Aalto Muslims",
+          "file": "/media/Aalto%20Muslims%20Video%20Eid%20Picnic.mp4"
+        },
+        {
+          "title": "Shamo Jee Launch Reel",
+          "description": "Handcrafted interiors, tastings, and behind-the-scenes moments from the launch weekend.",
+          "platform": "Shamo Jee",
+          "file": "/media/Shamo%20Jee%20Reel%201.mp4"
+        },
+        {
+          "title": "Sheen Jeem Capsule Drop",
+          "description": "Luxury gift styling, product close-ups, and influencer fittings for the capsule drop.",
+          "platform": "Sheen Jeem",
+          "file": "/media/Sheen%20Jeem%20FB%20Video%201%20v1.mp4"
+        },
+        {
           "title": "Aaltoes Finale 3 Minute Recap",
           "description": "A three-minute macro look at the year—finale highlights, partner activations, and community wins.",
           "platform": "Aaltoes",
@@ -265,6 +283,16 @@
       "type": "resources",
       "title": "Resources & Toolkits",
       "description": "DIY assets and playbooks for marketers, designers, and founders building their next growth wave.",
+      "enableSearch": false,
+      "cta": {
+        "eyebrow": "Resource Vault",
+        "title": "Go to the full launch resource vault",
+        "description": "Explore templates, toolkits, and golden nuggets found on the web built to ship faster.",
+        "action": {
+          "label": "Browse all resources",
+          "href": "/resources"
+        }
+      },
       "resources": [
         {
           "title": "Full-Funnel GTM Field Guide",

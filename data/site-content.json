@@ -2,11 +2,11 @@
   "pages": {
     "projects": {
       "title": "Projects",
-      "description": "Demand engines, launch narratives, and growth experiments for brands betting on scale.",
+      "description": "Campaigns, pop-ups, and digital touchpoints where my marketing experiments meet UI/UX craft.",
       "slug": "projects",
       "hero": {
-        "title": "Growth Systems in the Wild",
-        "subtitle": "Launches where marketing, design, and entrepreneurial grit delivered measurable outcomes.",
+        "title": "Marketing & Design in Motion",
+        "subtitle": "Face-to-face activations, social storytelling, and interface refreshes that make brands feel alive.",
         "background": "aurora"
       },
       "projects": [
@@ -14,7 +14,7 @@
           "id": "writeomatic",
           "title": "Writeomatic.app",
           "category": "AI Marketing Platform",
-          "description": "Rebuilt product marketing narrative, multi-channel playbooks, and lifecycle funnels for an AI growth copilot.",
+          "description": "Mixed playful campaigns, interface refreshes, and community storytelling for an AI copilot that markets itself.",
           "link": "https://writeomatic.app/",
           "tags": ["Product Marketing", "Lifecycle Automation", "AI SaaS"],
           "featured": true
@@ -23,7 +23,7 @@
           "id": "ahdus-technology",
           "title": "Ahdus Technology",
           "category": "Enterprise Software Development",
-          "description": "Translated complex AI delivery into a buyer-ready story platform with modular case studies and proof assets.",
+          "description": "Translated deep-tech delivery into clear stories, UI flows, and executive-ready proof points.",
           "link": "https://ahdustechnology.fi/portfolio/artificial-intelligence-ai/",
           "tags": ["B2B Narrative", "GTM Enablement", "Web Experience"],
           "featured": true
@@ -32,7 +32,7 @@
           "id": "shamojeepk",
           "title": "Shamo Jee \u2014 Premium South Asian Interior Brand",
           "category": "D2C Ecommerce Launch",
-          "description": "Activated content, creator, and retention loops to keep this sensory D2C brand top of mind and cart.",
+          "description": "Activated tastings, Instagram storytelling, and WhatsApp loyalty to keep this sensory D2C brand top of mind.",
           "link": "https://shamojee.pk/",
           "tags": ["D2C Growth", "Retention", "Shopify"],
           "featured": false
@@ -41,7 +41,7 @@
           "id": "sheenjeem",
           "title": "Sheen Jeem",
           "category": "Luxury Fashion & Gift Commerce",
-          "description": "Cinematic storytelling and conversion architecture for a couture house expanding globally.",
+          "description": "Cinematic storytelling, gifting journeys, and UI tweaks for a couture house expanding globally.",
           "link": "https://sheenjeem.com/",
           "tags": ["Luxury Retail", "Product Storytelling", "Conversion Design"],
           "featured": false
@@ -51,16 +51,16 @@
         {
           "id": "project-case-studies",
           "type": "case-study",
-          "title": "Launch Playbooks in Motion",
-          "description": "Strategy, design, experimentation, and measurement working together end-to-end.",
+          "title": "What I did?",
+          "description": "Where I rolled up my sleeves on launches—from the first interview notes to the dashboards teams now check every morning.",
           "items": [
             {
               "title": "Writeomatic Growth OS",
-              "summary": "Growth operating system for Writeomatic\u2014positioning, content machine, CRM, and creator strategy working in sync.",
+              "summary": "I blended online campaigns and UI refreshes so the AI copilot feels like a teammate everywhere it shows up.",
               "outcomes": [
-                "Shipped new messaging hierarchy, launch narrative, and landing ecosystem in 45 days.",
-                "Operationalized a content cadence covering LinkedIn, YouTube Shorts, TikTok, and newsletters (30+ assets/month).",
-                "Implemented segmented lifecycle flows that lifted trial-to-qualified pipeline by 52%."
+                "Interviewed 12 marketers in-person and logged insights in Google Docs, then rebuilt the homepage and onboarding flow in Figma using their exact language.",
+                "Spun up a Notion newsroom with Canva templates and Capcut cutdowns so Instagram, Facebook, and YouTube Shorts posts shipped twice a week.",
+                "Tracked trial cohorts in Google Sheets and coordinated WhatsApp nudges that lifted trial-to-qualified pipeline by 52%."
               ],
               "links": [
                 { "label": "Live site", "href": "https://writeomatic.app/", "external": true },
@@ -73,11 +73,11 @@
             },
             {
               "title": "Ahdus Technology AI Practice",
-              "summary": "B2B demand and credibility engine turning deep-tech services into executive-friendly proof for buyers.",
+              "summary": "I turned AI delivery notes into polished marketing moments and UI touchpoints executives could act on.",
               "outcomes": [
-                "Built modular case study architecture to scale proof points across four practice areas.",
-                "Introduced interactive glossaries, calculators, and CTA routing that elevated MQI by 28%.",
-                "Rolled out editorial operating rhythm aligning engineering, delivery, and partner marketing."
+                "Shadowed solution architects, then mapped the buyer story in Figma wireframes and Adobe CC mockups before publishing inside WordPress.",
+                "Built a plain-language glossary and KPI highlights in Canva so executives could grasp the offer in one scroll.",
+                "Led fortnightly run-throughs with Google Slides agendas and Miro roadmaps to keep marketing and delivery aligned."
               ],
               "links": [
                 {
@@ -89,15 +89,63 @@
             },
             {
               "title": "Sheen Jeem x Shamojee Launch Stack",
-              "summary": "Dual-brand growth stack covering sensory commerce, influencer loops, and loyalty mechanics.",
+              "summary": "I choreographed launch weeks that felt like a party online and offline for two sensory sister brands.",
               "outcomes": [
-                "Produced omnichannel campaign kits spanning landing upgrades, video content, and creator partnerships.",
-                "Mapped retention journeys that doubled repeat purchase intent within the first 60 days.",
-                "Integrated Airtable + Looker dashboards so founders could action insights daily."
+                "Hosted pop-up tastings and filmed them on mobile, editing Capcut reels for Instagram, TikTok, and Snapchat drops.",
+                "Refreshed landing visuals and lookbooks in Figma and Canva, then pushed the updates live in WordPress to keep both brands distinct.",
+                "Set up WhatsApp broadcast journeys and Telegram VIP chats that doubled repeat purchase intent within 60 days."
               ],
               "links": [
                 { "label": "Shamojee", "href": "https://shamojee.pk/", "external": true },
                 { "label": "Sheen Jeem", "href": "https://sheenjeem.com/", "external": true }
+              ]
+            },
+            {
+              "title": "ITP Venture Studio Rebrand",
+              "summary": "I helped Aalto University's ITP program feel like a venture studio by pairing admissions storytelling with UI design.",
+              "outcomes": [
+                "Ran 15 stakeholder interviews and translated them into journey maps in Notion before sketching the new flow in Figma.",
+                "Rebuilt the WordPress admissions microsite and refreshed the Notion prospectus so copy, visuals, and CTAs matched the new promise.",
+                "Packaged the design system with Adobe CC mockups and Miro walkthroughs so faculty can ship cohort collateral solo."
+              ],
+              "links": [
+                {
+                  "label": "Figma system",
+                  "href": "https://www.figma.com/design/FBe4HSXENEMddB2P5kOTnD/ITP-redesign--V?node-id=0-1",
+                  "external": true
+                }
+              ]
+            },
+            {
+              "title": "Aaltoes Ecosystem Platform",
+              "summary": "I created a digital HQ that keeps Finland's biggest student entrepreneurship community moving.",
+              "outcomes": [
+                "Audited 40+ legacy Notion hubs and MS Office decks, then rebuilt the navigation and UI components in Figma.",
+                "Designed partner, event, and alumni modules with Canva iconography before handing them off as WordPress-ready sections.",
+                "Documented publishing rituals in Notion and shared Google Sheets checklists so the next board can launch pages in under a day."
+              ],
+              "links": [
+                {
+                  "label": "Figma prototype",
+                  "href": "https://www.figma.com/design/Zp5NCrWKbMF5L9wnBl7ewF/Aaltoes--25-SMM-Assets?node-id=0-1",
+                  "external": true
+                }
+              ]
+            },
+            {
+              "title": "Aaltoes 2024 Marketing Rhythm",
+              "summary": "I kept a 12-person student board in flow by running the marketing rhythm end-to-end.",
+              "outcomes": [
+                "Mapped a 52-week marketing calendar inside Miro with color-coded lanes for events, sponsors, and content drops.",
+                "Hosted weekly stand-ups with agendas and recaps captured in Google Docs so volunteers always knew their plays.",
+                "Queued Instagram story recaps and Telegram updates straight from our Notion status log to share wins without extra meetings."
+              ],
+              "links": [
+                {
+                  "label": "Miro board",
+                  "href": "https://miro.com/app/board/uXjVJsWuiFg=/?share_link_id=523153805882",
+                  "external": true
+                }
               ]
             }
           ]
@@ -192,29 +240,7 @@
           ]
         },
         
-        {
-          "id": "design-canva",
-          "type": "video",
-          "title": "Canva Magic",
-          "description": "Posters, graphics, and curations for different design arcs.",
-          "items": [
-            {
-              "title": "Khussa Launch Teaser",
-              "platform": "Canva",
-              "embedUrl": "https://www.canva.com/design/DAGVNVglL9I/watch?embed"
-            },
-            {
-              "title": "What are Star Maps?",
-              "platform": "Canva",
-              "embedUrl": "https://www.canva.com/design/DAEadEtnceE/view?embed"
-            },
-            {
-              "title": "Pizzeria IG Wall",
-              "platform": "Canva",
-              "embedUrl": "https://www.canva.com/design/DAEa-H9pqXU/view?embed"
-            }
-          ]
-        },
+        
         {
           "id": "design-aaltoes-year-round",
           "type": "video",
@@ -235,6 +261,26 @@
               "title": "Summer — Campus Builders Revival",
               "platform": "Aaltoes 2024",
               "file": "/media/aaltoes-summer-2024.mp4"
+            },
+            {
+              "title": "Eid Picnic Community Recap",
+              "platform": "Aalto Muslims",
+              "file": "/media/Aalto%20Muslims%20Video%20Eid%20Picnic.mp4"
+            },
+            {
+              "title": "Shamo Jee Launch Reel",
+              "platform": "Shamo Jee",
+              "file": "/media/Shamo%20Jee%20Reel%201.mp4"
+            },
+            {
+              "title": "Sheen Jeem Capsule Drop",
+              "platform": "Sheen Jeem",
+              "file": "/media/Sheen%20Jeem%20FB%20Video%201%20v1.mp4"
+            },
+            {
+              "title": "Aaltoes Finale — 3 Minute Recap",
+              "platform": "Aaltoes",
+              "file": "/media/AALTOES%20FINALE%203%20min.mp4"
             }
           ]
         }

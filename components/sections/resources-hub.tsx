@@ -10,6 +10,7 @@ import type { PortfolioSection } from "@/lib/content-schema";
 type ResourcesSection = Extract<PortfolioSection, { type: "resources" }>;
 type SectionCategory = ResourcesSection["categories"][number];
 type SectionResource = SectionCategory["resources"][number];
+type SectionCta = NonNullable<ResourcesSection["cta"]>;
 
 interface ResourcesHubSectionProps {
   section: ResourcesSection;
@@ -49,6 +50,7 @@ const searchIcon =
 export function ResourcesHubSection({ section }: ResourcesHubSectionProps) {
   const prefersReducedMotion = useReducedMotion();
   const shouldReduceMotion = prefersReducedMotion ?? false;
+  const enableSearch = section.enableSearch ?? true;
 
   const sharedListAnimation = shouldReduceMotion
     ? {}
@@ -133,7 +135,7 @@ export function ResourcesHubSection({ section }: ResourcesHubSectionProps) {
   );
 
   const [search, setSearch] = useState("");
-  const searchTerm = search.trim().toLowerCase();
+  const searchTerm = enableSearch ? search.trim().toLowerCase() : "";
 
   const normalizedResources = useMemo(
     () =>
@@ -180,7 +182,15 @@ export function ResourcesHubSection({ section }: ResourcesHubSectionProps) {
   const searchPlaceholder =
     section.searchPlaceholder ?? "Search by vibe, tool, or keyword...";
 
-  const showEmptyState = Boolean(searchTerm) && filteredResources.length === 0;
+  const showEmptyState = enableSearch && Boolean(searchTerm) && filteredResources.length === 0;
+
+  if (!enableSearch && section.cta) {
+    return (
+      <div className="mx-auto max-w-6xl">
+        <ResourceCtaBanner cta={section.cta} />
+      </div>
+    );
+  }
 
   if (!categories.length) {
     return (
@@ -206,13 +216,14 @@ export function ResourcesHubSection({ section }: ResourcesHubSectionProps) {
               🧰 Resource Radar
             </span>
             <p className="max-w-3xl font-creative text-base leading-relaxed text-foreground/75">
-              Browse curated drops from design wonderlands, modern web tooling,
-              and graphic alchemy kits. Pop a query into the search to surface
-              exactly what your next build craves.
+              {enableSearch
+                ? "Browse curated drops from design wonderlands, modern web tooling, and graphic alchemy kits. Pop a query into the search to surface exactly what your next build craves."
+                : "Browse curated drops from design wonderlands, modern web tooling, and graphic alchemy kits. Tap into the vault to remix the systems fueling my latest launch experiments."}
             </p>
           </div>
 
-          <div className="flex flex-col gap-3">
+          {enableSearch ? (
+            <div className="flex flex-col gap-3">
             <div className="relative w-full">
               <svg
                 aria-hidden
@@ -270,6 +281,8 @@ export function ResourcesHubSection({ section }: ResourcesHubSectionProps) {
               })}
             </div>
           </div>
+          ) : null}
+
         </motion.div>
 
         {showEmptyState ? (
@@ -443,5 +456,54 @@ function ResourceCard({ resource, categoryTitle, categoryIcon, accent, reduceMot
         </div>
       </Link>
     </motion.div>
+  );
+}
+
+interface ResourceCtaBannerProps {
+  cta: SectionCta;
+}
+
+function ResourceCtaBanner({ cta }: ResourceCtaBannerProps) {
+  const primaryTarget =
+    cta.action.external || cta.action.href.startsWith("http") ? "_blank" : undefined;
+  const primaryRel = primaryTarget ? "noreferrer" : undefined;
+
+  return (
+    <div className="relative overflow-hidden rounded-[2.75rem] border border-white/15 bg-[radial-gradient(110%_140%_at_0%_0%,rgba(124,58,237,0.32),transparent_65%),radial-gradient(150%_150%_at_100%_120%,rgba(20,184,166,0.32),transparent_60%)] p-6 sm:p-8 lg:p-10 shadow-[0_30px_90px_rgba(10,12,22,0.55)]">
+      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(120deg,rgba(255,255,255,0.12)_0%,rgba(255,255,255,0.02)_45%,rgba(255,255,255,0.08)_100%)] opacity-60 mix-blend-screen" />
+      <div className="pointer-events-none absolute -top-24 left-1/2 h-64 w-64 -translate-x-1/2 rounded-full bg-white/8 blur-3xl" />
+      <div className="pointer-events-none absolute -bottom-28 right-10 h-48 w-48 rounded-full bg-white/10 blur-3xl" />
+      <div className="relative z-10 flex flex-col gap-8 sm:flex-row sm:items-center sm:justify-between">
+        <div className="max-w-2xl space-y-4">
+          {cta.eyebrow ? (
+            <span className="text-xs font-semibold uppercase tracking-[0.42em] text-white/70">
+              {cta.eyebrow}
+            </span>
+          ) : null}
+          {cta.badge ? (
+            <span className="inline-flex w-fit items-center gap-2 rounded-full border border-white/35 bg-white/12 px-4 py-1.5 text-[0.6rem] font-semibold uppercase tracking-[0.35em] text-white/85">
+              {cta.badge}
+            </span>
+          ) : null}
+          <h3 className="font-display text-3xl text-white md:text-4xl">{cta.title}</h3>
+          {cta.description ? (
+            <p className="max-w-xl font-creative text-sm leading-relaxed text-white/80">
+              {cta.description}
+            </p>
+          ) : null}
+        </div>
+        <div className="flex w-full flex-col gap-3 sm:w-auto sm:items-end">
+          <Link
+            href={cta.action.href}
+            target={primaryTarget}
+            rel={primaryRel}
+            className="inline-flex items-center gap-3 rounded-full bg-white px-6 py-3 text-xs font-semibold uppercase tracking-[0.4em] text-[#140b35] shadow-[0_16px_45px_rgba(15,12,40,0.45)] transition hover:-translate-y-0.5 hover:bg-white/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#ffffffb3]"
+          >
+            {cta.action.label}
+            <span>↗</span>
+          </Link>
+        </div>
+      </div>
+    </div>
   );
 }

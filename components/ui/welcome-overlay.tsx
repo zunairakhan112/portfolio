@@ -71,7 +71,7 @@ export function WelcomeOverlay() {
   }, []);
 
   const statusMessage = useMemo(() => {
-    let current = STATUS_SEQUENCE[0].message;
+    let current: (typeof STATUS_SEQUENCE)[number]["message"] = STATUS_SEQUENCE[0].message;
     for (const step of STATUS_SEQUENCE) {
       if (progress >= step.threshold) {
         current = step.message;

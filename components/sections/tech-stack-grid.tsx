@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { createRef, useEffect, useRef, useState, type RefObject } from "react";
+import { createRef, useEffect, useMemo, useState, type RefObject } from "react";
 import { motion, Reorder } from "framer-motion";
 
 import type { PortfolioContent } from "@/lib/content-schema";
@@ -45,7 +45,7 @@ const TOOL_META: Record<string, { logo?: string; alt?: string }> = {
 };
 
 export function TechStackGrid({ techStack }: TechStackGridProps) {
-  const columnRefs = useRef<RefObject<HTMLDivElement>[]>([]);
+  const columnRefs = useMemo(() => techStack.columns.map(() => createRef<HTMLDivElement>()), [techStack.columns.length]);
 
   const [columnsState, setColumnsState] = useState<StackColumn[]>(() =>
     techStack.columns.map((column) => ({
@@ -71,12 +71,7 @@ export function TechStackGrid({ techStack }: TechStackGridProps) {
     );
   };
 
-  const getColumnRef = (index: number) => {
-    if (!columnRefs.current[index]) {
-      columnRefs.current[index] = createRef<HTMLDivElement>();
-    }
-    return columnRefs.current[index]!;
-  };
+  const getColumnRef = (index: number) => columnRefs[index]!;
 
   return (
     <motion.section

@@ -195,7 +195,7 @@ export function SiteHeader({ signature }: SiteHeaderProps) {
             transition={{ duration: 0.5, ease: "easeInOut" }}
           >
             <motion.div
-              className="absolute inset-0 bg-black/20"
+              className="absolute inset-0 bg-black/40"
               style={{
                 backdropFilter: "blur(8px)",
                 WebkitBackdropFilter: "blur(8px)",

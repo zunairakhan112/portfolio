@@ -15,7 +15,7 @@ interface StoryScrollSectionProps {
   section: StoryScrollSectionType;
 }
 
-const scrollEase = [0.22, 1, 0.36, 1] as const;
+const scrollEase = "cubic-bezier(0.22, 1, 0.36, 1)" as const;
 
 export function StoryScrollSection({ section }: StoryScrollSectionProps) {
   const containerRef = useRef<HTMLDivElement>(null);

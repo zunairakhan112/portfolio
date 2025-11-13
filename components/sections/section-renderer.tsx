@@ -88,6 +88,17 @@ export function SectionRenderer({ sections, variant = "stack" }: SectionRenderer
     const Component = componentMap[section.type];
     if (!Component) return null;
 
+    if (section.type === "resources") {
+      const resourcesSection = section as Extract<PortfolioSection, { type: "resources" }>;
+      if (!resourcesSection.enableSearch) {
+        return (
+          <section key={section.id} id={section.id} className="relative">
+            <Component section={section} />
+          </section>
+        );
+      }
+    }
+
     if (variant === "panel" && section.type === "resources") {
       return (
         <section key={section.id} id={section.id} className="relative">

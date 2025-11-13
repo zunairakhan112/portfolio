@@ -5,6 +5,7 @@ const linkHrefSchema = z
   .refine((value) => {
     if (value === "#") return true;
     if (value.startsWith("#")) return value.length > 1;
+    if (value.startsWith("/")) return true;
     if (value.startsWith("mailto:")) return value.length > "mailto:".length;
     if (value.startsWith("tel:")) return value.length > "tel:".length;
     try {
@@ -300,6 +301,15 @@ const resourcesSectionItemSchema = z.object({
   badge: z.string().optional()
 });
 
+const resourcesSectionCtaSchema = z.object({
+  eyebrow: z.string().optional(),
+  title: z.string(),
+  description: z.string().optional(),
+  badge: z.string().optional(),
+  action: baseLinkSchema,
+  secondaryAction: baseLinkSchema.optional()
+});
+
 const resourcesCategorySchema = z.object({
   id: z.string(),
   title: z.string(),
@@ -322,6 +332,8 @@ const resourcesSectionSchema = z.object({
   description: z.string().optional(),
   vibe: z.string().optional(),
   searchPlaceholder: z.string().optional(),
+  enableSearch: z.boolean().default(true),
+  cta: resourcesSectionCtaSchema.optional(),
   resources: z.array(resourcesSectionItemSchema).default([]),
   categories: z.array(resourcesCategorySchema).default([])
 });
