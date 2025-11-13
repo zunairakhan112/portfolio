@@ -112,6 +112,10 @@
     color: #fff;
   }
 
+  .welcome-overlay[data-complete="true"] {
+    animation: welcome-overlay-exit 0.7s ease-in-out forwards;
+  }
+
   .welcome-overlay::before,
   .welcome-overlay::after {
     position: absolute;
@@ -308,7 +312,7 @@
     opacity: 1;
   }
   100% {
-    opacity: 0;
+    opacity: 1;
   }
 }
 
@@ -329,17 +333,18 @@
   }
   68% {
     opacity: 1;
-    transform: translateY(-10px) scale(1.04);
+    transform: translateY(-6px) scale(1.02);
+    filter: blur(0);
   }
   85% {
-    opacity: 0.75;
-    transform: translateY(-24px) scale(1.06);
-    filter: blur(6px);
+    opacity: 1;
+    transform: translateY(-3px) scale(1.01);
+    filter: blur(0);
   }
   100% {
-    opacity: 0;
-    transform: translateY(-48px) scale(1.08);
-    filter: blur(16px);
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
   }
 }
 
@@ -362,21 +367,21 @@
     letter-spacing: 0.28em;
   }
   68% {
-    opacity: 0.94;
-    transform: translateY(-18px) scale(1.06);
+    opacity: 1;
+    transform: translateY(-12px) scale(1.03);
     letter-spacing: 0.3em;
   }
   85% {
-    opacity: 0.72;
-    transform: translateY(-28px) scale(1.07);
-    filter: blur(6px);
-    letter-spacing: 0.32em;
+    opacity: 1;
+    transform: translateY(-6px) scale(1.01);
+    filter: blur(0);
+    letter-spacing: 0.28em;
   }
   100% {
-    opacity: 0;
-    transform: translateY(-42px) scale(1.1);
-    filter: blur(14px);
-    letter-spacing: 0.36em;
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+    letter-spacing: 0.28em;
   }
 }
 
@@ -401,14 +406,14 @@
   }
   72% {
     opacity: 1;
-    transform: translateY(-6px) scale(1.02);
+    transform: translateY(-4px) scale(1.02);
     letter-spacing: 0.12em;
   }
   100% {
-    opacity: 0;
-    transform: translateY(-30px) scale(1.05);
-    filter: blur(12px);
-    letter-spacing: 0.18em;
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+    letter-spacing: 0.12em;
   }
 }
 
@@ -438,8 +443,8 @@
     transform: translateY(-8px) scale(1.01);
   }
   100% {
-    opacity: 0;
-    transform: translateY(-30px) scale(1.04);
+    opacity: 1;
+    transform: translateY(0) scale(1);
   }
 }
 
@@ -458,8 +463,8 @@
     transform: translateY(-4px);
   }
   100% {
-    opacity: 0;
-    transform: translateY(-18px);
+    opacity: 0.74;
+    transform: translateY(-4px);
   }
 }
 
@@ -478,8 +483,19 @@
     transform: translateY(-5px);
   }
   100% {
+    opacity: 0.9;
+    transform: translateY(-2px);
+  }
+}
+
+@keyframes welcome-overlay-exit {
+  0% {
+    opacity: 1;
+    filter: blur(0);
+  }
+  100% {
     opacity: 0;
-    transform: translateY(-20px);
+    filter: blur(18px);
   }
 }
 

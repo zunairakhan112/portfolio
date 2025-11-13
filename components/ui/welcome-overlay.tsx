@@ -25,6 +25,7 @@ const STATUS_SEQUENCE = [
 export function WelcomeOverlay() {
   const [isVisible, setIsVisible] = useState(true);
   const [progress, setProgress] = useState(0);
+  const [hasCompleted, setHasCompleted] = useState(false);
 
   useEffect(() => {
     if (typeof window === "undefined") {
@@ -42,7 +43,6 @@ export function WelcomeOverlay() {
 
     const start = performance.now();
     let rafId = 0;
-    let completionTimeout: number | undefined;
 
     const update = () => {
       const elapsed = performance.now() - start;
@@ -52,11 +52,8 @@ export function WelcomeOverlay() {
 
       if (elapsed < OVERLAY_DURATION) {
         rafId = window.requestAnimationFrame(update);
-      } else if (completionTimeout === undefined) {
+      } else {
         setProgress(100);
-        completionTimeout = window.setTimeout(() => {
-          setIsVisible(false);
-        }, 420);
       }
     };
 
@@ -64,11 +61,24 @@ export function WelcomeOverlay() {
 
     return () => {
       window.cancelAnimationFrame(rafId);
-      if (completionTimeout !== undefined) {
-        window.clearTimeout(completionTimeout);
-      }
     };
   }, []);
+
+  useEffect(() => {
+    if (progress < 100) {
+      return;
+    }
+
+    setHasCompleted(true);
+
+    const hideTimeout = window.setTimeout(() => {
+      setIsVisible(false);
+    }, 720);
+
+    return () => {
+      window.clearTimeout(hideTimeout);
+    };
+  }, [progress]);
 
   const statusMessage = useMemo(() => {
     let current: (typeof STATUS_SEQUENCE)[number]["message"] = STATUS_SEQUENCE[0].message;
@@ -87,7 +97,10 @@ export function WelcomeOverlay() {
   }
 
   return (
-    <div className="welcome-overlay fixed inset-0 z-[9998] flex items-center justify-center overflow-hidden">
+    <div
+      className="welcome-overlay fixed inset-0 z-[9998] flex items-center justify-center overflow-hidden"
+      data-complete={hasCompleted ? "true" : undefined}
+    >
       <div className="welcome-overlay__veil" aria-hidden="true" />
       <div className="welcome-overlay__halo" aria-hidden="true" />
 
