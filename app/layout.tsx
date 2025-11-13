@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import {
@@ -61,6 +61,17 @@ const signatureScript = Great_Vibes({
 const websiteJsonLd = getWebsiteJsonLd();
 const personJsonLd = getPersonJsonLd();
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+  viewportFit: "cover",
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#0F172A" },
+    { media: "(prefers-color-scheme: dark)", color: "#050B12" }
+  ]
+};
+
 export const metadata: Metadata = {
   metadataBase: new URL(`${siteUrl}/`),
   title: {
@@ -77,16 +88,6 @@ export const metadata: Metadata = {
     email: true,
     address: false,
     telephone: false
-  },
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#0F172A" },
-    { media: "(prefers-color-scheme: dark)", color: "#050B12" }
-  ],
-  viewport: {
-    width: "device-width",
-    initialScale: 1,
-    maximumScale: 5,
-    viewportFit: "cover"
   },
   appleWebApp: {
     capable: true,
@@ -133,9 +134,8 @@ export const metadata: Metadata = {
     googleBot: {
       index: true,
       follow: true,
-      maxSnippet: -1,
-      maxImagePreview: "large",
-      maxVideoPreview: -1
+      "max-image-preview": "large",
+      "max-video-preview": -1
     }
   },
   alternates: {

@@ -67,21 +67,6 @@ export const defaultOgImage = {
   alt: "Gold and aurora tones illustrating Zunaira Khan's immersive portfolio."
 };
 
-export function buildMetadataOverrides(overrides: Metadata = {}): Metadata {
-  return {
-    ...overrides,
-    openGraph: {
-      ...overrides.openGraph,
-      images: overrides.openGraph?.images ?? [defaultOgImage]
-    },
-    twitter: {
-      ...overrides.twitter,
-      card: overrides.twitter?.card ?? "summary_large_image",
-      images: overrides.twitter?.images ?? [defaultOgImage.url]
-    }
-  };
-}
-
 export function derivePageKeywords(page?: PageContent): string[] {
   const keywordSet = new Set<string>(defaultKeywords);
 
