@@ -3,6 +3,7 @@ import type { ReactElement } from "react";
 
 import { CaseStudySection } from "@/components/sections/case-study-section";
 import { ContactCtaSection } from "@/components/sections/contact-cta";
+import { CountriesSlideshowSection } from "@/components/sections/countries-slideshow";
 import { FigmaSection } from "@/components/sections/figma-section";
 import { GallerySection } from "@/components/sections/gallery-section";
 import { GrowthLabSection } from "@/components/sections/growth-lab-section";
@@ -14,12 +15,12 @@ import { MotionReelsSection } from "@/components/sections/motion-reels-section";
 import { PdfSection } from "@/components/sections/pdf-section";
 import { ResourcesHubSection } from "@/components/sections/resources-hub";
 import { SectionShell } from "@/components/sections/section-shell";
+import { StoryScrollSection } from "@/components/sections/story-scroll";
 import { VideoSection } from "@/components/sections/video-section";
 import { CapabilitiesGrid } from "@/components/sections/capabilities-grid";
 
-const componentMap: Record<
-  PortfolioSection["type"],
-  (props: { section: PortfolioSection }) => ReactElement | null
+const componentMap: Partial<
+  Record<PortfolioSection["type"], (props: { section: PortfolioSection }) => ReactElement | null>
 > = {
   figma: ({ section }) => (
     <FigmaSection section={section as Extract<PortfolioSection, { type: "figma" }>} />
@@ -62,6 +63,9 @@ const componentMap: Record<
   ),
   contact: ({ section }) => (
     <ContactCtaSection section={section as Extract<PortfolioSection, { type: "contact" }>} />
+  ),
+  "countries-slideshow": ({ section }) => (
+    <CountriesSlideshowSection section={section as Extract<PortfolioSection, { type: "countries-slideshow" }>} />
   )
 };
 
@@ -72,8 +76,25 @@ interface SectionRendererProps {
 
 export function SectionRenderer({ sections, variant = "stack" }: SectionRendererProps) {
   const content = sections.map((section) => {
+    if (section.type === "story-scroll") {
+      return (
+        <StoryScrollSection
+          key={section.id}
+          section={section as Extract<PortfolioSection, { type: "story-scroll" }>}
+        />
+      );
+    }
+
     const Component = componentMap[section.type];
     if (!Component) return null;
+
+    if (variant === "panel" && section.type === "resources") {
+      return (
+        <section key={section.id} id={section.id} className="relative">
+          <Component section={section} />
+        </section>
+      );
+    }
 
     return (
       <SectionShell

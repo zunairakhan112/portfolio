@@ -64,7 +64,7 @@ export default async function Page({ params }: PageProps) {
   return (
     <>
       <SiteHeader signature={portfolioContent.signature} />
-      <main className="relative space-y-24 pb-24">
+      <main className="relative space-y-24">
         <PageHero
           title={heroTitle}
           subtitle={heroSubtitle}

@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 
 import type { PortfolioSection } from "@/lib/content-schema";
@@ -27,14 +28,35 @@ export function MiroSection({ section }: MiroSectionProps) {
         >
           <Card className="overflow-hidden rounded-[2.8rem] border-white/15 bg-gradient-to-br from-white/14 via-white/6 to-white/8 shadow-[0_30px_100px_rgba(7,7,7,0.4)]">
             <CardHeader className="space-y-4">
-              <CardTitle className="font-display text-2xl text-foreground">
-                {item.title}
-              </CardTitle>
-              {item.description ? (
-                <CardDescription className="font-creative text-base text-muted-foreground/85">
-                  {item.description}
-                </CardDescription>
-              ) : null}
+              <div className="flex items-start justify-between gap-4">
+                <div className="space-y-4">
+                  <CardTitle className="font-display text-2xl text-foreground">
+                    {item.title}
+                  </CardTitle>
+                  {item.description ? (
+                    <CardDescription className="font-creative text-base text-muted-foreground/85">
+                      {item.description}
+                    </CardDescription>
+                  ) : null}
+                </div>
+                {item.logos?.length ? (
+                  <div className="ml-auto flex items-start gap-3">
+                    {item.logos.map((logo) => (
+                      <div key={logo.src} className="relative h-9 w-9 sm:h-11 sm:w-11">
+                        <Image
+                          src={logo.src}
+                          alt={logo.alt ?? `${item.title} logo`}
+                          fill
+                          sizes="72px"
+                          className="object-contain"
+                          priority={index === 0}
+                        />
+                      </div>
+                    ))}
+                  </div>
+                ) : null}
+              </div>
+
               <div className="flex flex-wrap gap-2">
                 {item.tags?.map((tag) => (
                   <Badge
@@ -51,7 +73,11 @@ export function MiroSection({ section }: MiroSectionProps) {
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(250,204,21,0.18),_transparent_65%)]" />
               <iframe
                 title={item.title}
-                src={`${item.embedUrl}?autoplay=yep&transparent=1`}
+                src={
+                  item.embedUrl.includes("?")
+                    ? `${item.embedUrl}&autoplay=yep&transparent=1`
+                    : `${item.embedUrl}?autoplay=yep&transparent=1`
+                }
                 frameBorder="0"
                 allow="fullscreen; clipboard-read; clipboard-write"
                 className="relative z-10 h-full w-full rounded-[2rem]"

@@ -115,6 +115,38 @@
       },
       "sections": [
         {
+          "id": "design-philosophy",
+          "type": "manifesto",
+          "title": "Design Philosophy",
+          "description": "Frameworks that keep experimentation grounded in empathy and craft.",
+          "tenets": [
+            {
+              "title": "Double Diamond: Discover to Define",
+              "detail": "Open wide with research sprints, customer interviews, and competitive scans before tightening insights into a sharp problem statement."
+            },
+            {
+              "title": "Double Diamond: Develop to Deliver",
+              "detail": "Prototype fast, test with real feedback, and ship the simplest version that proves value before scaling fidelity."
+            },
+            {
+              "title": "Apple Design Language: Clarity First",
+              "detail": "Use hierarchy, generous white space, and purposeful motion so the audience always knows what matters most."
+            },
+            {
+              "title": "Apple Design Language: Craft Fuels Emotion",
+              "detail": "Pair tactile visuals with crisp microcopy and sound design to evoke feeling while keeping the experience effortless."
+            },
+            {
+              "title": "Netflix Design: Personalization at Scale",
+              "detail": "Prototype interfaces that flex in real time—copy, visuals, and calls-to-action adapt based on what each viewer has watched, loved, or skipped."
+            },
+            {
+              "title": "Netflix Design: Playback Without Friction",
+              "detail": "Treat loading states, performance budgets, and accessibility as part of the core story so content feels instant and inclusive on every device."
+            }
+          ]
+        },
+        {
           "id": "design-figma",
           "type": "figma",
           "title": "Figma Worlds",
@@ -124,34 +156,60 @@
               "title": "ITP Venture Studio Redesign",
               "description": "Funnel-aware rebrand aligning admissions, partner engagement, and alumni storytelling for Aalto ITP.",
               "tags": ["Product Marketing", "Admissions", "Experience Design"],
+              "logos": [
+                { "src": "/logos/Logo-Aalto University.jpeg", "alt": "Aalto University" },
+                { "src": "/logos/Logo-Figma.svg", "alt": "Figma" }
+              ],
               "embedUrl": "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2FFBe4HSXENEMddB2P5kOTnD%2FITP-redesign--V%3Fnode-id%3D0-1"
             },
             {
               "title": "Aaltoes Ecosystem Platform",
               "description": "Community operating system uniting programming, content, and partner activations for Aaltoes.",
               "tags": ["Community Marketing", "Content Strategy", "UX Systems"],
+              "logos": [
+                { "src": "/logos/Logo-Aaltoes.png", "alt": "Aaltoes" },
+                { "src": "/logos/Logo-Figma.svg", "alt": "Figma" }
+              ],
               "embedUrl": "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2FZp5NCrWKbMF5L9wnBl7ewF%2FAaltoes--25-SMM-Assets%3Fnode-id%3D0-1%26t%3Dp8s6Ufqiyx4KjHgf-1"
             }
           ]
         },
         {
-          "id": "design-canva",
-          "type": "video",
-          "title": "Motion & Campaign Capsules",
-          "description": "Vertical reels for paid + organic drops across LinkedIn, TikTok, and in-product surfaces.",
+          "id": "design-miro-world",
+          "type": "miro",
+          "title": "Miro Worlds",
+          "description": "Planning hubs where marketing, branding, and communications rituals stay in sync.",
           "items": [
             {
-              "title": "Writeomatic Launch Teaser",
+              "title": "Aaltoes 2024 Marketing, Branding & Comms Calendar",
+              "description": "Weekly operating view for Aaltoes' 2024 board covering launches, content drops, and community touchpoints.",
+              "tags": ["Marketing Ops", "Campaign Planning", "Aaltoes"],
+              "embedUrl": "https://miro.com/app/board/uXjVJsWuiFg=/?share_link_id=523153805882",
+              "logos": [
+                { "src": "/logos/Logo-Miro.png", "alt": "Miro" }
+              ]
+            }
+          ]
+        },
+        
+        {
+          "id": "design-canva",
+          "type": "video",
+          "title": "Canva Magic",
+          "description": "Posters, graphics, and curations for different design arcs.",
+          "items": [
+            {
+              "title": "Khussa Launch Teaser",
               "platform": "Canva",
               "embedUrl": "https://www.canva.com/design/DAGVNVglL9I/watch?embed"
             },
             {
-              "title": "Couture Motion Lookbook",
+              "title": "What are Star Maps?",
               "platform": "Canva",
               "embedUrl": "https://www.canva.com/design/DAEadEtnceE/view?embed"
             },
             {
-              "title": "Sensory Dining Campaign",
+              "title": "Pizzeria IG Wall",
               "platform": "Canva",
               "embedUrl": "https://www.canva.com/design/DAEa-H9pqXU/view?embed"
             }
@@ -160,8 +218,8 @@
         {
           "id": "design-aaltoes-year-round",
           "type": "video",
-          "title": "Aaltoes Year-Round Campaigns",
-          "description": "Seasonal highlights capturing Aaltoes community energy across flagship programs, spotlights, and regional storytelling.",
+          "title": "Reels & Video Storytelling",
+          "description": "Portrait reels in the wild—designed for socials, community updates, and sponsor recaps.",
           "items": [
             {
               "title": "Winter — Slush Momentum Pulse",
@@ -501,7 +559,7 @@
       "description": "Templates, scripts, and playbooks for marketers, designers, and founders building their next growth wave.",
       "slug": "resources",
       "hero": {
-        "title": "Resources & Ritual Kits",
+        "title": "Resources & Toolkits",
         "subtitle": "Grab the same systems I rely on for go-to-market, lifecycle, and storytelling.",
         "background": "glacier"
       },
@@ -511,27 +569,519 @@
           "type": "resources",
           "title": "Open Source Launch Tools",
           "description": "Growth playbooks, motion kits, and automation templates tuned for speed.",
-          "resources": [
+          "vibe": "playful",
+          "searchPlaceholder": "Search for \"dark mode\", \"automation\", or \"figma\"...",
+          "categories": [
             {
-              "title": "Launch Garden Blueprint (Miro)",
-              "description": "A 45-day sprint system covering growth loops, rituals, and KPI cadences.",
-              "link": "https://miro.com/app/live-embed/uXjVJsWuiFg=/?share_link_id=315477845177",
-              "type": "template",
-              "icon": "🌿"
+              "id": "design-resources",
+              "title": "Design Resources",
+              "description": "Vaults, directories, and inspiration engines to kickstart your next visual story.",
+              "icon": "🎨",
+              "accent": {
+                "primary": "rgba(244,173,255,0.45)",
+                "secondary": "rgba(143,190,255,0.32)",
+                "tertiary": "rgba(255,231,186,0.3)"
+              },
+              "resources": [
+                {
+                  "title": "Typecolony",
+                  "description": "Curated type pairings and moodboards for typography-obsessed teams.",
+                  "link": "https://typecolony.com",
+                  "type": "Typography Directory",
+                  "icon": "🔤",
+                  "tags": ["typography", "pairings", "moodboard"]
+                },
+                {
+                  "title": "Design Jobs Board",
+                  "description": "Global design job listings with thoughtful filters for studios and remote adventures.",
+                  "link": "https://designjobsboard.com",
+                  "type": "Job Board",
+                  "icon": "🛠️",
+                  "tags": ["career", "hiring", "opportunities"]
+                },
+                {
+                  "title": "gooddesign.tools",
+                  "description": "A living index of design tools, plugins, and workflows sourced from the community.",
+                  "link": "https://gooddesign.tools/all-tools",
+                  "type": "Tool Index",
+                  "icon": "🧰",
+                  "tags": ["tooling", "plugins", "index"]
+                },
+                {
+                  "title": "cmd.supply",
+                  "description": "Terminal-inspired directory of design gadgets, decks, and templates.",
+                  "link": "https://cmd.supply",
+                  "type": "Inspiration Library",
+                  "icon": "⌨️",
+                  "tags": ["cli", "catalog", "templates"]
+                },
+                {
+                  "title": "404s.design",
+                  "description": "Celebrate the best 404 pages with clever microcopy and delightful recovery paths.",
+                  "link": "https://404s.design",
+                  "type": "Pattern Gallery",
+                  "icon": "🚧",
+                  "tags": ["pattern", "microcopy", "ux"]
+                },
+                {
+                  "title": "dark.design",
+                  "description": "Curated showcase of moody, high-contrast interfaces living their best dark-mode life.",
+                  "link": "https://dark.design",
+                  "type": "Design Gallery",
+                  "icon": "🌑",
+                  "tags": ["dark", "ui", "contrast"]
+                },
+                {
+                  "title": "Mosaic Media",
+                  "description": "Free Framer templates and sections ready to remix for content-rich landing pages.",
+                  "link": "https://mosaicmedia.framer.website",
+                  "type": "Template Gallery",
+                  "icon": "🧩",
+                  "tags": ["framer", "templates", "landing"]
+                },
+                {
+                  "title": "minimal.gallery",
+                  "description": "A museum of clean, minimal digital experiences for when less is loudly more.",
+                  "link": "https://minimal.gallery",
+                  "type": "Design Gallery",
+                  "icon": "🪶",
+                  "tags": ["minimal", "ui", "curation"]
+                },
+                {
+                  "title": "Dark Mode Design",
+                  "description": "A collected index of dark UI patterns with color values and accessibility notes.",
+                  "link": "https://darkmodedesign.com",
+                  "type": "Pattern Library",
+                  "icon": "🌘",
+                  "tags": ["dark", "accessibility", "pattern"]
+                },
+                {
+                  "title": "Charco Design Resources",
+                  "description": "Illustration systems, icon packs, and resource bundles from Charco's design universe.",
+                  "link": "https://charco.design/design-resources-tools",
+                  "type": "Illustration Library",
+                  "icon": "🎯",
+                  "tags": ["illustrations", "icons", "bundles"]
+                },
+                {
+                  "title": "Media Cheat Sheet",
+                  "description": "Rapid reference for social media specs, safe zones, and content dimensions.",
+                  "link": "https://mediacheatsheet.com",
+                  "type": "Reference Guide",
+                  "icon": "🧾",
+                  "tags": ["social", "dimensions", "specs"]
+                },
+                {
+                  "title": "Schema Supply",
+                  "description": "Design system starter kits, research reports, and templates for scaling teams.",
+                  "link": "https://schema.supply",
+                  "type": "Design System",
+                  "icon": "📐",
+                  "tags": ["design-system", "templates", "research"]
+                },
+                {
+                  "title": "trending.design",
+                  "description": "Realtime feed of shots and trends bubbling across Dribbble, Behance, and beyond.",
+                  "link": "https://trending.design",
+                  "type": "Inspiration Feed",
+                  "icon": "📈",
+                  "tags": ["trends", "dribbble", "behance"]
+                },
+                {
+                  "title": "Design Beyond Barriers",
+                  "description": "Accessibility-first resources, courses, and checklists for inclusive design ops.",
+                  "link": "https://designbeyondbarriers.com",
+                  "type": "Accessibility Toolkit",
+                  "icon": "♿",
+                  "tags": ["accessibility", "inclusive", "guides"]
+                },
+                {
+                  "title": "shoot.design",
+                  "description": "Lighting setups, set design inspo, and shoot breakdowns for product photography.",
+                  "link": "https://shoot.design",
+                  "type": "Photography Moodboard",
+                  "icon": "📸",
+                  "tags": ["photography", "lighting", "product"]
+                },
+                {
+                  "title": "Supahero",
+                  "description": "Motion-ready UI components and marketing sections you can copy into Figma.",
+                  "link": "https://supahero.io",
+                  "type": "Component Kit",
+                  "icon": "🦸",
+                  "tags": ["components", "motion", "figma"]
+                },
+                {
+                  "title": "Pure Landing",
+                  "description": "Opinionated landing page teardowns with what to steal and what to skip.",
+                  "link": "https://purelanding.page",
+                  "type": "Landing Gallery",
+                  "icon": "🪂",
+                  "tags": ["landing", "teardown", "copywriting"]
+                },
+                {
+                  "title": "Inspo Page",
+                  "description": "One-stop inspiration wall pulling typography, color, and layout references together.",
+                  "link": "https://inspo.page",
+                  "type": "Inspiration Hub",
+                  "icon": "🧠",
+                  "tags": ["moodboard", "layout", "palette"]
+                }
+              ]
             },
             {
-              "title": "Writeomatic Content Engine",
-              "description": "AI-supported content pipeline for social, email, and short-form video teams.",
-              "link": "https://writeomatic.app/",
-          "type": "tool",
-              "icon": "⚡"
-        },
-        {
-              "title": "ITP Venture Studio Figma Kit",
-              "description": "Figma component system for cinematic storytelling across innovation programs.",
-              "link": "https://www.figma.com/design/FBe4HSXENEMddB2P5kOTnD/ITP-redesign--V?node-id=0-1",
-              "type": "template",
-              "icon": "🎨"
+              "id": "web-resources",
+              "title": "Web Resources",
+              "description": "Modern web toys, automation engines, and docs platforms for builders on the move.",
+              "icon": "🕸️",
+              "accent": {
+                "primary": "rgba(170,231,255,0.45)",
+                "secondary": "rgba(116,196,253,0.3)",
+                "tertiary": "rgba(186,255,224,0.28)"
+              },
+              "resources": [
+                {
+                  "title": "Memos",
+                  "description": "Self-hostable second brain for voice, screenshots, and quick capture workflows.",
+                  "link": "https://usememos.com",
+                  "type": "Knowledge Tool",
+                  "icon": "📝",
+                  "tags": ["notes", "self-hosted", "productivity"]
+                },
+                {
+                  "title": "n8n",
+                  "description": "Extendable automation platform to wire APIs, databases, and SaaS flows without fuss.",
+                  "link": "https://n8n.io",
+                  "type": "Automation Studio",
+                  "icon": "🤖",
+                  "tags": ["automation", "workflow", "integration"]
+                },
+                {
+                  "title": "Flowise AI",
+                  "description": "Drag-and-drop builder for launching AI chatbots, agents, and data-aware flows.",
+                  "link": "https://flowiseai.com",
+                  "type": "AI Builder",
+                  "icon": "🧠",
+                  "tags": ["ai", "chatbot", "builder"]
+                },
+                {
+                  "title": "ElevenLabs UI",
+                  "description": "Voice UI playground for prototyping ElevenLabs interfaces and audio experiences.",
+                  "link": "https://ui.elevenlabs.io",
+                  "type": "Voice UI",
+                  "icon": "🎙️",
+                  "tags": ["voice", "ui", "audio"]
+                },
+                {
+                  "title": "Aether CSS",
+                  "description": "Micro CSS framework with animated components and dreamy gradients baked in.",
+                  "link": "https://aethercss.lovable.app",
+                  "type": "CSS Framework",
+                  "icon": "🎐",
+                  "tags": ["css", "framework", "animation"]
+                },
+                {
+                  "title": "Lineicons",
+                  "description": "Huge icon compendium with consistent stroke weights and Figma-ready downloads.",
+                  "link": "https://lineicons.com",
+                  "type": "Icon Library",
+                  "icon": "📚",
+                  "tags": ["icons", "vector", "library"]
+                },
+                {
+                  "title": "shadcn Themer",
+                  "description": "Instantly recolor shadcn/ui components with synced tokens and exportable themes.",
+                  "link": "https://shadcnthemer.com",
+                  "type": "Theme Generator",
+                  "icon": "🎨",
+                  "tags": ["shadcn", "theme", "tokens"]
+                },
+                {
+                  "title": "Plate.js",
+                  "description": "Headless rich text editor primitives built on Slate for beautiful content tooling.",
+                  "link": "https://platejs.org",
+                  "type": "Editor Framework",
+                  "icon": "🧾",
+                  "tags": ["editor", "slate", "headless"]
+                },
+                {
+                  "title": "Smooth UI",
+                  "description": "Motion-focused React component kit for fluid cards, menus, and transitions.",
+                  "link": "https://smoothui.dev",
+                  "type": "Component Library",
+                  "icon": "💫",
+                  "tags": ["motion", "react", "components"]
+                },
+                {
+                  "title": "Buou UI Docs",
+                  "description": "Opinionated design system docs packed with UX guidelines and component anatomy.",
+                  "link": "https://buouui.com/docs",
+                  "type": "Design System",
+                  "icon": "📘",
+                  "tags": ["design-system", "documentation", "ux"]
+                },
+                {
+                  "title": "Myna UI",
+                  "description": "Accessible UI patterns with copy-ready content and tokens for fast shipping.",
+                  "link": "https://mynaui.com",
+                  "type": "Component Library",
+                  "icon": "♾️",
+                  "tags": ["accessibility", "components", "tokens"]
+                },
+                {
+                  "title": "21st.dev",
+                  "description": "CLI and templates for shipping full-stack projects with batteries included.",
+                  "link": "https://21st.dev",
+                  "type": "Dev Toolkit",
+                  "icon": "🚀",
+                  "tags": ["cli", "templates", "full-stack"]
+                },
+                {
+                  "title": "Mintlify",
+                  "description": "Docs-as-code platform with AI assist, changelog magic, and effortless hosting.",
+                  "link": "https://mintlify.com",
+                  "type": "Documentation Platform",
+                  "icon": "📗",
+                  "tags": ["docs", "ai", "developer"]
+                }
+              ]
+            },
+            {
+              "id": "graphic-tools",
+              "title": "Graphic Tools",
+              "description": "Generators, freebies, and crafty utilities for motion, print, and digital storytelling.",
+              "icon": "🪄",
+              "accent": {
+                "primary": "rgba(255,200,173,0.42)",
+                "secondary": "rgba(255,160,205,0.3)",
+                "tertiary": "rgba(173,220,255,0.28)"
+              },
+              "resources": [
+                {
+                  "title": "Halftone Studio",
+                  "description": "Generate punchy halftone overlays with grain controls and export presets.",
+                  "link": "https://halftone.xoihazard.com",
+                  "type": "Texture Generator",
+                  "icon": "🟣",
+                  "tags": ["halftone", "texture", "grain"]
+                },
+                {
+                  "title": "Pixsellz Freebies",
+                  "description": "Free UI kits, mockups, and icon packs from Pixsellz to supercharge decks.",
+                  "link": "https://pixsellz.io/#freebies",
+                  "type": "Asset Pack",
+                  "icon": "🎁",
+                  "tags": ["mockups", "ui-kit", "freebie"]
+                },
+                {
+                  "title": "Timezones Digital",
+                  "description": "Beautiful interactive timezone visualizer for remote teams and scheduling.",
+                  "link": "https://timezones.digital",
+                  "type": "Utility",
+                  "icon": "🕒",
+                  "tags": ["timezone", "remote", "planning"]
+                },
+                {
+                  "title": "Grafik Stash",
+                  "description": "Eclectic stash of gradients, posters, and experiments from Grafik's classroom.",
+                  "link": "https://grafikstash.com/class/freebies",
+                  "type": "Asset Library",
+                  "icon": "🪄",
+                  "tags": ["gradient", "poster", "asset"]
+                },
+                {
+                  "title": "Colors & Fonts",
+                  "description": "Pair color palettes with typography recommendations and export-ready styles.",
+                  "link": "https://colorsandfonts.com",
+                  "type": "Color Tool",
+                  "icon": "🎨",
+                  "tags": ["palette", "typography", "style"]
+                },
+                {
+                  "title": "OpenCut",
+                  "description": "Laser-cut ready patterns and open-source projects with material presets.",
+                  "link": "https://opencut.app",
+                  "type": "Maker Tool",
+                  "icon": "✂️",
+                  "tags": ["maker", "laser", "pattern"]
+                },
+                {
+                  "title": "Fancy Components",
+                  "description": "Fancy animated Tailwind components with playful interactions baked in.",
+                  "link": "https://fancycomponents.dev",
+                  "type": "Component Library",
+                  "icon": "💎",
+                  "tags": ["tailwind", "animation", "components"]
+                },
+                {
+                  "title": "Invoicely",
+                  "description": "Generate designer-friendly invoices and receipts with fun gradients.",
+                  "link": "https://invoicely.gg",
+                  "type": "Generator",
+                  "icon": "🧾",
+                  "tags": ["invoice", "finance", "branding"]
+                },
+                {
+                  "title": "NativeWind",
+                  "description": "Use Tailwind classes directly in React Native for consistent styling.",
+                  "link": "https://nativewind.dev",
+                  "type": "Framework",
+                  "icon": "🌿",
+                  "tags": ["react-native", "tailwind", "styling"]
+                },
+                {
+                  "title": "React Native Reusables",
+                  "description": "Reusable React Native components and patterns for production-ready apps.",
+                  "link": "https://reactnativereusables.com",
+                  "type": "Component Kit",
+                  "icon": "📱",
+                  "tags": ["react-native", "components", "patterns"]
+                },
+                {
+                  "title": "Figma Contrast Checker",
+                  "description": "Figma's official contrast checker for nailing AA and AAA combos.",
+                  "link": "https://www.figma.com/color-contrast-checker",
+                  "type": "Accessibility Tool",
+                  "icon": "⚖️",
+                  "tags": ["contrast", "accessibility", "figma"]
+                },
+                {
+                  "title": "Scale by Hayk",
+                  "description": "Generate harmonious spacing, sizing, and typographic scales in seconds.",
+                  "link": "https://hihayk.github.io/scale",
+                  "type": "Layout Tool",
+                  "icon": "📏",
+                  "tags": ["scale", "spacing", "ratio"]
+                },
+                {
+                  "title": "Copybook",
+                  "description": "Swipe file of clever microcopy snippets for buttons, errors, and onboarding.",
+                  "link": "https://copybook.me",
+                  "type": "Copywriting Vault",
+                  "icon": "✍️",
+                  "tags": ["copy", "ux", "microcopy"]
+                },
+                {
+                  "title": "Paper Design",
+                  "description": "Printable canvases and dot grids for sketching flows the analog way.",
+                  "link": "https://paper.design",
+                  "type": "Paper Prototyping",
+                  "icon": "📄",
+                  "tags": ["sketch", "analog", "prototype"]
+                },
+                {
+                  "title": "Space Type Generator",
+                  "description": "Bend typography into spacey forms with instant exports for posters.",
+                  "link": "https://spacetypegenerator.com",
+                  "type": "Type Tool",
+                  "icon": "🌌",
+                  "tags": ["typography", "poster", "experimental"]
+                },
+                {
+                  "title": "Endless Tools",
+                  "description": "Constantly updated directory of design, dev, and marketing tools.",
+                  "link": "https://endlesstools.io",
+                  "type": "Tool Directory",
+                  "icon": "🌀",
+                  "tags": ["directory", "tooling", "updates"]
+                },
+                {
+                  "title": "Brandbird",
+                  "description": "Drop screenshots into playful frames for social posts and changelogs.",
+                  "link": "https://brandbird.app",
+                  "type": "Mockup Tool",
+                  "icon": "🪩",
+                  "tags": ["mockup", "social", "screenshot"]
+                },
+                {
+                  "title": "Items Design",
+                  "description": "Handpicked color palettes, type pairings, and UI sets ready to remix.",
+                  "link": "https://items.design",
+                  "type": "Asset Library",
+                  "icon": "📦",
+                  "tags": ["palette", "type", "ui"]
+                },
+                {
+                  "title": "Fliiipbook",
+                  "description": "Create animated flipbook style decks for launches and storytelling.",
+                  "link": "https://fliiipbook.com",
+                  "type": "Presentation Tool",
+                  "icon": "📖",
+                  "tags": ["presentation", "animation", "story"]
+                },
+                {
+                  "title": "Path to Design",
+                  "description": "Guided curriculum and resources for growing your design career.",
+                  "link": "https://pathtodesign.com",
+                  "type": "Learning Hub",
+                  "icon": "🗺️",
+                  "tags": ["career", "learning", "design"]
+                },
+                {
+                  "title": "MagicPattern Dither",
+                  "description": "Craft dithered textures and gradients with pixel-perfect control.",
+                  "link": "https://magicpattern.design/tools/dither-generator",
+                  "type": "Texture Generator",
+                  "icon": "🎞️",
+                  "tags": ["dither", "texture", "pattern"]
+                },
+                {
+                  "title": "Image Tools Pro",
+                  "description": "Swiss-army toolkit for resizing, compressing, and enhancing visuals.",
+                  "link": "https://imagetoolspro.com",
+                  "type": "Utility Suite",
+                  "icon": "🛠️",
+                  "tags": ["image", "optimize", "batch"]
+                },
+                {
+                  "title": "Frontend Practice",
+                  "description": "Practice briefs and wireframes to sharpen frontend and product sense.",
+                  "link": "https://frontendpractice.com",
+                  "type": "Learning Platform",
+                  "icon": "🏗️",
+                  "tags": ["frontend", "practice", "briefs"]
+                },
+                {
+                  "title": "UI.dev",
+                  "description": "Video courses and tutorials to master modern frontend architecture.",
+                  "link": "https://ui.dev",
+                  "type": "Education",
+                  "icon": "🎓",
+                  "tags": ["javascript", "react", "learning"]
+                },
+                {
+                  "title": "Popsy Illustrations",
+                  "description": "Friendly illustration packs with bold gradients and customizable colors.",
+                  "link": "https://popsy.co/illustrations",
+                  "type": "Illustrations",
+                  "icon": "🖌️",
+                  "tags": ["illustration", "gradient", "assets"]
+                },
+                {
+                  "title": "Interfaces by Rauno",
+                  "description": "Design studies dissecting world-class UI patterns and motion.",
+                  "link": "https://interfaces.rauno.me",
+                  "type": "UI Patterns",
+                  "icon": "🧭",
+                  "tags": ["ui", "analysis", "motion"]
+                },
+                {
+                  "title": "Ray.so",
+                  "description": "Turn code snippets into share-worthy posters with themes and shadows.",
+                  "link": "https://ray.so",
+                  "type": "Generator",
+                  "icon": "💡",
+                  "tags": ["code", "share", "visual"]
+                },
+                {
+                  "title": "design.dev",
+                  "description": "Design engineering articles, tools, and resources for building polished products.",
+                  "link": "https://design.dev",
+                  "type": "Education",
+                  "icon": "🧪",
+                  "tags": ["design-engineering", "resources", "build"]
+                }
+              ]
             }
           ]
         }
@@ -548,34 +1098,142 @@
       },
       "sections": [
         {
-          "id": "story-arc",
-          "type": "hero-narrative",
-          "title": "Origins and Experiments",
-          "description": "Milestones that shaped my obsession with measurable, story-driven growth.",
-          "narrative": [
+          "id": "kintsugi-scroll",
+          "type": "story-scroll",
+          "title": "The Gold Between Every Move",
+          "description": "Scroll through the sideways chapters that turned heartbreak, migration, and hospitality shifts into my ability to see the golden lining in every turn of the adventure called life.",
+          "slides": [
             {
-              "heading": "Hospitality instincts meet growth systems",
-              "body": "Running a family restaurant taught me to read customers in real time, design experiences, and keep operations tight. That service-first mindset anchors every growth play I craft today."
+              "id": "uae-roots",
+              "eyebrow": "1999 – 2008",
+              "title": "Raised Between Dunes and Bazaars",
+              "body": "I was born in the United Arab Emirates, where shimmering skylines and expat energy shaped my first five years. When we moved to Pakistan for four more, bustling bazaars and family rituals taught me how to listen closely, read rooms fast, and find home wherever we landed.",
+              "image": {
+                "src": "/media/Kintsugi 1.avif",
+                "alt": "Kintsugi ceramic glowing with warm desert light"
+              },
+              "accent": "rgba(255,196,123,0.35)",
+              "background": "bg-gradient-to-br from-[#201417] via-[#101420] to-[#06070c]"
             },
             {
-              "heading": "Designing living brands",
-              "body": "I pivoted into digital design to package those insights—building Figma systems, landing pages, and motion narratives that make value propositions unforgettable."
+              "id": "finland-shift",
+              "eyebrow": "2008 – 2012",
+              "title": "A 12-Year-Old Starting Over",
+              "body": "At twelve, my brother and I followed our father to Finland after our parents divorced. A new culture, a new language, a small apartment—everyday life turned into translation. I absorbed Finnish on buses, in classrooms, and through neighbors, determined not to let the distance between worlds define me.",
+              "accent": "rgba(130,214,255,0.28)",
+              "backgroundImage": "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1600&q=80",
+              "resource": {
+                "label": "InfoFinland Support Portal",
+                "href": "https://www.infofinland.fi/en/living-in-finland",
+                "description": "Guides that helped immigrants like me decode daily life."
+              },
+              "quote": {
+                "text": "Change hurt, but I let it stretch me—not shrink me.",
+                "author": "Zunaira"
+              }
             },
             {
-              "heading": "Building launch labs for founders",
-              "body": "Now I partner with founders and teams to co-build launch labs—embedding AI copilots, growth loops, and storytelling frameworks so revenue keeps compounding."
+              "id": "hospitality-hustle",
+              "eyebrow": "2012 – 2016",
+              "title": "Hospitality Became My Classroom",
+              "body": "By fourteen I was working part-time while keeping up with school. At sixteen I ran my father’s restaurant—ordering supplies, balancing books, greeting guests, and keeping the team calm during rushes. Home meant tucking my brother in, managing homework, and making sure the fridge stayed full.",
+              "image": {
+                "src": "/media/Kintsugi 2.jpg",
+                "alt": "Kintsugi ceramic repaired with golden seams"
+              },
+              "accent": "rgba(241,174,255,0.28)",
+              "background": "bg-gradient-to-br from-[#140f1e] via-[#111325] to-[#090911]",
+              "quote": {
+                "text": "Work, family, and school didn’t pull me apart—they taught me how to orchestrate chaos with care.",
+                "author": "Zunaira"
+              }
+            },
+            {
+              "id": "kintsugi-mindset",
+              "eyebrow": "Today",
+              "title": "Kintsugi as a Life Operating System",
+              "body": "Every fracture became a seam I could reinforce. I see my journey like the art of kintsugi—broken pieces repaired with gold, more intricate and resilient than before. It’s how I design growth systems now: weaving empathy, grit, and strategy into stories that make people feel held.",
+              "accent": "rgba(255,215,151,0.4)",
+              "backgroundImage": "https://images.unsplash.com/photo-1512209525232-05b127d7ed90?auto=format&fit=crop&w=1600&q=80",
+              "quote": {
+                "text": "Every challenge poured more gold into the cracks, turning survival into craft.",
+                "author": "Zunaira Khan"
+              },
+              "resource": {
+                "label": "Kintsugi Origin Story",
+                "href": "https://kintsugilabo.com/blogs/journal/origins",
+                "description": "Kintsugi — the philosophy that inspires me."
+              }
             }
-          ],
-          "stats": [
-            { "label": "Launches shipped", "value": "120+" },
-            { "label": "Industries touched", "value": "7" },
-            { "label": "Communities activated", "value": "30+" }
-          ],
-          "quote": {
-            "text": "Every great business deserves a growth engine that feels like a story you can step inside.",
-            "author": "Zunaira Khan",
-            "role": "Marketer · Growth Hacker · Designer · Entrepreneur in the Making"
-          }
+          ]
+        },
+        {
+          "id": "international-exposure",
+          "type": "countries-slideshow",
+          "title": "International Exposure",
+          "description": "Ten countries, countless perspectives—each place taught me how to adapt, connect, and build across borders.",
+          "countries": [
+            {
+              "name": "United Arab Emirates",
+              "flag": "🇦🇪",
+              "description": "Born here—where shimmering towers and expat hustle shaped my earliest memories.",
+              "yearVisited": "1999 – 2004"
+            },
+            {
+              "name": "Pakistan",
+              "flag": "🇵🇰",
+              "description": "Four formative years learning hospitality through family gatherings and bustling bazaars.",
+              "yearVisited": "2004 – 2008"
+            },
+            {
+              "name": "Finland",
+              "flag": "🇫🇮",
+              "description": "Home since twelve—where I learned resilience, ran a restaurant, and built my growth mindset.",
+              "yearVisited": "2008 – Present"
+            },
+            {
+              "name": "Sweden",
+              "flag": "🇸🇪",
+              "description": "Cross-border trips that deepened my understanding of Nordic design and innovation culture.",
+              "yearVisited": "2015 – Present"
+            },
+            {
+              "name": "Denmark",
+              "flag": "🇩🇰",
+              "description": "Hygge and human-centered design—lessons that inform how I craft customer experiences.",
+              "yearVisited": "2017 – Present"
+            },
+            {
+              "name": "Estonia",
+              "flag": "🇪🇪",
+              "description": "A digital society ahead of its time—inspiring my approach to tech-enabled growth systems.",
+              "yearVisited": "2019"
+            },
+            {
+              "name": "Turkey",
+              "flag": "🇹🇷",
+              "description": "Where East meets West—cultural bridges that mirror my own journey between worlds.",
+              "yearVisited": "2018"
+            },
+            {
+              "name": "Italy",
+              "flag": "🇮🇹",
+              "description": "Artistry in every detail—from architecture to food—teaching me the power of craft and storytelling.",
+              "yearVisited": "2022"
+            },
+            {
+              "name": "Poland",
+              "flag": "🇵🇱",
+              "description": "Resilience and reinvention—a country that rebuilt beautifully, much like kintsugi philosophy.",
+              "yearVisited": "2023"
+            },
+            {
+              "name": "Norway",
+              "flag": "🇳🇴",
+              "description": "Fjords and fortitude—where nature's grandeur reminded me that growth happens in layers.",
+              "yearVisited": "2021"
+            }
+          ]
         }
       ]
     },

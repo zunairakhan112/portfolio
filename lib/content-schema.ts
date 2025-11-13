@@ -33,7 +33,15 @@ const figmaSectionSchema = z.object({
       title: z.string(),
       description: z.string().optional(),
       tags: mediaTagsSchema,
-      embedUrl: z.string().url()
+      embedUrl: z.string().url(),
+      logos: z
+        .array(
+          z.object({
+            src: z.string(),
+            alt: z.string().optional()
+          })
+        )
+        .optional()
     })
   )
 });
@@ -48,7 +56,15 @@ const miroSectionSchema = z.object({
       title: z.string(),
       description: z.string().optional(),
       tags: mediaTagsSchema,
-      embedUrl: z.string()
+      embedUrl: z.string(),
+      logos: z
+        .array(
+          z.object({
+            src: z.string(),
+            alt: z.string().optional()
+          })
+        )
+        .optional()
     })
   )
 });
@@ -148,6 +164,51 @@ const heroNarrativeSectionSchema = z.object({
     .optional()
 });
 
+const storyScrollSectionSchema = z.object({
+  id: z.string(),
+  type: z.literal("story-scroll"),
+  title: z.string(),
+  description: z.string().optional(),
+  slides: z.array(
+    z.object({
+      id: z.string(),
+      eyebrow: z.string().optional(),
+      title: z.string(),
+      body: z.string(),
+      image: z
+        .object({
+          src: z.string(),
+          alt: z.string(),
+          credit: z
+            .object({
+              name: z.string(),
+              url: linkHrefSchema.optional()
+            })
+            .optional()
+        })
+        .optional(),
+      background: z.string().optional(),
+      backgroundImage: z.string().optional(),
+      accent: z.string().optional(),
+      overlay: z.string().optional(),
+      resource: z
+        .object({
+          label: z.string(),
+          href: linkHrefSchema,
+          description: z.string().optional()
+        })
+        .optional(),
+      quote: z
+        .object({
+          text: z.string(),
+          author: z.string().optional(),
+          role: z.string().optional()
+        })
+        .optional()
+    })
+  )
+});
+
 const manifestoSectionSchema = z.object({
   id: z.string(),
   type: z.literal("manifesto"),
@@ -229,20 +290,40 @@ const capabilitiesSectionSchema = z.object({
   )
 });
 
+const resourcesSectionItemSchema = z.object({
+  title: z.string(),
+  description: z.string(),
+  link: linkHrefSchema,
+  type: z.string(),
+  icon: z.string().optional(),
+  tags: z.array(z.string()).default([]),
+  badge: z.string().optional()
+});
+
+const resourcesCategorySchema = z.object({
+  id: z.string(),
+  title: z.string(),
+  description: z.string().optional(),
+  icon: z.string().optional(),
+  accent: z
+    .object({
+      primary: z.string(),
+      secondary: z.string().optional(),
+      tertiary: z.string().optional()
+    })
+    .optional(),
+  resources: z.array(resourcesSectionItemSchema)
+});
+
 const resourcesSectionSchema = z.object({
   id: z.string(),
   type: z.literal("resources"),
   title: z.string(),
   description: z.string().optional(),
-  resources: z.array(
-    z.object({
-      title: z.string(),
-      description: z.string(),
-      link: linkHrefSchema,
-      type: z.string(),
-      icon: z.string().optional()
-    })
-  )
+  vibe: z.string().optional(),
+  searchPlaceholder: z.string().optional(),
+  resources: z.array(resourcesSectionItemSchema).default([]),
+  categories: z.array(resourcesCategorySchema).default([])
 });
 
 const contactSectionSchema = z.object({
@@ -263,6 +344,21 @@ const contactSectionSchema = z.object({
     .default([])
 });
 
+const countriesSlideshowSchema = z.object({
+  id: z.string(),
+  type: z.literal("countries-slideshow"),
+  title: z.string(),
+  description: z.string().optional(),
+  countries: z.array(
+    z.object({
+      name: z.string(),
+      flag: z.string(),
+      description: z.string().optional(),
+      yearVisited: z.string().optional()
+    })
+  )
+});
+
 const sectionSchema = z.discriminatedUnion("type", [
   figmaSectionSchema,
   miroSectionSchema,
@@ -271,13 +367,15 @@ const sectionSchema = z.discriminatedUnion("type", [
   caseStudySectionSchema,
   pdfSectionSchema,
   heroNarrativeSectionSchema,
+  storyScrollSectionSchema,
   manifestoSectionSchema,
   highlightsSectionSchema,
   growthLabSectionSchema,
   motionReelsSectionSchema,
   capabilitiesSectionSchema,
   resourcesSectionSchema,
-  contactSectionSchema
+  contactSectionSchema,
+  countriesSlideshowSchema
 ]);
 
 // Page schemas for new navigation structure

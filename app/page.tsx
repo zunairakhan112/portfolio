@@ -78,7 +78,7 @@ export default function Home() {
       <SiteHeader signature={content.signature} />
       <ScrollDotsNav sections={sections} activeSection={activeSection} onNavigate={handleNavigate} />
 
-      <main className="relative space-y-24 pb-24">
+      <main className="relative space-y-24">
         <section
           id="hero"
           className="relative min-h-[100svh] px-6 pt-[140px] md:px-10 lg:pt-[160px]"

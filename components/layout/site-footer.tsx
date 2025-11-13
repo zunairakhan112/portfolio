@@ -155,7 +155,7 @@ export function SiteFooter({ socials, signature }: SiteFooterProps) {
           </div>
 
           <div className="mt-24 flex w-full flex-col items-center gap-4 border-t border-white/10 pt-8 text-center font-creative text-[0.65rem] uppercase tracking-[0.4em] text-white/50 md:flex-row md:justify-between md:text-left">
-            <span>© {new Date().getFullYear()} Zunaira Khan — Growth Studios </span>
+            <span>© {new Date().getFullYear()} Zunaira Khan — All Rights Reserved </span>
             <Link
               href="#hero"
               className="inline-flex items-center gap-2 text-white/60 transition hover:text-white/85"
