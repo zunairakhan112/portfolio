@@ -92,7 +92,12 @@ export function WelcomeOverlay() {
       <div className="welcome-overlay__halo" aria-hidden="true" />
 
       <div className="welcome-overlay__content text-center">
-        <span className="welcome-overlay__title font-cinematic text-[clamp(3.6rem,7.2vw,7.6rem)] uppercase tracking-[0.64em] text-white">
+        <span
+          className={cn(
+            "welcome-overlay__title text-[clamp(3.6rem,7.2vw,7.6rem)] uppercase text-white",
+            logoTypeface.className
+          )}
+        >
           Welcome
         </span>
         <span

@@ -178,7 +178,7 @@
   }
 
   .welcome-overlay__title {
-    letter-spacing: 0.48em;
+    letter-spacing: 0.28em;
     background: linear-gradient(
       118deg,
       rgba(255, 255, 255, 0.34) 0%,
@@ -348,35 +348,35 @@
     opacity: 0;
     transform: translateY(48px) scale(0.88);
     filter: blur(16px);
-    letter-spacing: 0.88em;
+    letter-spacing: 0.64em;
   }
   18% {
     opacity: 1;
     transform: translateY(0) scale(1.12);
     filter: blur(0);
-    letter-spacing: 0.52em;
+    letter-spacing: 0.34em;
   }
   40% {
     opacity: 1;
     transform: translateY(-10px) scale(1.04);
-    letter-spacing: 0.48em;
+    letter-spacing: 0.28em;
   }
   68% {
     opacity: 0.94;
     transform: translateY(-18px) scale(1.06);
-    letter-spacing: 0.5em;
+    letter-spacing: 0.3em;
   }
   85% {
     opacity: 0.72;
     transform: translateY(-28px) scale(1.07);
     filter: blur(6px);
-    letter-spacing: 0.52em;
+    letter-spacing: 0.32em;
   }
   100% {
     opacity: 0;
     transform: translateY(-42px) scale(1.1);
     filter: blur(14px);
-    letter-spacing: 0.6em;
+    letter-spacing: 0.36em;
   }
 }
 

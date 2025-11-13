@@ -76,22 +76,22 @@
       ],
       "stats": [
         {
-          "label": "Launches orchestrated (last 12 months)",
-          "value": "14",
-          "annotation": "+5 YoY",
-          "progress": 68
+          "label": "Social Media Activations (last 12 months)",
+          "value": "3",
+          "annotation": "select client sprints",
+          "progress": 80
         },
         {
           "label": "Growth experiments shipped",
-          "value": "87",
-          "annotation": "avg. 7 per month",
-          "progress": 82
+          "value": "18",
+          "annotation": "avg. 1.5 per month",
+          "progress": 60
         },
         {
-          "label": "Average retention uplift",
-          "value": "+18%",
-          "annotation": "post playbook rollouts",
-          "progress": 74
+          "label": "Average impressions increase",
+          "value": "+7%",
+          "annotation": "within pilot cohorts",
+          "progress": 52
         }
       ],
       "quote": {
