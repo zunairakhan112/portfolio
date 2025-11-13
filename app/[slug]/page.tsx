@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import Script from "next/script";
 
 import { PageHero } from "@/components/layout/page-hero";
 import { SiteFooter } from "@/components/layout/site-footer";
@@ -9,6 +10,13 @@ import { ProjectGrid } from "@/components/sections/project-grid";
 import { SectionRenderer } from "@/components/sections/section-renderer";
 import { portfolioContent } from "@/lib/content";
 import { getAllPageSlugs, getPageContentBySlug } from "@/lib/site-content";
+import {
+  absoluteUrl,
+  defaultOgImage,
+  derivePageKeywords,
+  getBreadcrumbListJsonLd,
+  getGenericPageJsonLd
+} from "@/lib/seo";
 
 type HeroBackground = "aurora" | "midnight" | "sunrise" | "glacier";
 const supportedHeroBackgrounds = new Set<HeroBackground>(["aurora", "midnight", "sunrise", "glacier"]);
@@ -35,17 +43,46 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     return {};
   }
 
+  const pageUrl = absoluteUrl(`/${slug}`);
+
   return {
     title: page.title,
     description: page.description,
+    keywords: derivePageKeywords(page),
     openGraph: {
       title: page.title,
-      description: page.description
+      description: page.description,
+      url: pageUrl,
+      siteName: "Zunaira Khan Portfolio",
+      locale: "en_US",
+      type: "article",
+      images: [defaultOgImage]
     },
     twitter: {
       title: page.title,
-      description: page.description
-    }
+      description: page.description,
+      images: [defaultOgImage.url]
+    },
+    robots: {
+      index: true,
+      follow: true
+    },
+    alternates: {
+      canonical: pageUrl,
+      languages: {
+        "en-US": pageUrl,
+        en: pageUrl
+      }
+    },
+    category: "portfolio",
+    authors: [
+      {
+        name: "Zunaira Khan",
+        url: "https://www.linkedin.com/in/zunaira-khan-24451b2b6/"
+      }
+    ],
+    creator: "Zunaira Khan",
+    publisher: "Zunaira Khan"
   };
 }
 
@@ -61,8 +98,21 @@ export default async function Page({ params }: PageProps) {
   const heroSubtitle = page.hero?.subtitle ?? page.description;
   const heroBackground = page.hero?.background;
 
+  const pageJsonLd = getGenericPageJsonLd(page);
+  const breadcrumbJsonLd = getBreadcrumbListJsonLd([
+    { name: "Home", url: "/" },
+    { name: page.title, url: `/${slug}` }
+  ]);
+  const structuredId = `structured-data-${slug}`;
+
   return (
     <>
+      <Script id={`${structuredId}-webpage`} type="application/ld+json">
+        {JSON.stringify(pageJsonLd)}
+      </Script>
+      <Script id={`${structuredId}-breadcrumb`} type="application/ld+json">
+        {JSON.stringify(breadcrumbJsonLd)}
+      </Script>
       <SiteHeader signature={portfolioContent.signature} />
       <main className="relative space-y-24">
         <PageHero

@@ -1,0 +1,33 @@
+{
+  "name": "Zunaira Khan Portfolio",
+  "short_name": "Zunaira",
+  "description": "Immersive designer and growth storyteller crafting launch systems with design-led experimentation.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#050B12",
+  "theme_color": "#0F172A",
+  "lang": "en",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/ZK Site Logo.png",
+      "type": "image/png",
+      "sizes": "86x80",
+      "purpose": "any"
+    },
+    {
+      "src": "/favicon.ico",
+      "type": "image/x-icon",
+      "sizes": "any"
+    },
+    {
+      "src": "/window.svg",
+      "type": "image/svg+xml",
+      "sizes": "512x512",
+      "purpose": "any"
+    }
+  ]
+}
+
+

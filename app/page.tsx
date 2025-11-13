@@ -4,6 +4,7 @@ import { useCallback, useEffect, useMemo, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
+import Script from "next/script";
 
 import { HeroBanner } from "@/components/hero/hero-banner";
 import { ScrollDotsNav } from "@/components/layout/scroll-dots-nav";
@@ -13,10 +14,16 @@ import { SectionRenderer } from "@/components/sections/section-renderer";
 import { TechStackGrid } from "@/components/sections/tech-stack-grid";
 import { WelcomeOverlay } from "@/components/ui/welcome-overlay";
 import { portfolioContent } from "@/lib/content";
+import { getBreadcrumbListJsonLd, getHomePageJsonLd } from "@/lib/seo";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 }
+
+const homePageJsonLd = getHomePageJsonLd();
+const homeBreadcrumbJsonLd = getBreadcrumbListJsonLd([
+  { name: "Home", url: "/" }
+]);
 
 export default function Home() {
   const content = portfolioContent;
@@ -74,6 +81,12 @@ export default function Home() {
 
   return (
     <>
+      <Script id="structured-data-homepage" type="application/ld+json">
+        {JSON.stringify(homePageJsonLd)}
+      </Script>
+      <Script id="structured-data-home-breadcrumb" type="application/ld+json">
+        {JSON.stringify(homeBreadcrumbJsonLd)}
+      </Script>
       <WelcomeOverlay />
       <SiteHeader signature={content.signature} />
       <ScrollDotsNav sections={sections} activeSection={activeSection} onNavigate={handleNavigate} />

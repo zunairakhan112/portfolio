@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import { Analytics } from "@vercel/analytics/next"
-import { SpeedInsights } from "@vercel/speed-insights/next"
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import {
   Cinzel_Decorative,
   Geist,
@@ -9,9 +9,20 @@ import {
   Playfair_Display,
   Space_Grotesk
 } from "next/font/google";
+import Script from "next/script";
 
 import "@/app/globals.css";
 import { AuroraBackground } from "@/components/visuals/aurora-background";
+import {
+  absoluteUrl,
+  defaultKeywords,
+  defaultOgImage,
+  defaultSeoDescription,
+  defaultSeoTitle,
+  getPersonJsonLd,
+  getWebsiteJsonLd,
+  siteUrl
+} from "@/lib/seo";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -47,31 +58,95 @@ const signatureScript = Great_Vibes({
   weight: ["400"]
 });
 
+const websiteJsonLd = getWebsiteJsonLd();
+const personJsonLd = getPersonJsonLd();
+
 export const metadata: Metadata = {
-  metadataBase: new URL("https://zunaira-portfolio-demo.vercel.app"),
+  metadataBase: new URL(`${siteUrl}/`),
   title: {
-    default: "Zunaira Khan — Immersive Designer & Growth Storyteller",
+    default: defaultSeoTitle,
     template: "%s · Zunaira Khan"
   },
-  description:
-    "Next-gen portfolio for Zunaira Khan, an immersive designer and growth marketer blending design, storytelling, and emerging tech.",
+  description: defaultSeoDescription,
+  applicationName: "Zunaira Khan Portfolio",
+  generator: "Next.js 16",
+  referrer: "origin-when-cross-origin",
+  creator: "Zunaira Khan",
+  publisher: "Zunaira Khan",
+  formatDetection: {
+    email: true,
+    address: false,
+    telephone: false
+  },
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#0F172A" },
+    { media: "(prefers-color-scheme: dark)", color: "#050B12" }
+  ],
+  viewport: {
+    width: "device-width",
+    initialScale: 1,
+    maximumScale: 5,
+    viewportFit: "cover"
+  },
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "default",
+    title: "Zunaira Khan"
+  },
+  manifest: "/site.webmanifest",
+  category: "portfolio",
+  authors: [
+    {
+      name: "Zunaira Khan",
+      url: "https://www.linkedin.com/in/zunaira-khan-24451b2b6/"
+    }
+  ],
+  keywords: defaultKeywords,
   openGraph: {
-    title: "Zunaira Khan — Immersive Designer & Growth Storyteller",
-    description:
-      "A cinematic, modular playground for showcasing experiments across Figma, Miro, motion, and 3D storytelling.",
-    url: "https://zunaira-portfolio-demo.vercel.app",
+    title: defaultSeoTitle,
+    description: defaultSeoDescription,
+    url: siteUrl,
     siteName: "Zunaira Khan Portfolio",
     locale: "en_US",
-    type: "website"
+    type: "website",
+    images: [defaultOgImage]
   },
   twitter: {
     card: "summary_large_image",
-    title: "Zunaira Khan — Immersive Designer & Growth Storyteller",
+    title: defaultSeoTitle,
     description:
-      "Explore Figma labs, Miro blueprints, motion reels, and immersive case studies crafted by Zunaira Khan."
+      "Explore Figma labs, Miro blueprints, motion reels, and immersive case studies crafted by Zunaira Khan.",
+    images: [defaultOgImage.url]
   },
   icons: {
-    icon: "/favicon.ico"
+    icon: [
+      { url: "/favicon.ico", type: "image/x-icon" },
+      { url: "/ZK Site Logo.png", type: "image/png", sizes: "86x80" }
+    ],
+    shortcut: ["/favicon.ico", "/ZK Site Logo.png"],
+    apple: [{ url: "/ZK Site Logo.png", sizes: "86x80" }]
+  },
+  robots: {
+    index: true,
+    follow: true,
+    nocache: false,
+    googleBot: {
+      index: true,
+      follow: true,
+      maxSnippet: -1,
+      maxImagePreview: "large",
+      maxVideoPreview: -1
+    }
+  },
+  alternates: {
+    canonical: absoluteUrl("/"),
+    languages: {
+      "en-US": absoluteUrl("/"),
+      en: absoluteUrl("/")
+    }
+  },
+  other: {
+    "msapplication-TileColor": "#0F172A"
   }
 };
 
@@ -85,9 +160,17 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${displaySerif.variable} ${creativeGrotesk.variable} ${cinematicTitle.variable} ${signatureScript.variable} bg-muted antialiased`}
       >
+        <Script id="structured-data-website" type="application/ld+json" strategy="beforeInteractive">
+          {JSON.stringify(websiteJsonLd)}
+        </Script>
+        <Script id="structured-data-person" type="application/ld+json" strategy="beforeInteractive">
+          {JSON.stringify(personJsonLd)}
+        </Script>
         {/* Future integration: analytics providers or global modals can mount here */}
         <AuroraBackground>
           {children}
+          <Analytics />
+          <SpeedInsights />
         </AuroraBackground>
       </body>
     </html>
