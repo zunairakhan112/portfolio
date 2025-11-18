@@ -27,36 +27,48 @@ import {
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
-  subsets: ["latin"]
+  subsets: ["latin"],
+  display: "swap",
+  preload: true,
 });
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
-  subsets: ["latin"]
+  subsets: ["latin"],
+  display: "swap",
+  preload: false,
 });
 
 const displaySerif = Playfair_Display({
   variable: "--font-display",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"]
+  weight: ["400", "500", "600", "700", "800"],
+  display: "swap",
+  preload: true,
 });
 
 const creativeGrotesk = Space_Grotesk({
   variable: "--font-creative",
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"]
+  weight: ["300", "400", "500", "600", "700"],
+  display: "swap",
+  preload: true,
 });
 
 const cinematicTitle = Cinzel_Decorative({
   variable: "--font-cinematic",
   subsets: ["latin"],
-  weight: ["400", "700", "900"]
+  weight: ["400", "700", "900"],
+  display: "swap",
+  preload: false,
 });
 
 const signatureScript = Great_Vibes({
   variable: "--font-script",
   subsets: ["latin"],
-  weight: ["400"]
+  weight: ["400"],
+  display: "swap",
+  preload: false,
 });
 
 const websiteJsonLd = getWebsiteJsonLd();
@@ -158,6 +170,22 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        {/* DNS Prefetch and Preconnect for external resources */}
+        <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+        <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+        <link rel="dns-prefetch" href="https://vercel.live" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        
+        {/* Preload critical assets */}
+        <link
+          rel="preload"
+          href="/ZK Site Logo.png"
+          as="image"
+          type="image/png"
+        />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${displaySerif.variable} ${creativeGrotesk.variable} ${cinematicTitle.variable} ${signatureScript.variable} bg-muted antialiased`}
       >

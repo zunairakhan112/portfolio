@@ -3,12 +3,14 @@
 import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 
-const OVERLAY_DURATION = 3000;
-const EXIT_DURATION = 800;
+// Shorter duration on mobile for better UX
+const OVERLAY_DURATION_DESKTOP = 3000;
+const OVERLAY_DURATION_MOBILE = 1500;
 
 export function WelcomeOverlay() {
   const [isVisible, setIsVisible] = useState(true);
   const [progress, setProgress] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const titleRef = useRef<HTMLDivElement>(null);
   const nameRef = useRef<HTMLDivElement>(null);
@@ -19,10 +21,15 @@ export function WelcomeOverlay() {
   useEffect(() => {
     if (typeof window === "undefined") return;
 
+    // Check if mobile
+    const isMobileDevice = window.innerWidth <= 768;
+    setIsMobile(isMobileDevice);
+
     const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
-    if (mediaQuery.matches) {
+    if (mediaQuery.matches || isMobileDevice) {
+      // Skip or speed up on mobile/reduced motion
       setProgress(100);
-      setTimeout(() => setIsVisible(false), 100);
+      setTimeout(() => setIsVisible(false), isMobileDevice ? 800 : 100);
       return;
     }
 
@@ -90,16 +97,17 @@ export function WelcomeOverlay() {
 
     }, containerRef);
 
-    // Progress animation
+    // Progress animation with dynamic duration
+    const DURATION = isMobileDevice ? OVERLAY_DURATION_MOBILE : OVERLAY_DURATION_DESKTOP;
     const start = performance.now();
     let rafId = 0;
 
     const update = () => {
       const elapsed = performance.now() - start;
-      const computed = Math.min(100, Math.round((elapsed / OVERLAY_DURATION) * 100));
+      const computed = Math.min(100, Math.round((elapsed / DURATION) * 100));
       setProgress((prev) => (computed > prev ? computed : prev));
 
-      if (elapsed < OVERLAY_DURATION) {
+      if (elapsed < DURATION) {
         rafId = window.requestAnimationFrame(update);
       } else {
         setProgress(100);

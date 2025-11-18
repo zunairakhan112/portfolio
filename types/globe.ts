@@ -24,3 +24,4 @@ export interface GlobeConfig {
   autoRotateSpeed?: number;
 }
 
+
