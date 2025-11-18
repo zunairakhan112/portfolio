@@ -6,7 +6,6 @@ import { motion } from "framer-motion";
 import { ExternalLink } from "lucide-react";
 
 import type { PortfolioSection } from "@/lib/content-schema";
-import { useMediaQuery } from "@/hooks/use-media-query";
 
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -18,17 +17,15 @@ interface MiroSectionProps {
 }
 
 export function MiroSection({ section }: MiroSectionProps) {
-  const isMobile = useMediaQuery("(max-width: 768px)");
-
   return (
     <div className="flex flex-col gap-10">
       {section.items.map((item, index) => (
         <motion.div
           key={item.title}
-          initial={{ opacity: 0, y: isMobile ? 30 : 60, scale: isMobile ? 1 : 0.95 }}
-          whileInView={{ opacity: 1, y: 0, scale: 1 }}
-          viewport={{ once: true, amount: isMobile ? 0.15 : 0.25 }}
-          transition={{ duration: isMobile ? 0.5 : 0.9, delay: isMobile ? 0 : index * 0.1, ease: "easeOut" }}
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.15 }}
+          transition={{ duration: 0.6, delay: index * 0.08, ease: "easeOut" }}
           data-animate
         >
           <Card className="overflow-hidden rounded-[2.8rem] border-white/15 bg-gradient-to-br from-white/14 via-white/6 to-white/8 shadow-[0_30px_100px_rgba(7,7,7,0.4)]">
@@ -76,49 +73,50 @@ export function MiroSection({ section }: MiroSectionProps) {
             </CardHeader>
             <CardContent className="relative aspect-[16/9] overflow-hidden rounded-[2rem] border border-white/15 bg-black/70">
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(250,204,21,0.18),_transparent_65%)]" />
-              {isMobile ? (
-                <Link
-                  href={item.embedUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group/link relative z-10 flex h-full w-full items-center justify-center"
-                >
-                  <div className="flex h-full w-full flex-col items-center justify-center gap-6 bg-gradient-to-br from-neutral-900 via-black to-neutral-950 p-8 transition-all duration-300 group-hover/link:from-neutral-800 group-hover/link:via-neutral-900">
-                    <div className="relative h-20 w-20 opacity-40 transition-all duration-300 group-hover/link:scale-110 group-hover/link:opacity-60">
-                      <Image
-                        src="/logos/Logo-Miro.png"
-                        alt="Miro"
-                        fill
-                        className="object-contain"
-                      />
-                    </div>
-                    <div className="flex flex-col items-center gap-3 text-center">
-                      <p className="font-creative text-sm uppercase tracking-[0.3em] text-white/60">
-                        View in Miro
-                      </p>
-                      <div className="flex items-center gap-2 font-display text-lg text-white/80 transition-colors group-hover/link:text-white">
-                        <span>Open Blueprint Board</span>
-                        <ExternalLink className="h-5 w-5" />
-                      </div>
-                      <p className="max-w-xs font-creative text-xs text-white/40">
-                        Tap to view the interactive board in Miro
-                      </p>
-                    </div>
+              
+              {/* Mobile Placeholder - Shows on mobile only */}
+              <Link
+                href={item.embedUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group/link relative z-10 flex h-full w-full items-center justify-center md:hidden"
+              >
+                <div className="flex h-full w-full flex-col items-center justify-center gap-6 bg-gradient-to-br from-neutral-900 via-black to-neutral-950 p-8 transition-all duration-300 active:from-neutral-800 active:via-neutral-900">
+                  <div className="relative h-20 w-20 opacity-40 transition-all duration-300 group-active/link:scale-110 group-active/link:opacity-60">
+                    <Image
+                      src="/logos/Logo-Miro.png"
+                      alt="Miro"
+                      fill
+                      className="object-contain"
+                    />
                   </div>
-                </Link>
-              ) : (
-                <iframe
-                  title={item.title}
-                  src={
-                    item.embedUrl.includes("?")
-                      ? `${item.embedUrl}&autoplay=yep&transparent=1`
-                      : `${item.embedUrl}?autoplay=yep&transparent=1`
-                  }
-                  frameBorder="0"
-                  allow="fullscreen; clipboard-read; clipboard-write"
-                  className="relative z-10 h-full w-full rounded-[2rem]"
-                />
-              )}
+                  <div className="flex flex-col items-center gap-3 text-center">
+                    <p className="font-creative text-sm uppercase tracking-[0.3em] text-white/60">
+                      View in Miro
+                    </p>
+                    <div className="flex items-center gap-2 font-display text-lg text-white/80 transition-colors group-active/link:text-white">
+                      <span>Open Blueprint Board</span>
+                      <ExternalLink className="h-5 w-5" />
+                    </div>
+                    <p className="max-w-xs font-creative text-xs text-white/40">
+                      Tap to view the interactive board in Miro
+                    </p>
+                  </div>
+                </div>
+              </Link>
+              
+              {/* Desktop Iframe - Shows on desktop only */}
+              <iframe
+                title={item.title}
+                src={
+                  item.embedUrl.includes("?")
+                    ? `${item.embedUrl}&autoplay=yep&transparent=1`
+                    : `${item.embedUrl}?autoplay=yep&transparent=1`
+                }
+                frameBorder="0"
+                allow="fullscreen; clipboard-read; clipboard-write"
+                className="relative z-10 hidden h-full w-full rounded-[2rem] md:block"
+              />
             </CardContent>
           </Card>
         </motion.div>

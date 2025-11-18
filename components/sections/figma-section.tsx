@@ -6,7 +6,6 @@ import { motion } from "framer-motion";
 import { ExternalLink } from "lucide-react";
 
 import type { PortfolioSection } from "@/lib/content-schema";
-import { useMediaQuery } from "@/hooks/use-media-query";
 
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -18,18 +17,15 @@ interface FigmaSectionProps {
 }
 
 export function FigmaSection({ section }: FigmaSectionProps) {
-  const isMobile = useMediaQuery("(max-width: 768px)");
-
   return (
     <div className="flex flex-col gap-12">
       {section.items.map((item, index) => (
         <motion.div
           key={item.title}
-          initial={{ opacity: 0, y: isMobile ? 30 : 50, rotateX: isMobile ? 0 : -6 }}
-          whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
-          viewport={{ once: true, amount: isMobile ? 0.15 : 0.3 }}
-          transition={{ duration: isMobile ? 0.5 : 0.8, delay: isMobile ? 0 : index * 0.12, ease: "easeOut" }}
-          whileHover={isMobile ? undefined : { scale: 1.02 }}
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.15 }}
+          transition={{ duration: 0.6, delay: index * 0.08, ease: "easeOut" }}
           className="group"
           data-animate
         >
@@ -101,44 +97,45 @@ export function FigmaSection({ section }: FigmaSectionProps) {
             </CardHeader>
             <CardContent className="relative mt-8 overflow-hidden rounded-[2.4rem] border border-white/12 bg-neutral-950 p-0 shadow-[0_38px_120px_rgba(10,12,24,0.45)]">
               <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(255,140,66,0.22),_transparent_65%)] opacity-70" />
-              {isMobile ? (
-                <Link
-                  href={item.embedUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group/link relative z-10 block h-[360px] w-full"
-                >
-                  <div className="flex h-full w-full flex-col items-center justify-center gap-6 bg-gradient-to-br from-neutral-900 via-neutral-950 to-black p-8 transition-all duration-300 group-hover/link:from-neutral-800 group-hover/link:via-neutral-900">
-                    <div className="relative h-20 w-20 opacity-40 transition-all duration-300 group-hover/link:scale-110 group-hover/link:opacity-60">
-                      <Image
-                        src="/logos/Logo-Figma.svg"
-                        alt="Figma"
-                        fill
-                        className="object-contain"
-                      />
-                    </div>
-                    <div className="flex flex-col items-center gap-3 text-center">
-                      <p className="font-creative text-sm uppercase tracking-[0.3em] text-white/60">
-                        View in Figma
-                      </p>
-                      <div className="flex items-center gap-2 font-display text-lg text-white/80 transition-colors group-hover/link:text-white">
-                        <span>Open Design Board</span>
-                        <ExternalLink className="h-5 w-5" />
-                      </div>
-                      <p className="max-w-xs font-creative text-xs text-white/40">
-                        Tap to view the interactive design in Figma
-                      </p>
-                    </div>
+              
+              {/* Mobile Placeholder - Shows on mobile only */}
+              <Link
+                href={item.embedUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group/link relative z-10 block h-[360px] w-full md:hidden"
+              >
+                <div className="flex h-full w-full flex-col items-center justify-center gap-6 bg-gradient-to-br from-neutral-900 via-neutral-950 to-black p-8 transition-all duration-300 active:from-neutral-800 active:via-neutral-900">
+                  <div className="relative h-20 w-20 opacity-40 transition-all duration-300 group-active/link:scale-110 group-active/link:opacity-60">
+                    <Image
+                      src="/logos/Logo-Figma.svg"
+                      alt="Figma"
+                      fill
+                      className="object-contain"
+                    />
                   </div>
-                </Link>
-              ) : (
-                <iframe
-                  title={item.title}
-                  src={item.embedUrl}
-                  className="relative z-10 h-[360px] w-full rounded-[2.4rem] md:h-[520px] lg:h-[640px]"
-                  allowFullScreen
-                />
-              )}
+                  <div className="flex flex-col items-center gap-3 text-center">
+                    <p className="font-creative text-sm uppercase tracking-[0.3em] text-white/60">
+                      View in Figma
+                    </p>
+                    <div className="flex items-center gap-2 font-display text-lg text-white/80 transition-colors group-active/link:text-white">
+                      <span>Open Design Board</span>
+                      <ExternalLink className="h-5 w-5" />
+                    </div>
+                    <p className="max-w-xs font-creative text-xs text-white/40">
+                      Tap to view the interactive design in Figma
+                    </p>
+                  </div>
+                </div>
+              </Link>
+              
+              {/* Desktop Iframe - Shows on desktop only */}
+              <iframe
+                title={item.title}
+                src={item.embedUrl}
+                className="relative z-10 hidden h-[360px] w-full rounded-[2.4rem] md:block md:h-[520px] lg:h-[640px]"
+                allowFullScreen
+              />
             </CardContent>
           </Card>
         </motion.div>
