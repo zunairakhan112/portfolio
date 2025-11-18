@@ -5,6 +5,7 @@ import { useEffect, useMemo, useRef } from "react";
 import gsap from "gsap";
 
 import type { PortfolioContent } from "@/lib/content-schema";
+import { useMediaQuery } from "@/hooks/use-media-query";
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -48,13 +49,15 @@ const stripeConfigs = [
 
 export function CinematicHero({ hero, tagline, signature }: CinematicHeroProps) {
   const containerRef = useRef<HTMLDivElement>(null);
+  const isMobile = useMediaQuery("(max-width: 768px)");
 
   useEffect(() => {
     const container = containerRef.current;
     if (!container) return;
 
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (prefersReducedMotion) {
+    // Skip heavy animations on mobile or if user prefers reduced motion
+    if (prefersReducedMotion || isMobile) {
       return;
     }
 
@@ -185,7 +188,7 @@ export function CinematicHero({ hero, tagline, signature }: CinematicHeroProps) 
     }, container);
 
     return () => ctx.revert();
-  }, []);
+  }, [isMobile]);
 
   const pulses = useMemo(() => {
     const count = Math.max(hero.floatingWords.length * 2, 6);
@@ -195,7 +198,9 @@ export function CinematicHero({ hero, tagline, signature }: CinematicHeroProps) 
   return (
     <section
       ref={containerRef}
-      className="relative mx-auto mt-12 flex w-full max-w-[1200px] flex-col gap-16 overflow-hidden rounded-[2.5rem] border border-white/12 bg-white/[0.07] px-6 py-16 shadow-[0_60px_180px_rgba(8,8,8,0.5)] backdrop-blur-[42px] md:mt-20 md:rounded-[3.5rem] md:px-14 md:py-24 lg:px-20"
+      className={`relative mx-auto mt-12 flex w-full max-w-[1200px] flex-col gap-16 overflow-hidden rounded-2xl border border-white/12 bg-white/[0.07] px-6 py-16 shadow-lg md:mt-20 md:rounded-[3.5rem] md:px-14 md:py-24 lg:px-20 ${
+        isMobile ? "" : "backdrop-blur-[42px] shadow-[0_60px_180px_rgba(8,8,8,0.5)]"
+      }`}
     >
       <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(255,140,66,0.2),_transparent_55%),radial-gradient(circle_at_bottom,_rgba(139,195,74,0.18),_transparent_60%)] opacity-90" />
@@ -257,7 +262,9 @@ export function CinematicHero({ hero, tagline, signature }: CinematicHeroProps) 
         </div>
       </div>
 
-      <div className="relative rounded-[2.8rem] border border-white/12 bg-white/[0.08] px-8 py-10 shadow-[0_38px_120px_rgba(5,5,5,0.55)] backdrop-blur-3xl md:px-12">
+      <div className={`relative rounded-2xl border border-white/12 bg-white/[0.08] px-6 py-8 shadow-md md:rounded-[2.8rem] md:px-12 md:py-10 ${
+        isMobile ? "" : "backdrop-blur-3xl shadow-[0_38px_120px_rgba(5,5,5,0.55)]"
+      }`}>
         <div className="absolute inset-0 overflow-hidden rounded-[2.8rem]">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(255,242,200,0.25),_transparent_65%)]" />
         </div>

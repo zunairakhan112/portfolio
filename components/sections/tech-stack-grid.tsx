@@ -4,6 +4,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 
 import type { PortfolioContent } from "@/lib/content-schema";
+import { useMediaQuery } from "@/hooks/use-media-query";
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
@@ -11,6 +12,13 @@ interface TechStackGridProps {
   techStack: PortfolioContent["techStack"];
 }
 
+// Simplified variants for mobile
+const mobileColumnVariants = {
+  hidden: { y: 20, opacity: 0 },
+  visible: { y: 0, opacity: 1, transition: { duration: 0.5, ease: "easeOut" } }
+};
+
+// Full variants for desktop
 const columnVariants = {
   hidden: { y: 60, opacity: 0, rotateX: -8 },
   visible: { y: 0, opacity: 1, rotateX: 0, transition: { duration: 1, ease: "easeOut" } }
@@ -55,18 +63,24 @@ const getFloatTransition = (index: number) => ({
 });
 
 export function TechStackGrid({ techStack }: TechStackGridProps) {
+  const isMobile = useMediaQuery("(max-width: 768px)");
+
   return (
     <motion.section
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, amount: 0.3 }}
-      className="relative flex h-full w-full flex-col justify-center overflow-hidden rounded-[3rem] border border-white/10 bg-white/[0.05] p-10 shadow-[0_40px_140px_rgba(8,8,8,0.35)] backdrop-blur-2xl sm:p-12 md:p-16"
+      viewport={{ once: true, amount: isMobile ? 0.1 : 0.3 }}
+      className={`relative flex h-full w-full flex-col justify-center overflow-hidden rounded-2xl border border-white/10 bg-white/[0.05] p-6 shadow-lg sm:p-10 sm:rounded-[3rem] md:p-16 ${
+        isMobile ? "" : "backdrop-blur-2xl md:shadow-[0_40px_140px_rgba(8,8,8,0.35)]"
+      }`}
       data-animate
     >
-      <div className="absolute inset-0 blur-[120px]">
-        <div className="absolute -left-20 top-24 h-44 w-44 rounded-full bg-[#ff8c42]/40" />
-        <div className="absolute bottom-10 right-10 h-56 w-56 rounded-full bg-[#8bc34a]/25" />
-      </div>
+      {!isMobile && (
+        <div className="absolute inset-0 blur-[120px]">
+          <div className="absolute -left-20 top-24 h-44 w-44 rounded-full bg-[#ff8c42]/40" />
+          <div className="absolute bottom-10 right-10 h-56 w-56 rounded-full bg-[#8bc34a]/25" />
+        </div>
+      )}
       <div className="relative z-10 flex flex-col gap-7 pb-10 sm:gap-8 sm:pb-12 md:px-0">
         <h2 className="font-display text-[clamp(1.8rem,3.2vw,3.4rem)] leading-tight text-foreground drop-shadow-[0_14px_40px_rgba(0,0,0,0.45)]">
           {techStack.title}
@@ -81,7 +95,7 @@ export function TechStackGrid({ techStack }: TechStackGridProps) {
         {techStack.columns.map((column, columnIndex) => (
           <motion.div
             key={column.heading}
-            variants={columnVariants}
+            variants={isMobile ? mobileColumnVariants : columnVariants}
             transition={{ delay: columnIndex * 0.12 }}
           >
             <Card className="glimmer-outline h-full border-white/15 bg-gradient-to-br from-white/10 via-white/5 to-white/10">
@@ -107,10 +121,12 @@ export function TechStackGrid({ techStack }: TechStackGridProps) {
                       <motion.div
                         key={item}
                         aria-label={item}
-                        className="group relative flex aspect-square w-full items-center justify-center overflow-hidden rounded-3xl border border-white/18 bg-white/15 shadow-[0_18px_45px_rgba(10,10,10,0.25)] backdrop-blur-xl transition-transform"
-                        animate={floatKeyframes}
-                        transition={floatTransition}
-                        whileHover={{ scale: 1.06 }}
+                        className={`group relative flex aspect-square w-full items-center justify-center overflow-hidden rounded-2xl border border-white/18 bg-white/15 shadow-md sm:rounded-3xl ${
+                          isMobile ? "" : "backdrop-blur-xl shadow-[0_18px_45px_rgba(10,10,10,0.25)]"
+                        } transition-transform`}
+                        animate={isMobile ? undefined : floatKeyframes}
+                        transition={isMobile ? undefined : floatTransition}
+                        whileHover={isMobile ? undefined : { scale: 1.06 }}
                       >
                         <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-white/22 via-transparent to-white/12" />
                         {logo ? (
@@ -119,7 +135,7 @@ export function TechStackGrid({ techStack }: TechStackGridProps) {
                             alt={alt}
                             width={56}
                             height={56}
-                            className="relative z-10 h-12 w-12 object-contain sm:h-14 sm:w-14"
+                            className="relative z-10 h-10 w-10 object-contain sm:h-12 sm:w-12 md:h-14 md:w-14"
                           />
                         ) : (
                           <span className="relative z-10 px-2 text-center font-display text-xs uppercase tracking-[0.22em] text-white/80 sm:text-sm">

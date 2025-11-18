@@ -4,6 +4,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 
 import type { Experience } from "@/lib/content-schema";
+import { useMediaQuery } from "@/hooks/use-media-query";
 
 import { Badge } from "@/components/ui/badge";
 
@@ -12,6 +13,8 @@ interface ExperienceTimelineProps {
 }
 
 export function ExperienceTimeline({ experiences }: ExperienceTimelineProps) {
+  const isMobile = useMediaQuery("(max-width: 768px)");
+
   if (!experiences?.length) {
     return null;
   }
@@ -29,11 +32,17 @@ export function ExperienceTimeline({ experiences }: ExperienceTimelineProps) {
         {experiences.map((experience, index) => (
           <motion.article
             key={experience.id}
-            initial={{ opacity: 0, x: -24 }}
+            initial={{ opacity: 0, x: isMobile ? -12 : -24 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, amount: 0.35 }}
-            transition={{ duration: 0.75, delay: index * 0.08, ease: [0.25, 0.8, 0.25, 1] }}
-            className="relative ml-3 rounded-[2.4rem] border border-white/12 bg-white/[0.04] p-6 shadow-[0_28px_70px_rgba(10,13,18,0.22)] backdrop-blur-[22px]"
+            viewport={{ once: true, amount: isMobile ? 0.15 : 0.35 }}
+            transition={{ 
+              duration: isMobile ? 0.4 : 0.75, 
+              delay: isMobile ? 0 : index * 0.08, 
+              ease: isMobile ? "easeOut" : [0.25, 0.8, 0.25, 1] 
+            }}
+            className={`relative ml-3 rounded-2xl border border-white/12 bg-white/[0.04] p-5 shadow-md md:rounded-[2.4rem] md:p-6 ${
+              isMobile ? "" : "backdrop-blur-[22px] shadow-[0_28px_70px_rgba(10,13,18,0.22)]"
+            }`}
           >
             <div className="absolute -left-[25px] top-7 flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-gradient-to-br from-white/20 via-transparent to-white/5 text-xs font-creative uppercase tracking-[0.4em] text-white/70">
               {String(index + 1).padStart(2, "0")}
