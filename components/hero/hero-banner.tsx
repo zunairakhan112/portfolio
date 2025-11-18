@@ -5,7 +5,7 @@ import dynamic from "next/dynamic";
 import { useEffect, useMemo, useState } from "react";
 
 import type { PortfolioContent } from "@/lib/content-schema";
-import type { GlobeConfig } from "@/components/ui/globe";
+import type { GlobeConfig } from "@/types/globe";
 
 import { Button } from "@/components/ui/button";
 import { useMediaQuery } from "@/hooks/use-media-query";

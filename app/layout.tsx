@@ -12,6 +12,7 @@ import {
 import Script from "next/script";
 
 import "@/app/globals.css";
+import { PageTransitionProvider } from "@/components/providers/page-transition-provider";
 import { AuroraBackground } from "@/components/visuals/aurora-background";
 import {
   absoluteUrl,
@@ -167,11 +168,13 @@ export default function RootLayout({
           {JSON.stringify(personJsonLd)}
         </Script>
         {/* Future integration: analytics providers or global modals can mount here */}
-        <AuroraBackground>
-          {children}
-          <Analytics />
-          <SpeedInsights />
-        </AuroraBackground>
+        <PageTransitionProvider>
+          <AuroraBackground>
+            {children}
+            <Analytics />
+            <SpeedInsights />
+          </AuroraBackground>
+        </PageTransitionProvider>
       </body>
     </html>
   );

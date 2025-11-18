@@ -4,6 +4,7 @@ import { Color, Scene, Fog, Vector3, Group } from "three";
 import ThreeGlobe from "three-globe";
 import { useFrame, useThree, Canvas, extend } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
+import type { GlobeConfig } from "@/types/globe";
 import countries from "@/data/globe.json";
 declare module "@react-three/fiber" {
   interface ThreeElements {
@@ -36,30 +37,15 @@ type ArcPoint = {
   lng: number;
 };
 
-export type GlobeConfig = {
-  pointSize?: number;
-  globeColor?: string;
-  showAtmosphere?: boolean;
-  atmosphereColor?: string;
-  atmosphereAltitude?: number;
-  emissive?: string;
-  emissiveIntensity?: number;
-  shininess?: number;
-  polygonColor?: string;
-  ambientLight?: string;
-  directionalLeftLight?: string;
-  directionalTopLight?: string;
-  pointLight?: string;
-  arcTime?: number;
-  arcLength?: number;
-  rings?: number;
-  maxRings?: number;
-  initialPosition?: {
-    lat: number;
-    lng: number;
-  };
-  autoRotate?: boolean;
-  autoRotateSpeed?: number;
+type PositionObjAccessor<T> = (obj: object) => T;
+type PointObjAccessor<T> = (obj: object) => T;
+
+const toArcAccessor = <T,>(accessor: (arc: Position) => T): PositionObjAccessor<T> => {
+  return (arc) => accessor(arc as Position);
+};
+
+const toPointAccessor = <T,>(accessor: (point: ArcPoint) => T): PointObjAccessor<T> => {
+  return (point) => accessor(point as ArcPoint);
 };
 
 interface WorldProps {
@@ -178,21 +164,21 @@ export function Globe({ globeConfig, data }: WorldProps) {
 
     globe
       .arcsData(data)
-      .arcStartLat((arc: Position) => arc.startLat)
-      .arcStartLng((arc: Position) => arc.startLng)
-      .arcEndLat((arc: Position) => arc.endLat)
-      .arcEndLng((arc: Position) => arc.endLng)
-      .arcColor((arc: Position) => arc.color)
-      .arcAltitude((arc: Position) => arc.arcAlt)
+      .arcStartLat(toArcAccessor((arc) => arc.startLat))
+      .arcStartLng(toArcAccessor((arc) => arc.startLng))
+      .arcEndLat(toArcAccessor((arc) => arc.endLat))
+      .arcEndLng(toArcAccessor((arc) => arc.endLng))
+      .arcColor(toArcAccessor((arc) => arc.color))
+      .arcAltitude(toArcAccessor((arc) => arc.arcAlt))
       .arcStroke(() => strokeOptions[Math.floor(Math.random() * strokeOptions.length)])
       .arcDashLength(defaultProps.arcLength)
-      .arcDashInitialGap((arc: Position) => arc.order)
+      .arcDashInitialGap(toArcAccessor((arc) => arc.order))
       .arcDashGap(15)
       .arcDashAnimateTime(() => defaultProps.arcTime);
 
     globe
       .pointsData(filteredPoints)
-      .pointColor((point: ArcPoint) => point.color)
+      .pointColor(toPointAccessor((point) => point.color))
       .pointsMerge(true)
       .pointAltitude(0)
       .pointRadius(2);
