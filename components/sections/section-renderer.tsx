@@ -99,6 +99,14 @@ export function SectionRenderer({ sections, variant = "stack" }: SectionRenderer
       }
     }
 
+    if (section.type === "contact") {
+      return (
+        <section key={section.id} id={section.id} className="relative">
+          <Component section={section} />
+        </section>
+      );
+    }
+
     if (variant === "panel" && section.type === "resources") {
       return (
         <section key={section.id} id={section.id} className="relative">

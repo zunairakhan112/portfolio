@@ -3,7 +3,7 @@
 import Link from "next/link";
 import clsx from "clsx";
 import { motion, useReducedMotion } from "framer-motion";
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 
 import type { PortfolioSection } from "@/lib/content-schema";
 
@@ -98,23 +98,21 @@ export function ResourcesHubSection({ section }: ResourcesHubSectionProps) {
     return [];
   }, [section.categories, section.description, section.id, section.resources, section.title]);
 
-  const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
   const allCategoryIds = useMemo(() => categories.map((category) => category.id), [categories]);
+  const [selectedCategories, setSelectedCategories] = useState<string[]>(allCategoryIds);
 
-  useEffect(() => {
+  const normalizedSelectedCategories = useMemo(() => {
     if (!allCategoryIds.length) {
-      setSelectedCategories([]);
-      return;
+      return [];
     }
 
-    setSelectedCategories((current) => {
-      const currentSet = new Set(current);
-      const next = allCategoryIds.filter((id) => currentSet.has(id));
-      return next.length ? next : allCategoryIds;
-    });
-  }, [allCategoryIds]);
+    const allowedIds = new Set(allCategoryIds);
+    const validSelections = selectedCategories.filter((id) => allowedIds.has(id));
 
-  const activeCategoryIds = selectedCategories.length ? selectedCategories : allCategoryIds;
+    return validSelections.length ? validSelections : allCategoryIds;
+  }, [allCategoryIds, selectedCategories]);
+
+  const activeCategoryIds = normalizedSelectedCategories;
   const activeCategorySet = useMemo(() => new Set(activeCategoryIds), [activeCategoryIds]);
 
   const handleToggleCategory = useCallback(
@@ -297,8 +295,7 @@ export function ResourcesHubSection({ section }: ResourcesHubSectionProps) {
                 No matches yet
               </p>
               <p className="font-creative text-sm text-white/70">
-                Try a different keyword - maybe swap "dark" for "contrast" or
-                search by topic like "automation".
+                Try a different keyword - maybe swap &quot;dark&quot; for &quot;contrast&quot; or search by topic like &quot;automation&quot;.
               </p>
             </div>
           </motion.div>

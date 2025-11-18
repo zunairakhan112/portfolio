@@ -40,12 +40,12 @@ export function SectionShell({
         className={containerClass}
         data-animate
       >
-        <div className="max-w-3xl space-y-4" data-animate>
-          <h2 className="font-display text-4xl font-semibold tracking-tight text-foreground md:text-5xl">
+        <div className="max-w-3xl space-y-3" data-animate>
+          <h2 className="font-display text-3xl font-semibold tracking-tight text-foreground md:text-5xl">
             {title}
           </h2>
           {description ? (
-            <p className="text-base leading-relaxed text-muted-foreground">
+            <p className="text-sm leading-relaxed text-muted-foreground sm:text-base">
               {description}
             </p>
           ) : null}

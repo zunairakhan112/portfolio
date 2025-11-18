@@ -91,10 +91,10 @@ export default function Home() {
       <SiteHeader signature={content.signature} />
       <ScrollDotsNav sections={sections} activeSection={activeSection} onNavigate={handleNavigate} />
 
-      <main className="relative space-y-24">
+      <main className="relative space-y-16 md:space-y-24">
         <section
           id="hero"
-          className="relative min-h-[100svh] px-6 pt-[140px] md:px-10 lg:pt-[160px]"
+          className="relative min-h-[100svh] px-5 pt-[120px] sm:px-6 md:px-10 md:pt-[140px] lg:pt-[160px]"
         >
           <div className="mx-auto max-w-6xl">
             <HeroBanner
@@ -105,17 +105,17 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="tech-stack" className="relative px-6 md:px-10">
+        <section id="tech-stack" className="relative px-5 sm:px-6 md:px-10">
           <div className="mx-auto max-w-6xl">
             <TechStackGrid techStack={content.techStack} />
           </div>
         </section>
 
-        <section id="portfolio" className="relative px-6 md:px-10">
+        <section id="portfolio" className="relative px-5 sm:px-6 md:px-10">
           <SectionRenderer sections={content.sections} />
         </section>
 
-        <section id="footer" className="relative px-6 md:px-10">
+        <section id="footer" className="relative px-5 sm:px-6 md:px-10">
           <div className="mx-auto max-w-6xl">
             <SiteFooter socials={content.socials} signature={content.signature} />
           </div>

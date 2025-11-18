@@ -94,7 +94,7 @@ export function HeroNarrativeSection({ section }: HeroNarrativeSectionProps) {
                 <span className="font-creative text-[0.7rem] uppercase tracking-[0.45em] text-foreground/55">
                   {stat.label}
                 </span>
-                <span className="font-display text-[clamp(2.4rem,4vw,3rem)] leading-none text-foreground">
+                <span className="font-display text-[clamp(1.7rem,3.2vw,2.6rem)] leading-none text-foreground">
                   {stat.value}
                 </span>
                 {stat.annotation ? (

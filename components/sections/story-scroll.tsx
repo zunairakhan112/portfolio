@@ -349,18 +349,18 @@ export function StoryScrollSection({ section }: StoryScrollSectionProps) {
                         </span>
                       ) : null}
 
-                      <h3 className="font-display text-4xl tracking-tight text-white drop-shadow-[0_22px_60px_rgba(7,4,18,0.35)] lg:text-[2.9rem]">
+                      <h3 className="font-display text-3xl tracking-tight text-white drop-shadow-[0_22px_60px_rgba(7,4,18,0.35)] sm:text-4xl lg:text-[2.9rem]">
                         {slide.title}
                       </h3>
                     </div>
 
-                    <p className="max-w-xl font-creative text-lg leading-relaxed text-white/75">
+                    <p className="max-w-xl font-creative text-sm leading-relaxed text-white/75 sm:text-base">
                       {slide.body}
                     </p>
 
                     {slide.quote ? (
-                      <blockquote className="space-y-2 rounded-3xl border border-white/10 bg-white/5 p-6 text-sm leading-relaxed text-white/80 backdrop-blur-3xl">
-                        <p className="text-base italic text-white/90">“{slide.quote.text}”</p>
+                      <blockquote className="space-y-2 rounded-3xl border border-white/10 bg-white/5 p-6 text-xs leading-relaxed text-white/80 backdrop-blur-3xl sm:text-sm">
+                        <p className="text-sm italic text-white/90 sm:text-base">“{slide.quote.text}”</p>
                         <footer className="text-[0.7rem] uppercase tracking-[0.4em] text-white/60">
                           {slide.quote.author}
                           {slide.quote.role ? ` · ${slide.quote.role}` : ""}

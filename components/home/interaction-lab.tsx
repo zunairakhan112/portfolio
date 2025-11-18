@@ -86,7 +86,7 @@ export function InteractionLab() {
             <span className="inline-flex rounded-full border border-white/20 bg-white/12 px-4 py-1 font-creative text-[0.65rem] uppercase tracking-[0.4em] text-white/70">
               Interaction Playground
             </span>
-            <h2 className="font-display text-[clamp(2.6rem,4vw,3.6rem)] leading-tight text-white drop-shadow-[0_24px_80px_rgba(0,0,0,0.45)]">
+            <h2 className="font-display text-[clamp(2rem,3.4vw,3.1rem)] leading-tight text-white drop-shadow-[0_24px_80px_rgba(0,0,0,0.45)]">
               Scroll to choose a laboratory, then interact to set the story in motion.
             </h2>
           </div>
@@ -117,7 +117,7 @@ export function InteractionLab() {
                       <span className="font-creative text-[0.65rem] uppercase tracking-[0.4em] text-white/65">
                         {activeExperiment?.blurb}
                       </span>
-                      <h3 className="font-display text-[clamp(2.2rem,3.4vw,3.1rem)] leading-tight text-white">
+                      <h3 className="font-display text-[clamp(1.9rem,2.8vw,2.6rem)] leading-tight text-white">
                         {activeExperiment?.narrative}
                       </h3>
                     </div>

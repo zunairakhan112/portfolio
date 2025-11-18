@@ -8,6 +8,7 @@ import type { PortfolioContent } from "@/lib/content-schema";
 import type { GlobeConfig } from "@/components/ui/globe";
 
 import { Button } from "@/components/ui/button";
+import { useMediaQuery } from "@/hooks/use-media-query";
 
 interface HeroBannerProps {
   hero: PortfolioContent["hero"];
@@ -73,6 +74,7 @@ const HERO_GLOBE_ARC_BLUEPRINTS: HeroArc[] = [
 ];
 
 export function HeroBanner({ hero, tagline, signature }: HeroBannerProps) {
+  const isMobile = useMediaQuery("(max-width: 640px)");
   const highlightWords = useMemo(
     () => ["Growth Architect", "Lifecycle Strategist", "Conversion Designer", "Founder Storyteller"],
     []
@@ -156,48 +158,53 @@ export function HeroBanner({ hero, tagline, signature }: HeroBannerProps) {
   const globeArcs = useMemo(
     () => {
       const colors = ["#C0C0C0", "#D3D3D3", "#E5E4E2"];
-      return HERO_GLOBE_ARC_BLUEPRINTS.map((arc) => ({
+      return HERO_GLOBE_ARC_BLUEPRINTS.map((arc, index) => ({
         ...arc,
-        color: colors[Math.floor(Math.random() * colors.length)],
+        color: colors[index % colors.length],
       }));
     },
     [],
   );
 
+  const buttonSize = isMobile ? "default" : "lg";
+
   return (
     <section className="relative h-full w-full overflow-hidden">
-      <div className="relative mx-auto flex h-full w-full max-w-7xl flex-col justify-center overflow-hidden rounded-[3.8rem] border border-white/12 bg-white/10 px-8 py-16 text-left shadow-[0_60px_190px_rgba(6,6,6,0.55)] backdrop-blur-[32px] md:px-14 lg:px-20">
-        <div className="relative z-10 flex flex-col gap-10">
-          <div className="flex flex-wrap items-center gap-4">
-            <span className="hidden font-creative text-[0.7rem] uppercase tracking-[0.4em] text-white/60 md:inline">
+      <div className="relative mx-auto flex h-full w-full max-w-7xl flex-col justify-center overflow-hidden rounded-[2.2rem] border border-white/12 bg-white/10 px-5 py-10 text-left shadow-[0_36px_140px_rgba(6,6,6,0.45)] backdrop-blur-[24px] sm:rounded-[3rem] sm:px-7 sm:py-14 md:rounded-[3.4rem] md:px-12 md:py-16 lg:rounded-[3.8rem] lg:px-16">
+        <div className="relative z-10 flex flex-col gap-7 sm:gap-9">
+          <div className="flex flex-wrap items-center gap-2.5 sm:gap-4">
+            <span className="hidden font-creative text-[0.6rem] uppercase tracking-[0.32em] text-white/60 md:inline">
               {tagline}
             </span>
           </div>
 
-          <div className="flex flex-col gap-6">
-            <h1 className="font-display text-[clamp(3.5rem,6.2vw,6rem)] leading-[0.9] text-white drop-shadow-[0_24px_65px_rgba(0,0,0,0.55)]">
+          <div className="flex flex-col gap-[1.15rem] sm:gap-6">
+            <h1 className="font-display text-[clamp(1.6rem,5.5vw,4.6rem)] leading-[0.95] text-white drop-shadow-[0_16px_48px_rgba(0,0,0,0.55)] sm:text-[clamp(2.6rem,5.4vw,5.2rem)]">
               <span className="text-white/25">{headlineIntro}</span>{" "}
-                  <span
-                    className="relative mx-2 inline-flex items-center whitespace-nowrap"
-                    style={{ minWidth: highlightMinWidth }}
-                  >
-                    <span className="relative bg-gradient-to-r from-[#ff8c42] via-[#facc15] to-[#8bc34a] bg-clip-text text-transparent">
-                      {dynamicHighlight}
-                    </span>
-                    <span className="ml-2 h-8 w-[2px] animate-pulse rounded-full bg-white/85" />
-                  </span>
+              <span
+                className="relative mx-1 inline-flex flex-wrap items-center gap-1 sm:mx-2 sm:inline-flex sm:flex-nowrap sm:gap-0"
+                style={{
+                  minWidth: isMobile ? undefined : highlightMinWidth,
+                  maxWidth: "100%"
+                }}
+              >
+                <span className="relative bg-gradient-to-r from-[#ff8c42] via-[#facc15] to-[#8bc34a] bg-clip-text text-transparent">
+                  {dynamicHighlight}
+                </span>
+                <span className="hidden h-7 w-[2px] animate-pulse rounded-full bg-white/85 sm:inline-block sm:h-8" />
+              </span>
               <span> {headlineOutro}</span>
             </h1>
-            <p className="max-w-2xl font-creative text-lg leading-relaxed text-white/75 md:text-xl">
+            <p className="max-w-2xl font-creative text-[0.85rem] leading-relaxed text-white/75 sm:text-lg md:text-xl">
               {hero.subheading}
             </p>
           </div>
 
-          <div className="relative flex flex-wrap items-center gap-4">
+          <div className="relative flex flex-wrap items-center gap-2.5 sm:gap-4">
             <Button
               type="button"
-              size="lg"
-              className="font-creative text-base uppercase tracking-[0.3em] shadow-[0_18px_65px_rgba(255,140,66,0.55)]"
+              size={buttonSize}
+              className="font-creative text-xs uppercase tracking-[0.22em] shadow-[0_14px_48px_rgba(255,140,66,0.45)] sm:text-sm sm:tracking-[0.26em] md:text-base md:tracking-[0.3em]"
               onClick={(event) => {
                 event.preventDefault();
                 const href = hero.ctaPrimary.href;
@@ -225,20 +232,20 @@ export function HeroBanner({ hero, tagline, signature }: HeroBannerProps) {
             <Button
               asChild
               variant="ghost"
-              size="lg"
-              className="font-creative text-base uppercase tracking-[0.3em] text-white/70 hover:text-white"
+              size={buttonSize}
+              className="font-creative text-xs uppercase tracking-[0.22em] text-white/70 hover:text-white sm:text-sm sm:tracking-[0.26em] md:text-base md:tracking-[0.3em]"
             >
               <Link href={hero.ctaSecondary.href}>
                 {hero.ctaSecondary.label}
               </Link>
             </Button>
-            <span className="font-creative text-[0.7rem] uppercase tracking-[0.4em] text-white/55">
+            <span className="font-creative text-[0.55rem] uppercase tracking-[0.28em] text-white/55 sm:text-[0.65rem] sm:tracking-[0.34em]">
               {tagline} — {signature}
             </span>
           </div>
         </div>
 
-        <div className="pointer-events-none absolute bottom-[-30%] right-[-15%] h-[28rem] w-[28rem] sm:h-[34rem] sm:w-[34rem] md:bottom-[-35%] md:right-[-10%] md:h-[40rem] md:w-[40rem] lg:bottom-[-40%] lg:right-[-8%] lg:h-[46rem] lg:w-[46rem] xl:right-[-5%] xl:h-[52rem] xl:w-[52rem]">
+        <div className="pointer-events-none absolute bottom-[-10%] right-[-32%] h-[16rem] w-[16rem] opacity-75 sm:bottom-[-24%] sm:right-[-18%] sm:h-[26rem] sm:w-[26rem] md:bottom-[-32%] md:right-[-12%] md:h-[36rem] md:w-[36rem] lg:bottom-[-36%] lg:right-[-8%] lg:h-[44rem] lg:w-[44rem] xl:right-[-6%] xl:h-[50rem] xl:w-[50rem]">
           <div className="relative h-full w-full">
             <World data={globeArcs} globeConfig={globeConfig} />
           </div>

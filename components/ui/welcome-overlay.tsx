@@ -34,9 +34,10 @@ export function WelcomeOverlay() {
 
     const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
     if (mediaQuery.matches) {
-      setProgress(100);
+      const rafId = window.requestAnimationFrame(() => setProgress(100));
       const instantHide = window.setTimeout(() => setIsVisible(false), 100);
       return () => {
+        window.cancelAnimationFrame(rafId);
         window.clearTimeout(instantHide);
       };
     }
@@ -53,7 +54,7 @@ export function WelcomeOverlay() {
       if (elapsed < OVERLAY_DURATION) {
         rafId = window.requestAnimationFrame(update);
       } else {
-        setProgress(100);
+        window.requestAnimationFrame(() => setProgress(100));
       }
     };
 
@@ -69,13 +70,14 @@ export function WelcomeOverlay() {
       return;
     }
 
-    setHasCompleted(true);
+    const completionFrame = window.requestAnimationFrame(() => setHasCompleted(true));
 
     const hideTimeout = window.setTimeout(() => {
       setIsVisible(false);
     }, 720);
 
     return () => {
+      window.cancelAnimationFrame(completionFrame);
       window.clearTimeout(hideTimeout);
     };
   }, [progress]);
@@ -107,7 +109,7 @@ export function WelcomeOverlay() {
       <div className="welcome-overlay__content text-center">
         <span
           className={cn(
-            "welcome-overlay__title text-[clamp(3.6rem,7.2vw,7.6rem)] uppercase text-white",
+            "welcome-overlay__title text-[clamp(2.6rem,6vw,6.8rem)] uppercase text-white",
             logoTypeface.className
           )}
         >
@@ -115,7 +117,7 @@ export function WelcomeOverlay() {
         </span>
         <span
           className={cn(
-            "welcome-overlay__name mt-9 block text-[clamp(2.4rem,4.4vw,3.8rem)] text-white",
+            "welcome-overlay__name mt-9 block text-[clamp(1.8rem,3.6vw,3.1rem)] text-white",
             logoTypeface.className
           )}
         >

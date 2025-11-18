@@ -227,7 +227,7 @@ export function CinematicHero({ hero, tagline, signature }: CinematicHeroProps) 
         </div>
 
         <div className="flex flex-col gap-6">
-          <h1 className="max-w-3xl font-display text-[clamp(3.6rem,6vw,6.2rem)] leading-[0.9] text-white drop-shadow-[0_30px_90px_rgba(0,0,0,0.55)]">
+          <h1 className="max-w-3xl font-display text-[clamp(2.4rem,5.2vw,5.1rem)] leading-[0.9] text-white drop-shadow-[0_30px_90px_rgba(0,0,0,0.55)]">
             {hero.headline}
           </h1>
           <p className="max-w-2xl font-creative text-lg leading-relaxed text-white/80 md:text-xl">

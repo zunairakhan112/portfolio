@@ -85,10 +85,10 @@ export function HighlightsCarousel({ section }: HighlightsCarouselProps) {
               {activeHighlight.metric ? <span>{activeHighlight.metric}</span> : null}
             </div>
             <div className="space-y-4">
-              <h3 className="font-display text-[clamp(2.8rem,5vw,3.6rem)] leading-[1]">
+              <h3 className="font-display text-[clamp(2rem,4vw,3.1rem)] leading-[1]">
                 {activeHighlight.title}
               </h3>
-              <p className="max-w-2xl font-creative text-lg leading-relaxed text-white/70">
+              <p className="max-w-2xl font-creative text-sm leading-relaxed text-white/70 sm:text-base">
                 {activeHighlight.description}
               </p>
             </div>

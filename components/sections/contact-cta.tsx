@@ -30,18 +30,18 @@ export function ContactCtaSection({ section }: ContactCtaSectionProps) {
             <span className="font-creative text-[0.68rem] uppercase tracking-[0.45em] text-white/60">
               {section.availability ?? "Currently welcoming new collaborations"}
             </span>
-            <h3 className="font-display text-[clamp(3rem,5vw,3.8rem)] leading-[1.05]">
+            <h3 className="font-display text-[clamp(2.1rem,4vw,3.3rem)] leading-[1.05]">
               Let’s co-create the next aurora of growth.
             </h3>
           </div>
-          <p className="font-creative text-base leading-relaxed text-white/75">
+          <p className="font-creative text-sm leading-relaxed text-white/75 sm:text-base">
             Looking for immersive storytelling, motion-led product reveals, or a growth lab partner?
             Drop me a line and let’s design the launch together.
           </p>
           <Button
             asChild
             size="lg"
-            className="font-creative text-sm uppercase tracking-[0.4em] text-[#0b1014]"
+            className="whitespace-pre-wrap px-6 py-3 text-center font-creative text-xs uppercase tracking-[0.3em] text-[#0b1014] sm:text-sm sm:tracking-[0.35em]"
           >
             <Link href={section.cta.href}>{section.cta.label}</Link>
           </Button>
@@ -60,7 +60,7 @@ export function ContactCtaSection({ section }: ContactCtaSectionProps) {
                   {channel.label}
                 </span>
                 {channel.description ? (
-                  <span className="font-creative text-sm leading-relaxed text-white/70">
+                  <span className="font-creative text-xs leading-relaxed text-white/70 sm:text-sm">
                     {channel.description}
                   </span>
                 ) : null}

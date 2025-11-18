@@ -1,8 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { createRef, useEffect, useMemo, useState, type RefObject } from "react";
-import { motion, Reorder } from "framer-motion";
+import { motion } from "framer-motion";
 
 import type { PortfolioContent } from "@/lib/content-schema";
 
@@ -12,15 +11,17 @@ interface TechStackGridProps {
   techStack: PortfolioContent["techStack"];
 }
 
-type StackColumn = {
-  heading: string;
-  items: string[];
-};
-
 const columnVariants = {
   hidden: { y: 60, opacity: 0, rotateX: -8 },
   visible: { y: 0, opacity: 1, rotateX: 0, transition: { duration: 1, ease: "easeOut" } }
 };
+
+const FLOAT_KEYFRAMES = [
+  { y: [0, -6, 4, -8, 0], rotate: [0, 2, -1, 2, 0], scale: [1, 1.02, 1, 1.03, 1] },
+  { y: [0, -4, 3, -5, 0], rotate: [0, -1.5, 1, -1.5, 0], scale: [1, 1.01, 1, 1.02, 1] },
+  { y: [0, -5, 2, -6, 0], rotate: [0, 1.2, -1.2, 1.2, 0], scale: [1, 1.015, 1, 1.02, 1] },
+  { y: [0, -7, 3, -4, 0], rotate: [0, -2, 1, -2, 0], scale: [1, 1.025, 1, 1.03, 1] }
+];
 
 const TOOL_META: Record<string, { logo?: string; alt?: string }> = {
   Figma: { logo: "/logos/Logo-Figma.svg", alt: "Figma" },
@@ -44,113 +45,91 @@ const TOOL_META: Record<string, { logo?: string; alt?: string }> = {
   Telegram: { logo: "/logos/Logo-Telegram.png", alt: "Telegram" }
 };
 
+const getFloatKeyframes = (index: number) => FLOAT_KEYFRAMES[index % FLOAT_KEYFRAMES.length];
+
+const getFloatTransition = (index: number) => ({
+  duration: 7 + (index % 3) * 1.2,
+  repeat: Infinity,
+  repeatType: "mirror" as const,
+  ease: "easeInOut"
+});
+
 export function TechStackGrid({ techStack }: TechStackGridProps) {
-  const columnRefs = useMemo(() => techStack.columns.map(() => createRef<HTMLDivElement>()), [techStack.columns.length]);
-
-  const [columnsState, setColumnsState] = useState<StackColumn[]>(() =>
-    techStack.columns.map((column) => ({
-      heading: column.heading,
-      items: [...column.items]
-    }))
-  );
-
-  useEffect(() => {
-    setColumnsState(
-      techStack.columns.map((column) => ({
-        heading: column.heading,
-        items: [...column.items]
-      }))
-    );
-  }, [techStack]);
-
-  const updateColumnItems = (columnIndex: number, newItems: string[]) => {
-    setColumnsState((prev) =>
-      prev.map((column, index) =>
-        index === columnIndex ? { ...column, items: newItems } : column
-      )
-    );
-  };
-
-  const getColumnRef = (index: number) => columnRefs[index]!;
-
   return (
     <motion.section
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.3 }}
-      className="relative flex h-full w-full flex-col justify-center overflow-hidden rounded-[3rem] border border-white/10 bg-white/[0.05] p-12 shadow-[0_40px_140px_rgba(8,8,8,0.35)] backdrop-blur-2xl md:p-16"
+      className="relative flex h-full w-full flex-col justify-center overflow-hidden rounded-[3rem] border border-white/10 bg-white/[0.05] p-10 shadow-[0_40px_140px_rgba(8,8,8,0.35)] backdrop-blur-2xl sm:p-12 md:p-16"
       data-animate
     >
       <div className="absolute inset-0 blur-[120px]">
         <div className="absolute -left-20 top-24 h-44 w-44 rounded-full bg-[#ff8c42]/40" />
         <div className="absolute bottom-10 right-10 h-56 w-56 rounded-full bg-[#8bc34a]/25" />
       </div>
-      <div className="relative z-10 flex flex-col gap-8 pb-12">
-        <h2 className="font-display text-[clamp(2.5rem,4vw,3.8rem)] leading-tight text-foreground drop-shadow-[0_14px_40px_rgba(0,0,0,0.45)]">
+      <div className="relative z-10 flex flex-col gap-7 pb-10 sm:gap-8 sm:pb-12 md:px-0">
+        <h2 className="font-display text-[clamp(1.8rem,3.2vw,3.4rem)] leading-tight text-foreground drop-shadow-[0_14px_40px_rgba(0,0,0,0.45)]">
           {techStack.title}
         </h2>
         {techStack.description ? (
-          <p className="max-w-2xl font-creative text-lg leading-relaxed text-muted-foreground/85">
+          <p className="max-w-2xl font-creative text-sm leading-relaxed text-muted-foreground/85 sm:text-base lg:text-lg">
             {techStack.description}
           </p>
         ) : null}
       </div>
-      <div className="relative z-10 grid gap-6 md:grid-cols-3">
-        {columnsState.map((column, columnIndex) => (
+      <div className="relative z-10 grid gap-6 px-3 md:grid-cols-3 md:px-0">
+        {techStack.columns.map((column, columnIndex) => (
           <motion.div
             key={column.heading}
             variants={columnVariants}
-            transition={{ delay: columnIndex * 0.1 }}
+            transition={{ delay: columnIndex * 0.12 }}
           >
             <Card className="glimmer-outline h-full border-white/15 bg-gradient-to-br from-white/10 via-white/5 to-white/10">
               <CardHeader>
-                <CardTitle className="font-display text-2xl text-foreground">
+                <CardTitle className="font-display text-xl text-foreground sm:text-2xl">
                   {column.heading}
                 </CardTitle>
               </CardHeader>
               <CardContent className="overflow-hidden">
-                <Reorder.Group
-                  as="div"
-                  ref={getColumnRef(columnIndex)}
-                  axis="y"
-                  values={column.items}
-                  onReorder={(newOrder) => updateColumnItems(columnIndex, newOrder)}
-                  className="relative grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3"
-                  style={{ gridAutoRows: "minmax(5.5rem, 1fr)" }}
-                  layout
+                <div
+                  className="relative grid grid-cols-3 gap-3 sm:gap-4"
+                  style={{ gridAutoRows: "minmax(4.75rem, 1fr)", padding: "0.75rem" }}
                 >
-                  {column.items.map((item) => {
+                  {column.items.map((item, itemIndex) => {
                     const meta = TOOL_META[item] ?? {};
                     const logo = meta.logo;
                     const alt = meta.alt ?? item;
-                    const containerRef = getColumnRef(columnIndex);
+                    const animationSeed = columnIndex * column.items.length + itemIndex;
+                    const floatKeyframes = getFloatKeyframes(animationSeed);
+                    const floatTransition = getFloatTransition(animationSeed);
 
                     return (
-                      <Reorder.Item
+                      <motion.div
                         key={item}
-                        value={item}
-                        dragConstraints={containerRef}
-                        dragElastic={0.12}
-                        dragMomentum={false}
-                        dragTransition={{ bounceStiffness: 420, bounceDamping: 32 }}
-                        whileDrag={{ scale: 0.96 }}
-                        whileTap={{ scale: 0.92 }}
-                        whileHover={{ scale: 1.06 }}
-                        className="relative flex h-20 w-20 cursor-grab items-center justify-center overflow-hidden rounded-3xl border border-white/20 bg-white/15 shadow-[0_18px_45px_rgba(10,10,10,0.25)] backdrop-blur-xl active:cursor-grabbing"
                         aria-label={item}
+                        className="group relative flex aspect-square w-full items-center justify-center overflow-hidden rounded-3xl border border-white/18 bg-white/15 shadow-[0_18px_45px_rgba(10,10,10,0.25)] backdrop-blur-xl transition-transform"
+                        animate={floatKeyframes}
+                        transition={floatTransition}
+                        whileHover={{ scale: 1.06 }}
                       >
-                        <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-white/25 via-transparent to-white/10" />
+                        <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-white/22 via-transparent to-white/12" />
                         {logo ? (
-                          <Image src={logo} alt={alt} width={56} height={56} className="relative z-10 h-12 w-12 object-contain" />
+                          <Image
+                            src={logo}
+                            alt={alt}
+                            width={56}
+                            height={56}
+                            className="relative z-10 h-12 w-12 object-contain sm:h-14 sm:w-14"
+                          />
                         ) : (
-                          <span className="relative z-10 font-display text-sm uppercase tracking-[0.25em] text-white/80">
+                          <span className="relative z-10 px-2 text-center font-display text-xs uppercase tracking-[0.22em] text-white/80 sm:text-sm">
                             {item}
                           </span>
                         )}
-                      </Reorder.Item>
+                      </motion.div>
                     );
                   })}
-                </Reorder.Group>
+                </div>
               </CardContent>
             </Card>
           </motion.div>

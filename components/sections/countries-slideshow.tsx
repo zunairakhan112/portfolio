@@ -76,15 +76,15 @@ export function CountriesSlideshowSection({ section }: CountriesSlideshowProps) 
               )}
             >
               <div className="flex flex-col items-center gap-8 px-8 text-center">
-                <div className="text-[clamp(6rem,12vw,10rem)] leading-none drop-shadow-[0_20px_60px_rgba(255,255,255,0.15)]">
+                <div className="text-[clamp(4rem,10.5vw,8.5rem)] leading-none drop-shadow-[0_20px_60px_rgba(255,255,255,0.15)]">
                   {country.flag}
                 </div>
                 <div className="space-y-3">
-                  <h3 className="font-display text-[clamp(2.5rem,5vw,4rem)] text-white drop-shadow-[0_16px_50px_rgba(0,0,0,0.4)]">
+                  <h3 className="font-display text-[clamp(1.8rem,4.2vw,3.4rem)] text-white drop-shadow-[0_16px_50px_rgba(0,0,0,0.4)]">
                     {country.name}
                   </h3>
                   {country.description ? (
-                    <p className="mx-auto max-w-2xl font-creative text-lg leading-relaxed text-white/70">
+                    <p className="mx-auto max-w-2xl font-creative text-sm leading-relaxed text-white/70 sm:text-base">
                       {country.description}
                     </p>
                   ) : null}

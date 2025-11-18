@@ -45,7 +45,7 @@ export function PageHero({ title, subtitle, description, background = "aurora" }
             initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.15, ease: [0.25, 0.1, 0.25, 1] }}
-            className="font-display text-5xl leading-tight tracking-tight text-foreground md:text-6xl"
+            className="font-display text-3xl leading-tight tracking-tight text-foreground sm:text-4xl md:text-6xl"
           >
             {title}
           </motion.h1>
@@ -55,7 +55,7 @@ export function PageHero({ title, subtitle, description, background = "aurora" }
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.75, delay: 0.25, ease: "easeOut" }}
-            className="max-w-3xl text-base leading-relaxed text-muted-foreground md:text-lg"
+            className="max-w-3xl text-sm leading-relaxed text-muted-foreground sm:text-base md:text-lg"
           >
             {description}
           </motion.p>

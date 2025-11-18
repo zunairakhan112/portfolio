@@ -175,7 +175,7 @@ export function ImmersiveJourney() {
                       {scene.ritual}
                     </motion.span>
                   </div>
-                  <h3 className="font-display text-[clamp(2.1rem,3vw,2.8rem)] leading-tight text-white">
+                  <h3 className="font-display text-[clamp(1.6rem,2.6vw,2.3rem)] leading-tight text-white">
                     {scene.headline}
                   </h3>
                   <p className="max-w-2xl font-creative text-[1.05rem] leading-relaxed text-white/75">

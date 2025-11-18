@@ -1,5 +1,3 @@
-import type { Metadata } from "next";
-
 import { portfolioContent } from "@/lib/content";
 import type { PageContent, PortfolioSection } from "@/lib/content-schema";
 

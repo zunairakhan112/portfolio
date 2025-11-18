@@ -68,7 +68,7 @@ export function SiteHeader({ signature }: SiteHeaderProps) {
           duration: 0.8,
           ease: [0.25, 0.1, 0.25, 1]
         }}
-        className="fixed inset-x-0 top-0 z-50 px-6 pt-6 md:px-10 md:pt-8"
+        className="fixed inset-x-0 top-0 z-50 px-4 pt-4 sm:px-6 sm:pt-6 md:px-10 md:pt-8"
       >
         <nav className="relative flex items-center justify-between">
           <Link href="/" className="group relative">
@@ -79,7 +79,7 @@ export function SiteHeader({ signature }: SiteHeaderProps) {
                   className={clsx(
                     "relative flex items-baseline",
                     brandTypeface.className,
-                    "text-4xl md:text-5xl lg:text-6xl tracking-tight"
+                    "text-[1.5rem] sm:text-4xl md:text-5xl lg:text-6xl leading-none tracking-tight"
                   )}
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
@@ -112,7 +112,7 @@ export function SiteHeader({ signature }: SiteHeaderProps) {
                   className={clsx(
                     "relative flex items-baseline gap-1",
                     brandTypeface.className,
-                    "text-3xl md:text-4xl tracking-tight"
+                    "text-lg sm:text-3xl md:text-4xl leading-none tracking-tight"
                   )}
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: 1, scale: 1 }}
@@ -146,7 +146,7 @@ export function SiteHeader({ signature }: SiteHeaderProps) {
               aria-controls={overlayId}
               aria-label={isMenuOpen ? "Close navigation" : "Open navigation"}
               onClick={handleMenuToggle}
-              className="group relative rounded-full border border-white/15 bg-white/10 p-2 shadow-[0_6px_20px_rgba(0,0,0,0.35)] backdrop-blur transition hover:border-white/30 hover:bg-white/20"
+              className="group relative rounded-full border border-white/15 bg-white/10 p-1.5 shadow-[0_6px_20px_rgba(0,0,0,0.35)] backdrop-blur transition hover:border-white/30 hover:bg-white/20 sm:p-2"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.4 }}
