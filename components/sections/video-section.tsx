@@ -126,6 +126,7 @@ export function VideoSection({ section }: VideoSectionProps) {
                         className={`relative z-10 h-full w-full ${
                           isCanvaSection ? "rounded-[1.75rem]" : ""
                         } pointer-events-none`}
+                        loading="lazy"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                         allowFullScreen
                       />
@@ -198,6 +199,7 @@ export function VideoSection({ section }: VideoSectionProps) {
                     title={activeItem.title ?? "Expanded video"}
                     src={activeItem.embedUrl}
                     className="aspect-video h-full w-full rounded-[2rem] border border-white/15"
+                    loading="lazy"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen
                   />

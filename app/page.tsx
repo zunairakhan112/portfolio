@@ -1,9 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useState } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { ScrollToPlugin } from "gsap/ScrollToPlugin";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import Script from "next/script";
 
 import { HeroBanner } from "@/components/hero/hero-banner";
@@ -16,9 +13,8 @@ import { WelcomeOverlay } from "@/components/ui/welcome-overlay";
 import { portfolioContent } from "@/lib/content";
 import { getBreadcrumbListJsonLd, getHomePageJsonLd } from "@/lib/seo";
 
-if (typeof window !== "undefined") {
-  gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
-}
+type GsapInstance = (typeof import("gsap"))["gsap"];
+type ScrollTriggerInstance = (typeof import("gsap/ScrollTrigger"))["ScrollTrigger"];
 
 const homePageJsonLd = getHomePageJsonLd();
 const homeBreadcrumbJsonLd = getBreadcrumbListJsonLd([
@@ -52,10 +48,49 @@ export default function Home() {
     [content]
   );
   const [activeSection, setActiveSection] = useState(sections[0]?.id ?? "hero");
+  const gsapRef = useRef<GsapInstance | null>(null);
+  const scrollTriggerRef = useRef<ScrollTriggerInstance | null>(null);
+  const [gsapReady, setGsapReady] = useState(false);
 
   useEffect(() => {
+    let mounted = true;
+    if (typeof window === "undefined") {
+      return;
+    }
+
+    const loadGsap = async () => {
+      const [{ gsap }, { ScrollTrigger }, { ScrollToPlugin }] = await Promise.all([
+        import("gsap"),
+        import("gsap/ScrollTrigger"),
+        import("gsap/ScrollToPlugin")
+      ]);
+
+      if (!mounted) {
+        return;
+      }
+
+      gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
+      gsapRef.current = gsap;
+      scrollTriggerRef.current = ScrollTrigger;
+      setGsapReady(true);
+    };
+
+    // Defer GSAP loading to the next animation frame to avoid blocking hydration
+    const frame = requestAnimationFrame(loadGsap);
+
+    return () => {
+      mounted = false;
+      cancelAnimationFrame(frame);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!gsapReady || !scrollTriggerRef.current) {
+      return;
+    }
+
     const triggers = sections.map(({ id }) =>
-      ScrollTrigger.create({
+      scrollTriggerRef.current!.create({
         trigger: `#${id}`,
         start: "top center",
         end: "bottom center",
@@ -64,19 +99,27 @@ export default function Home() {
       })
     );
 
-    ScrollTrigger.refresh();
+    scrollTriggerRef.current.refresh();
 
     return () => {
       triggers.forEach((trigger) => trigger.kill());
     };
-  }, [sections]);
+  }, [gsapReady, sections]);
 
   const handleNavigate = useCallback((id: string) => {
-    gsap.to(window, {
-      duration: 1,
-      ease: "power2.out",
-      scrollTo: { y: `#${id}`, offsetY: 96 }
-    });
+    if (gsapRef.current) {
+      gsapRef.current.to(window, {
+        duration: 1,
+        ease: "power2.out",
+        scrollTo: { y: `#${id}`, offsetY: 96 }
+      });
+      return;
+    }
+
+    const sectionElement = document.getElementById(id);
+    if (sectionElement) {
+      sectionElement.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
   }, []);
 
   return (

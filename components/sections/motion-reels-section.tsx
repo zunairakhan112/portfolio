@@ -71,6 +71,7 @@ export function MotionReelsSection({ section }: MotionReelsSectionProps) {
                       title={reel.title ?? `Reel ${index + 1}`}
                       src={reel.embedUrl}
                       className="relative z-10 h-full w-full"
+                      loading="lazy"
                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                       allowFullScreen
                     />
@@ -129,6 +130,7 @@ export function MotionReelsSection({ section }: MotionReelsSectionProps) {
                     title={reel.title ?? `Reel ${activeIndex + 1}`}
                     src={reel.embedUrl}
                     className="max-h-[90vh] max-w-[90vw] rounded-[2rem] border border-white/15"
+                    loading="lazy"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen
                   />

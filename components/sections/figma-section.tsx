@@ -9,6 +9,7 @@ import type { PortfolioSection } from "@/lib/content-schema";
 
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { useIsTouchDevice } from "@/hooks/use-touch-device";
 
 type FigmaSection = Extract<PortfolioSection, { type: "figma" }>;
 
@@ -17,6 +18,8 @@ interface FigmaSectionProps {
 }
 
 export function FigmaSection({ section }: FigmaSectionProps) {
+  const isTouchDevice = useIsTouchDevice();
+
   return (
     <div className="flex flex-col gap-12">
       {section.items.map((item, index) => (
@@ -96,46 +99,50 @@ export function FigmaSection({ section }: FigmaSectionProps) {
               </div>
             </CardHeader>
             <CardContent className="relative mt-8 overflow-hidden rounded-[2.4rem] border border-white/12 bg-neutral-950 p-0 shadow-[0_38px_120px_rgba(10,12,24,0.45)]">
-              <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(255,140,66,0.22),_transparent_65%)] opacity-70" />
-              
-              {/* Mobile Placeholder - Shows on mobile only */}
-              <Link
-                href={item.embedUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group/link relative z-10 block h-[360px] w-full md:hidden"
-              >
-                <div className="flex h-full w-full flex-col items-center justify-center gap-6 bg-gradient-to-br from-neutral-900 via-neutral-950 to-black p-8 transition-all duration-300 active:from-neutral-800 active:via-neutral-900">
-                  <div className="relative h-20 w-20 opacity-40 transition-all duration-300 group-active/link:scale-110 group-active/link:opacity-60">
-                    <Image
-                      src="/logos/Logo-Figma.svg"
-                      alt="Figma"
-                      fill
-                      className="object-contain"
-                    />
-                  </div>
-                  <div className="flex flex-col items-center gap-3 text-center">
-                    <p className="font-creative text-sm uppercase tracking-[0.3em] text-white/60">
-                      View in Figma
-                    </p>
-                    <div className="flex items-center gap-2 font-display text-lg text-white/80 transition-colors group-active/link:text-white">
-                      <span>Open Design Board</span>
-                      <ExternalLink className="h-5 w-5" />
+              <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(255,140,66,0.28),_transparent_68%)] opacity-80" />
+              {isTouchDevice ? (
+                <Link
+                  href={item.embedUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`Open ${item.title} in Figma`}
+                  className="group/link relative z-10 block h-[360px] w-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-900"
+                >
+                  <div className="relative flex h-full w-full flex-col items-center justify-center gap-6 overflow-hidden rounded-[2.4rem] bg-gradient-to-br from-neutral-950 via-black to-neutral-950 p-8 transition-all duration-300 hover:bg-neutral-900/60 active:scale-[0.995]">
+                    <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(255,255,255,0.08),_transparent_72%)]" />
+                    <div className="pointer-events-none absolute inset-x-0 top-0 h-40 blur-3xl [background:radial-gradient(circle,_rgba(255,115,80,0.18)_0%,_transparent_70%)]" />
+                    <div className="relative h-20 w-20 opacity-40 transition-all duration-300 group-hover/link:scale-110 group-hover/link:opacity-70 group-active/link:scale-110">
+                      <Image
+                        src="/logos/Logo-Figma.svg"
+                        alt="Figma"
+                        fill
+                        sizes="80px"
+                        className="object-contain"
+                      />
                     </div>
-                    <p className="max-w-xs font-creative text-xs text-white/40">
-                      Tap to view the interactive design in Figma
-                    </p>
+                    <div className="flex flex-col items-center gap-3 text-center text-white">
+                      <p className="font-creative text-xs uppercase tracking-[0.35em] text-white/60">
+                        View in Figma
+                      </p>
+                      <div className="flex items-center gap-2 font-display text-lg text-white/85 transition-colors group-hover/link:text-white">
+                        <span>Open Design Board</span>
+                        <ExternalLink className="h-5 w-5" />
+                      </div>
+                      <p className="max-w-xs font-creative text-xs text-white/45">
+                        Tap to explore the interactive prototype on Figma
+                      </p>
+                    </div>
                   </div>
-                </div>
-              </Link>
-              
-              {/* Desktop Iframe - Shows on desktop only */}
-              <iframe
-                title={item.title}
-                src={item.embedUrl}
-                className="relative z-10 hidden h-[360px] w-full rounded-[2.4rem] md:block md:h-[520px] lg:h-[640px]"
-                allowFullScreen
-              />
+                </Link>
+              ) : (
+                <iframe
+                  title={item.title}
+                  src={item.embedUrl}
+                  loading="lazy"
+                  className="relative z-10 block h-[480px] w-full rounded-[2.4rem] md:h-[520px] lg:h-[640px]"
+                  allow="fullscreen"
+                />
+              )}
             </CardContent>
           </Card>
         </motion.div>
